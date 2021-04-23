@@ -9,20 +9,63 @@
     text-align: center;
 }
 
-.btn {
+.btnCreate {
 	background-color: white;
 	color: black;
 	margin-top: 20px;
 	margin-bottom: 20px;
 	padding: 14px 28px;
 	cursor: pointer;
+	border: 1px solid black;
 	border-radius: 12px;
 }
-.btn:hover {
+
+.btn {
+	background-color: white;
+	color: black;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: 20px;
+	padding: 6px 10px;
+	cursor: pointer;
+	border: 1px solid black;
+	border-radius: 12px;
+	display: inline;
+}
+
+button:hover {
 	color: white;
 	background-color: black;
 }
-.btn:active {
+button:active {
 	color: white;
 	background-color: black;
+}
+
+.card {
+	width: 40%;
+	height: 50%;
+	margin-left: 5%;
+	border: 1px solid black;
+	border-radius: 10px;
+	background-color: #B2ACAB;
+  }
+
+.ticket-user-time{
+	text-align: left;
+	background-color: cornflowerblue;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	border-bottom: 1px solid black;
+}
+
+.inline{
+	padding-left: 10px;
+	display: inline;
+}
+
+#create-ticket{
+	display: inline;
 }
