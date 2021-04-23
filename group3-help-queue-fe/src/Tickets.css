@@ -69,3 +69,17 @@ button:active {
 #create-ticket{
 	display: inline;
 }
+
+.modalPopup{
+	width: 70%;
+	height: 70%;
+	background-color: red;
+	position: absolute;
+    top: 50px;
+    right: 50px;
+    bottom: 50px;
+    left: 150px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
