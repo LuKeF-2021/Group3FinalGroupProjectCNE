@@ -1,0 +1,25 @@
+.queuedHeading{
+    text-align: center;
+}
+
+.completedHeading{
+    text-align: center;
+}
+
+.btn {
+	background-color: white;
+	color: black;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding: 14px 28px;
+	cursor: pointer;
+	border-radius: 12px;
+}
+.btn:hover {
+	color: white;
+	background-color: black;
+}
+.btn:active {
+	color: white;
+	background-color: black;
+}
