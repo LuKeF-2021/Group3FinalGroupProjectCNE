@@ -56,6 +56,7 @@ button:active {
 
 .ticket-user-time{
 	text-align: left;
+	font-size: small;
 	background-color: cornflowerblue;
 	padding-top: 10px;
 	padding-bottom: 10px;
@@ -119,3 +120,8 @@ button:active {
  .cross{
 	 margin-left: 50px;
  }
+ 
+ .crossModal{
+	 color: white;
+	margin-left: 64%;
+}

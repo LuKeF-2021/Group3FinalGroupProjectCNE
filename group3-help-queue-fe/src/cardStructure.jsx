@@ -4,7 +4,7 @@ import { HiX } from "react-icons/hi";
 import { HiOutlineArrowsExpand } from "react-icons/hi";
 
 
-const CardStructure = ({cardStuff , openTicketModal}) => {
+const CardStructure = ({cardStuff , openTicketModal, deleteTicket}) => {
     return (
         <div className="column" key={cardStuff.id}>
             <div className="card">
@@ -16,7 +16,7 @@ const CardStructure = ({cardStuff , openTicketModal}) => {
                     <button className="btn" id="ticket-delete">Delete</button> */}
                     <HiCheck style={{ verticalAlign: 'middle' }} size={28} className="check"/>
                     <HiPencil style={{ verticalAlign: 'middle' }} size={28}/>
-                    <HiX style={{ verticalAlign: 'middle' }} size={28} className="cross"/>
+                    <HiX style={{ verticalAlign: 'middle' }} size={28} className="cross" onClick={() => deleteTicket(cardStuff.id)}/>
                 </div>
             </div>
         </div>
