@@ -34,7 +34,7 @@ function App() {
         id:4,
         usersName: "Sam Matterson",
         time: "14:52",
-        ticketDescription: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error perferendis porro consequuntur illum omnis quas ex incidunt eius eos sed magni earum iusto maiores laboriosam numquam maxime, quidem nobis sint.",
+        ticketDescription: "Lorem ipsum dolor sit",
         ticketTitle: "500 Server error"
     }
   ])

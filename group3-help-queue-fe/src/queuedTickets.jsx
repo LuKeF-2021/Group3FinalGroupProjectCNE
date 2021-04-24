@@ -25,11 +25,14 @@ const QueuedTickets = ({tickets, setTickets}) => {
     
 
     return (
+        <>
         <div className="queuedHeading">
             <h2 className="header" id="create-ticket">Queued Tickets</h2>
             <button className="btnCreate" id="create-ticket">
                 Create Ticket
 			</button>
+        </div>
+        <div className="cardGrid">
             {
                 tickets.map((cardStuff) => (
                     <CardStructure key={cardStuff.id} cardStuff={cardStuff} openTicketModal={openTicketModal} deleteTicket={deleteTicket}/>
@@ -38,6 +41,7 @@ const QueuedTickets = ({tickets, setTickets}) => {
             }
             <CardModal showTicketModal={showTicketModal} setShowTicketModal={setShowTicketModal} currentTicketModal={currentTicketModal}/>
         </div>
+        </>
 
     )
 
