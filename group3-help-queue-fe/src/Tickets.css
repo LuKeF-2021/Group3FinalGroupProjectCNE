@@ -3,6 +3,7 @@
 }
 .queuedHeading{
     text-align: center;
+	padding: 0%;
 }
 
 .completedHeading{
@@ -23,9 +24,9 @@
 .btn {
 	background-color: white;
 	color: black;
-	margin-top: 10px;
-	margin-bottom: 10px;
-	margin-left: 20px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 10px;
 	padding: 6px 10px;
 	cursor: pointer;
 	border: 1px solid black;
@@ -43,14 +44,15 @@ button:active {
 }
 
 .card {
-	width: 40%;
-	height: 40%;
-	margin-left: 5%;
-	margin-left: 5%;
+	width: 100%;
+	height: 100%;
+	/* margin-left: 5%;
+	margin-left: 5%; */
 	border: 1px solid black;
 	border-radius: 10px;
 	background-color: #B2ACAB;
   }
+
 
 .ticket-user-time{
 	text-align: left;
@@ -72,15 +74,31 @@ button:active {
 }
 
 .modalPopup{
-	width: 70%;
-	height: 70%;
-	background-color: red;
+	width: 90%;
+	height: 80%;
 	position: absolute;
     top: 50px;
     right: 50px;
     bottom: 50px;
-    left: 150px;
+    left: 50px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
+
+.cardModal {
+	width: 100%;
+	height: 100%;
+	border: 1px solid black;
+	border-radius: 10px;
+	background-color: #B2ACAB;
+}
+
+.column {
+	float: left;
+	width: 35%;
+	height: 35%;
+	margin-left: 7.5%;
+	margin-right: 7.5%;
+
+  }

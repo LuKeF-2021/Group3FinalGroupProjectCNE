@@ -9,7 +9,7 @@
 
 .queue {
   width: 44%;
-  height: 70%;
+  height: 80%;
   position: absolute;
   top: 10%;
   left: 5%;
@@ -18,7 +18,7 @@
 
 .completed {
   width: 44%;
-  height: 70%;
+  height: 80%;
   position: absolute;
   top: 10%;
   right: 5%;
