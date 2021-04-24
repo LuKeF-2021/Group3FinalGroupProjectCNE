@@ -102,3 +102,20 @@ button:active {
 	margin-right: 7.5%;
 
   }
+
+ .expand{
+	 color:white;
+	 margin-left: 20px;
+ }
+
+ .card-actions{
+	 color: white;
+ }
+
+ .check{
+	 margin-right: 50px;
+ }
+
+ .cross{
+	 margin-left: 50px;
+ }
