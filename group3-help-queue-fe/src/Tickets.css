@@ -3,32 +3,45 @@
 }
 .queuedHeading{
 	height: 10%;
-    text-align: center;
+	position: relative;
+    /* text-align: center; */
 	padding: 0%;
 	/* border: 1px solid red; */
 }
 
+.header{
+	position: absolute;
+	text-align: center;
+	vertical-align: middle;
+	left: 246px;
+}
+
 
 .cardGrid{
-	height:80%;
+	height: 80%;
 	width: 100%;
 	/* border: 1px solid blue; */
 }
 
 .completedHeading{
+    height: 10%;
     text-align: center;
+	padding: 0%;
 }
 
 .btnCreate {
+	position: absolute;
 	background-color: white;
 	color: black;
 	margin-top: 10px;
 	margin-bottom: 10px;
+	margin-right: 20px;
 	padding: 14px 28px;
 	cursor: pointer;
 	border: 1px solid black;
 	border-radius: 12px;
-	float: right;
+	/* float: right; */
+	right: 0px;
 }
 
 .btn {
@@ -76,6 +89,12 @@ button:active {
 	border-bottom: 1px solid black;
 }
 
+.ticket-description{
+	position: relative;
+	height: 70%;
+	border: 1px solid purple;
+}
+
 .inline{
 	padding-left: 10px;
 	display: inline;
@@ -115,6 +134,8 @@ button:active {
   }
 
  .expand{
+	 position: relative;
+	 bottom: 5px;
 	 color:white;
      float: right;
 	 margin-right: 5px;
@@ -123,7 +144,8 @@ button:active {
 
  .card-actions{
 	 color: white;
-	 border: 1px solid red;
+	 position: relative;
+	 height: 10%;
  }
 
  .check{
@@ -135,7 +157,10 @@ button:active {
  }
  
  .crossModal{
-	 color: white;
+	position: relative;
+	bottom: 5px;
+	left: 5px;
+	color: white;
 	float: right;
 	margin-right: 10px;
 }
