@@ -36,6 +36,36 @@ function App() {
       time: "14:52",
       ticketDescription: "Lorem ipsum dolor sit",
       ticketTitle: "500 Server error"
+    },
+    {
+
+      id: 5,
+      usersName: "Amy Lawson",
+      time: "17:18",
+      ticketDescription: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error perferendis porro consequuntur illum omnis quas ex incidunt eius eos sed magni earum iusto maiores laboriosam numquam maxime, quidem nobis sint.",
+      ticketTitle: "Docker Problem 2"
+
+    },
+    {
+      id: 6,
+      usersName: "Jack Wellens",
+      time: "17:38",
+      ticketDescription: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error perferendis porro consequuntur illum omnis quas ex incidunt eius eos sed magni earum iusto maiores laboriosam numquam maxime, quidem nobis sint.",
+      ticketTitle: "Terraform Problem 2"
+    },
+    {
+      id: 7,
+      usersName: "Lee Richards",
+      time: "11:30",
+      ticketDescription: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error perferendis porro consequuntur illum omnis quas ex incidunt eius eos sed magni earum iusto maiores laboriosam numquam maxime, quidem nobis sint.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error perferendis porro consequuntur illum omnis quas ex incidunt eius eos sed magni earum iusto maiores laboriosam numquam maxime, quidem nobis sint",
+      ticketTitle: "Login Problem 2"
+    },
+    {
+      id: 8,
+      usersName: "Peter Matterson",
+      time: "18:52",
+      ticketDescription: "Lorem ipsum dolor sit",
+      ticketTitle: "500 Server error 2"
     }
   ])
 

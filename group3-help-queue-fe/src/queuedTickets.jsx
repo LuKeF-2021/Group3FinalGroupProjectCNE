@@ -1,12 +1,29 @@
 import React, {useState} from 'react';
 import { CardModal } from './cardModal';
+import ReactPaginate from 'react-paginate';
 
 import CardStructure from './cardStructure';
 import './Tickets.css';
+
+
 const QueuedTickets = ({tickets, setTickets}) => {
 
+    
     const [showTicketModal, setShowTicketModal] = useState(false);
     const [currentTicketModal, setCurrentTicketModal] = useState([]);
+    const [pageNum, setPageNum] = useState(1);
+
+    const numOfTickets = tickets.length;
+    console.log(numOfTickets);
+    const ticketsPerPage = 4;
+    const firstTicketToDisplay = ((pageNum-1) * ticketsPerPage) + 1;
+   
+    // eg. user clicks page 2 button, we want tickets 5-8 to display.
+    const displayTickets = tickets.slice((firstTicketToDisplay - 1), (firstTicketToDisplay + (ticketsPerPage - 1)));
+    console.log('first ticket', firstTicketToDisplay);
+    console.log('tickets range', displayTickets);
+    const numOfPages = Math.ceil(numOfTickets/ticketsPerPage);
+    console.log('Number of pages:', numOfPages);
 
     const openTicketModal = (ticketDetails) => {
         setShowTicketModal(prev => !prev);
@@ -21,7 +38,9 @@ const QueuedTickets = ({tickets, setTickets}) => {
         // console.log(tickets)
         }
 
-
+    const changePage = ({selected}) => {
+        setPageNum(selected + 1);
+    }
     
 
     return (
@@ -34,12 +53,25 @@ const QueuedTickets = ({tickets, setTickets}) => {
         </div>
         <div className="cardGrid">
             {
-                tickets.map((cardStuff) => (
+                displayTickets.map((cardStuff) => (
                     <CardStructure key={cardStuff.id} cardStuff={cardStuff} openTicketModal={openTicketModal} deleteTicket={deleteTicket}/>
                 ))
                 
             }
             <CardModal showTicketModal={showTicketModal} setShowTicketModal={setShowTicketModal} currentTicketModal={currentTicketModal}/>
+        </div>
+        <div className="pageArea">
+            <ReactPaginate
+                previousLabel={"Previous"}
+                nextLabel={"Next"}
+                pageCount={numOfPages}
+                onPageChange={changePage}
+                containerClassName={"pageButtons"}
+                previousLinkClassName={"previousButton"}
+                nextLinkClassName={"nextButton"}
+                activeClassName={"activePage"}
+                disabledClassName={"disabled"}
+            />
         </div>
         </>
 
