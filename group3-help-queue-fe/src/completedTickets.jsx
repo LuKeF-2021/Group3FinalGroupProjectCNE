@@ -6,24 +6,24 @@ import CardStructure from './cardStructure';
 import './Tickets.css';
 
 
-const CompletedTickets = ({tickets, setTickets}) => {
+const CompletedTickets = ({tickets, setTickets, CompletedTickets2, setCompletedTickets2}) => {
 
     const [showTicketModal, setShowTicketModal] = useState(false);
     const [currentTicketModal, setCurrentTicketModal] = useState([]);
     const [pageNum, setPageNum] = useState(1);
 
-    const [CompletedTickets, setCompletedTickets] = useState(tickets.filter((ticket) => ticket.isCompleted === "true"));
-    console.log('number of queued tickets', CompletedTickets);
+    // const [CompletedTickets, setCompletedTickets] = useState(tickets.filter((ticket) => ticket.isCompleted === "true"));
+    console.log('number of completed tickets', CompletedTickets2);
 
     // const numOfTickets = tickets.length;
-    const numOfTickets = CompletedTickets.length;
+    const numOfTickets = CompletedTickets2.length;
     console.log(numOfTickets);
     const ticketsPerPage = 4;
     const firstTicketToDisplay = ((pageNum-1) * ticketsPerPage) + 1;
    
     // eg. user clicks page 2 button, we want tickets 5-8 to display.
     // const displayTickets = tickets.slice((firstTicketToDisplay - 1), (firstTicketToDisplay + (ticketsPerPage - 1)));
-    const displayTickets = CompletedTickets.slice((firstTicketToDisplay - 1), (firstTicketToDisplay + (ticketsPerPage - 1)));
+    const displayTickets = CompletedTickets2.slice((firstTicketToDisplay - 1), (firstTicketToDisplay + (ticketsPerPage - 1)));
     console.log('first ticket', firstTicketToDisplay);
     console.log('tickets range', displayTickets);
     const numOfPages = Math.ceil(numOfTickets/ticketsPerPage);
@@ -38,7 +38,7 @@ const CompletedTickets = ({tickets, setTickets}) => {
 
 
     const deleteTicket = (id) => {
-        setCompletedTickets(CompletedTickets.filter((ticket) => ticket.id !== id))
+        setCompletedTickets2(CompletedTickets2.filter((ticket) => ticket.id !== id))
         // console.log(tickets)
         }
 

@@ -76,14 +76,17 @@ function App() {
     }
   ])
 
+  const [QueuedTickets2, setQueuedTickets2] = useState(tickets.filter((ticket) => ticket.isCompleted === "false"));
+  const [CompletedTickets2, setCompletedTickets2] = useState(tickets.filter((ticket) => ticket.isCompleted === "true"));
+
   return (
     <div className="screenDiv">
       <WelcomeUser />
       <div className="queue">
-        <QueuedTickets tickets={tickets} setTickets={setTickets} />
+        <QueuedTickets tickets={tickets} setTickets={setTickets} QueuedTickets2={QueuedTickets2} setQueuedTickets2={setQueuedTickets2} CompletedTickets2={CompletedTickets2} setCompletedTickets2={setCompletedTickets2}/>
       </div>
       <div className="completed">
-        <CompletedTickets tickets={tickets} setTickets={setTickets} />
+        <CompletedTickets tickets={tickets} setTickets={setTickets} CompletedTickets2={CompletedTickets2} setCompletedTickets2={setCompletedTickets2}/>
       </div>
     </div>
   );
