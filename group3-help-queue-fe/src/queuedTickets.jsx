@@ -13,13 +13,18 @@ const QueuedTickets = ({tickets, setTickets}) => {
     const [currentTicketModal, setCurrentTicketModal] = useState([]);
     const [pageNum, setPageNum] = useState(1);
 
-    const numOfTickets = tickets.length;
+    const [QueuedTickets, setQueuedTickets] = useState(tickets.filter((ticket) => ticket.isCompleted === "false"));
+    console.log('number of queued tickets', QueuedTickets);
+
+    // const numOfTickets = tickets.length;
+    const numOfTickets = QueuedTickets.length;
     console.log(numOfTickets);
     const ticketsPerPage = 4;
     const firstTicketToDisplay = ((pageNum-1) * ticketsPerPage) + 1;
    
     // eg. user clicks page 2 button, we want tickets 5-8 to display.
-    const displayTickets = tickets.slice((firstTicketToDisplay - 1), (firstTicketToDisplay + (ticketsPerPage - 1)));
+    // const displayTickets = tickets.slice((firstTicketToDisplay - 1), (firstTicketToDisplay + (ticketsPerPage - 1)));
+    const displayTickets = QueuedTickets.slice((firstTicketToDisplay - 1), (firstTicketToDisplay + (ticketsPerPage - 1)));
     console.log('first ticket', firstTicketToDisplay);
     console.log('tickets range', displayTickets);
     const numOfPages = Math.ceil(numOfTickets/ticketsPerPage);
@@ -34,7 +39,7 @@ const QueuedTickets = ({tickets, setTickets}) => {
 
 
     const deleteTicket = (id) => {
-        setTickets(tickets.filter((ticket) => ticket.id !== id))
+        setQueuedTickets(QueuedTickets.filter((ticket) => ticket.id !== id))
         // console.log(tickets)
         }
 
