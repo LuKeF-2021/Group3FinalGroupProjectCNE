@@ -126,6 +126,14 @@ button:active {
 	background-color: #B2ACAB;
 }
 
+.createCardModal {
+	width: 100%;
+	height: 100%;
+	border: 1px solid black;
+	border-radius: 10px;
+	background-color: #B2ACAB;
+}
+
 .column {
 	float: left;
 	width: 40%;

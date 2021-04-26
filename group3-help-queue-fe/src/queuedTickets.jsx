@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import { CardModal } from './cardModal';
+import { CreateTicketModal} from './createTicketModal';
 import ReactPaginate from 'react-paginate';
 
 import CardStructure from './cardStructure';
@@ -8,7 +9,7 @@ import './Tickets.css';
 
 const QueuedTickets = ({tickets, setTickets , QueuedTickets2, setQueuedTickets2, CompletedTickets2, setCompletedTickets2}) => {
 
-    
+    const [showCreateTicketModal, setShowCreateTicketModal] = useState(false);
     const [showTicketModal, setShowTicketModal] = useState(false);
     const [currentTicketModal, setCurrentTicketModal] = useState([]);
     const [pageNum, setPageNum] = useState(1);
@@ -66,7 +67,8 @@ const QueuedTickets = ({tickets, setTickets , QueuedTickets2, setQueuedTickets2,
     }
 
     const createNewTicket = () => {
-        
+        setShowCreateTicketModal(prev => !prev);
+        // <CreateTicketModal showCreateTicketModal={showCreateTicketModal} setShowCreateTicketModal={setShowCreateTicketModal}/>
         const newTicket = 
             {
                 id: (tickets.length + 1),
@@ -102,6 +104,7 @@ const QueuedTickets = ({tickets, setTickets , QueuedTickets2, setQueuedTickets2,
             <button className="btnCreate" id="create-ticket" onClick={createNewTicket}>
                 Create Ticket
 			</button>
+    
         </div>
         <div className="cardGrid">
             {
@@ -111,6 +114,7 @@ const QueuedTickets = ({tickets, setTickets , QueuedTickets2, setQueuedTickets2,
                 
             }
             <CardModal showTicketModal={showTicketModal} setShowTicketModal={setShowTicketModal} currentTicketModal={currentTicketModal}/>
+            <CreateTicketModal showCreateTicketModal={showCreateTicketModal} setShowCreateTicketModal={setShowCreateTicketModal}/>
         </div>
         <div className="pageArea">
             <ReactPaginate
