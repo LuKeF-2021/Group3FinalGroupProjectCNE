@@ -1,3 +1,5 @@
+import './Tickets.css';
+
 const WelcomeUser = () => {
 
     return(

@@ -1,12 +1,20 @@
 * {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
+h1{
+	color: #05606D;
+}
+
 .queuedHeading{
 	height: 10%;
 	position: relative;
     /* text-align: center; */
 	padding: 0%;
 	/* border: 1px solid red; */
+	color: #05606D;
+	font-size: large;
+	left: 10px;
 }
 
 .header{
@@ -26,12 +34,15 @@
 .completedHeading{
     height: 10%;
     text-align: center;
+	color: #05606D;
+	font-size: large;
 	padding: 0%;
+	position: relative;
 }
 
 .btnCreate {
 	position: absolute;
-	background-color: white;
+	background-color: #DDDFDF;
 	color: black;
 	margin-top: 10px;
 	margin-bottom: 10px;
@@ -39,13 +50,14 @@
 	padding: 14px 28px;
 	cursor: pointer;
 	border: 1px solid black;
-	border-radius: 12px;
+	border-radius: 8px;
 	/* float: right; */
 	right: 0px;
+	top: 8px;
 }
 
 .btn {
-	background-color: white;
+	background-color: #DDDFDF;
 	color: black;
 	margin-top: 30px;
 	margin-bottom: 5px;
@@ -59,11 +71,11 @@
 }
 
 button:hover {
-	color: white;
+	color: #DDDFDF;
 	background-color: black;
 }
 button:active {
-	color: white;
+	color: #DDDFDF;
 	background-color: black;
 }
 
@@ -151,6 +163,7 @@ button:active {
      float: right;
 	 margin-right: 5px;
 	 vertical-align: middle;
+	 cursor: pointer;
  }
 
  .card-actions{
@@ -161,14 +174,21 @@ button:active {
 
  .check{
 	 margin-right: 50px;
+	 cursor: pointer;
  }
 
  .cross{
 	 margin-left: 50px;
+	 cursor: pointer;
  }
 
  .crossCompleted{
 	 text-align: center;
+	 cursor: pointer;
+ }
+
+ .editButton{
+	cursor: pointer;
  }
  
  .crossModal{
@@ -178,6 +198,7 @@ button:active {
 	color: white;
 	float: right;
 	margin-right: 10px;
+	cursor: pointer;
 }
 
 .pageArea{
@@ -199,7 +220,7 @@ button:active {
 } */
 
 .pageButtons{
-	width: 94%;
+	width: 86%;
 	height: 32px;
 	/* border: 1px solid gray; */
 	/* left: 7.5%; */
@@ -207,6 +228,7 @@ button:active {
 	list-style: none;
 	display: flex;
 	justify-content: center;
+	right: 50px;
 }
 
 .pageButtons a {
