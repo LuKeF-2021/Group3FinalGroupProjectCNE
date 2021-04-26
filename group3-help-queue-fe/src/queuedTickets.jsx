@@ -64,6 +64,25 @@ const QueuedTickets = ({tickets, setTickets , QueuedTickets2, setQueuedTickets2,
         
     }
 
+    const createNewTicket = () => {
+        const newTickets = tickets.map((ticket)=> {
+            const updatedTicket = {
+                ...ticket,
+                id: tickets.length + 1,
+                usersName: "Thomas Glynn",
+                time: "11:09",
+                ticketDescription: "Jenkins file is very broken",
+                ticketTitle: "Jenkins problem",
+                isCompleted: "false"
+            };
+
+            // return updatedTicket;
+        });
+        // return ticket
+        setTickets(newTickets);
+        console.log('added new ticket and created new array: ', tickets);
+    }
+
     const deleteTicket = (id) => {
         setQueuedTickets2(QueuedTickets2.filter((ticket) => ticket.id !== id));
         // console.log(tickets)
@@ -78,7 +97,7 @@ const QueuedTickets = ({tickets, setTickets , QueuedTickets2, setQueuedTickets2,
         <>
         <div className="queuedHeading">
             <h2 className="header" id="create-ticket">Queued Tickets</h2>
-            <button className="btnCreate" id="create-ticket">
+            <button className="btnCreate" id="create-ticket" onClick={createNewTicket}>
                 Create Ticket
 			</button>
         </div>
