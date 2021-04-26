@@ -1,0 +1,26 @@
+.screenDiv {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+}
+
+.queue {
+  width: 44%;
+  height: 80%;
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  border: 2px solid black;
+}
+
+.completed {
+  width: 44%;
+  height: 80%;
+  position: absolute;
+  top: 10%;
+  right: 5%;
+  border: 2px solid black;
+}
