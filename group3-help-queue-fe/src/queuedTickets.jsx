@@ -12,6 +12,7 @@ const QueuedTickets = ({tickets, setTickets , QueuedTickets2, setQueuedTickets2,
     const [showTicketModal, setShowTicketModal] = useState(false);
     const [currentTicketModal, setCurrentTicketModal] = useState([]);
     const [pageNum, setPageNum] = useState(1);
+    const [createdTicket, setCreatedTicket] = useState("");
 
     // const [QueuedTickets, setQueuedTickets] = useState(tickets.filter((ticket) => ticket.isCompleted === "false"));
     console.log('number of queued tickets', QueuedTickets2);
@@ -65,22 +66,21 @@ const QueuedTickets = ({tickets, setTickets , QueuedTickets2, setQueuedTickets2,
     }
 
     const createNewTicket = () => {
-        const newTickets = tickets.map((ticket)=> {
-            const updatedTicket = {
-                ...ticket,
-                id: tickets.length + 1,
+        
+        const newTicket = 
+            {
+                id: (tickets.length + 1),
                 usersName: "Thomas Glynn",
                 time: "11:09",
                 ticketDescription: "Jenkins file is very broken",
                 ticketTitle: "Jenkins problem",
                 isCompleted: "false"
-            };
+            };  
 
-            // return updatedTicket;
-        });
-        // return ticket
-        setTickets(newTickets);
-        console.log('added new ticket and created new array: ', tickets);
+        setCreatedTicket(newTicket);
+        setTickets(tickets => [...tickets, newTicket]);
+        setQueuedTickets2(QueuedTickets2 => [...QueuedTickets2, newTicket]);
+        console.log('updated list with new ticket: ', tickets);
     }
 
     const deleteTicket = (id) => {
@@ -90,6 +90,8 @@ const QueuedTickets = ({tickets, setTickets , QueuedTickets2, setQueuedTickets2,
 
     const changePage = ({selected}) => {
         setPageNum(selected + 1);
+        // console.log('updated list with new ticket: ', tickets);
+        // console.log('updated list with new ticket: ', QueuedTickets2);
     }
     
 
