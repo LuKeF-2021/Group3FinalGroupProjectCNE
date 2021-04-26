@@ -45,14 +45,14 @@ public class TicketServiceUnitTest {
     @Test
     void testReadById(){
         when(this.repo.findById(TICKET1.getId())).thenReturn(Optional.of(TICKET1));
-        Assertions.assertThat(this.service.readTicketsById(TICKET1.getId())).isEqualTo(TICKET1);
+        Assertions.assertThat(this.service.readById(TICKET1.getId())).isEqualTo(TICKET1);
         verify(this.repo, Mockito.times(1)).findById(TICKET1.getId());
     }
 
     @Test
     void testReadAll(){
         when(this.repo.findAll()).thenReturn(TICKETS_LIST);
-        Assertions.assertThat(this.service.getTickets().isEmpty()).isFalse();
+        Assertions.assertThat(this.service.readAll().isEmpty()).isFalse();
         verify(this.repo, Mockito.times(1)).findAll();
     }
 
@@ -60,7 +60,7 @@ public class TicketServiceUnitTest {
     void testUpdateById(){
         when(this.repo.findById(TICKET1.getId())).thenReturn(Optional.of(TICKET1));
         when(this.repo.save(TICKET1_CHANGE)).thenReturn(TICKET1_CHANGE);
-        Assertions.assertThat(this.service.updateTicket(TICKET1_CHANGE, TICKET1.getId())).isEqualTo(TICKET1_CHANGE);
+        Assertions.assertThat(this.service.updateById(TICKET1_CHANGE, TICKET1.getId())).isEqualTo(TICKET1_CHANGE);
         verify(this.repo, Mockito.times(2)).findById(TICKET1.getId());
         verify(this.repo, Mockito.times(1)).save(TICKET1_CHANGE);
     }
@@ -79,7 +79,7 @@ public class TicketServiceUnitTest {
     void testDelete(){
         //TODO CHECK
         when(this.repo.findById(TICKET1.getId())).thenReturn(Optional.of(TICKET1));
-        assertThat(this.service.deleteTicket(TICKET1.getId())).isEqualTo(true);
+        assertThat(this.service.deleteById(TICKET1.getId())).isEqualTo(true);
         verify(this.repo, atLeastOnce()).findById(TICKET1.getId());
 
     }

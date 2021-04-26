@@ -26,8 +26,7 @@ public class TicketService {
 	public LocalDateTime getTime(){
 		return LocalDateTime.now(clock).withNano(0).withSecond(0);
 	}
-//	@Autowired
-//	private Clock clock;
+
 
 	@Autowired
 	public TicketService(TicketRepo repo) {
@@ -36,11 +35,11 @@ public class TicketService {
 	}
 
 
-	public List<Tickets> getTickets(){
+	public List<Tickets> readAll(){
 		return repo.findAll();
 	}
 	
-	public Tickets readTicketsById(Long id) {
+	public Tickets readById(Long id) {
 		return repo.findById(id).orElseThrow(()-> new TicketNotFoundException(id.toString()));
 	}
 	
@@ -51,7 +50,7 @@ public class TicketService {
 		return created;	
 	}
 	
-	public boolean deleteTicket(Long id) {
+	public boolean deleteById(Long id) {
 		System.out.println(ticketExists(id));
 		if (ticketExists(id)) {
 			repo.deleteById(id);
@@ -69,7 +68,7 @@ public class TicketService {
 
 
 
-	public Tickets updateTicket(Tickets ticket, Long id) {
+	public Tickets updateById(Tickets ticket, Long id) {
 		if (ticketExists(id)) {
 			Tickets toUpdate = this.repo.findById(id).get();
 			toUpdate.setName(ticket.getName());

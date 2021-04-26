@@ -34,18 +34,18 @@ public class TicketController {
 	}
 	
 	@GetMapping("/readAll")
-	public ResponseEntity<List<Tickets>> getTickets(){
-		return ResponseEntity.ok(this.service.getTickets());
+	public ResponseEntity<List<Tickets>> readAll(){
+		return ResponseEntity.ok(this.service.readAll());
 	}
 	
 	@GetMapping("/read/{id}")
     public ResponseEntity<Tickets> readById(@PathVariable Long id){
-        return ResponseEntity.ok(this.service.readTicketsById(id));
+        return ResponseEntity.ok(this.service.readById(id));
     }
 	
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<Void> deleteById(@PathVariable Long id){
-        if (this.service.deleteTicket(id)){
+        if (this.service.deleteById(id)){
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -53,7 +53,7 @@ public class TicketController {
     }
     @PutMapping("/update/{id}")
     public ResponseEntity<Tickets> updateById(@PathVariable Long id, @RequestBody Tickets ticket) {
-        Tickets updatedObject = this.service.updateTicket(ticket, id);
+        Tickets updatedObject = this.service.updateById(ticket, id);
         return new ResponseEntity<>(updatedObject, HttpStatus.ACCEPTED);
     }
 	

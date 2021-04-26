@@ -2,13 +2,11 @@ package com.qa.ticketManager.service;
 
 import com.qa.ticketManager.persistence.domain.Tickets;
 import com.qa.ticketManager.persistence.repo.TicketRepo;
-import org.aspectj.lang.annotation.Before;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -43,6 +41,8 @@ public class TicketServiceIntegrationTest {
 
     private final Tickets TICKET1 = new Tickets(1L,"Name Naming", DATE_TIME, "Description of ticket","Title of ticket", false);
 
+    private final Tickets TICKET2 = new Tickets(2L,"Name2", DATE_TIME, "Name description","hjsdfklgjsdlfkjsd", false);
+
     private final Tickets TICKET1_CHANGE = new Tickets(1L,"Name2", DATE_TIME, "Name description","hjsdfklgjsdlfkjsd", false);
 
     private final List<Tickets> TICKETS_LIST = List.of(TICKET1);
@@ -61,28 +61,28 @@ public class TicketServiceIntegrationTest {
     }
 
     @Test
-    void createTest() throws Exception{
-        assertThat(this.service.create(TICKET1)).isEqualTo(TICKET1);
+    void testCreate(){
+        assertThat(this.service.create(TICKET2)).isEqualTo(TICKET2);
     }
 
     @Test
-    void readAllTest() throws Exception{
-        assertThat(this.service.getTickets()).isEqualTo(TICKETS_LIST);
+    void testReadAll(){
+        assertThat(this.service.readAll()).isEqualTo(TICKETS_LIST);
     }
 
     @Test
-    void readByIdTest() throws Exception{
-        assertThat(this.service.readTicketsById(TICKET1.getId())).isEqualTo(TICKET1);
+    void testReadById(){
+        assertThat(this.service.readById(TICKET1.getId())).isEqualTo(TICKET1);
     }
 
     @Test
-    void updateTest() throws Exception{
-        assertThat(this.service.updateTicket(TICKET1_CHANGE, TICKET1.getId()))
+    void testUpdateById(){
+        assertThat(this.service.updateById(TICKET1_CHANGE, TICKET1.getId()))
                 .isEqualTo(TICKET1_CHANGE);
     }
 
     @Test
-    void deleteTest() throws Exception {
-        assertThat(this.service.deleteTicket(TICKET1.getId())).isTrue();
+    void testDeleteById(){
+        assertThat(this.service.deleteById(TICKET1.getId())).isTrue();
     }
 }

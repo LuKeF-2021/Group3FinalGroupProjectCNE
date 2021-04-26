@@ -7,16 +7,12 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.ActiveProfiles;
 import static org.mockito.Mockito.*;
-import org.springframework.test.context.jdbc.Sql;
-import org.springframework.test.context.jdbc.Sql;
-import org.springframework.test.context.jdbc.Sql.ExecutionPhase;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -54,33 +50,33 @@ public class TicketControllerUnitTest {
 
     @Test
     void testReadAll(){
-        when(this.service.getTickets()).thenReturn(TICKETS_LIST);
-        assertThat(this.controller.getTickets().getBody().isEmpty()).isFalse();
-        verify(this.service, Mockito.times(1)).getTickets();
+        when(this.service.readAll()).thenReturn(TICKETS_LIST);
+        assertThat(this.controller.readAll().getBody().isEmpty()).isFalse();
+        verify(this.service, Mockito.times(1)).readAll();
     }
 
     @Test
     void testUpdateById(){
-        when(this.service.updateTicket(TICKET1_CHANGE, TICKET1.getId())).thenReturn(TICKET1_CHANGE);
+        when(this.service.updateById(TICKET1_CHANGE, TICKET1.getId())).thenReturn(TICKET1_CHANGE);
         assertThat(this.controller.updateById( TICKET1.getId(), TICKET1_CHANGE)).isEqualTo(new ResponseEntity<>(TICKET1_CHANGE, HttpStatus.ACCEPTED));
-        verify(this.service, Mockito.times(1)).updateTicket(TICKET1_CHANGE, TICKET1.getId());
+        verify(this.service, Mockito.times(1)).updateById(TICKET1_CHANGE, TICKET1.getId());
     }
 
     @Test
     void testDeleteById(){
-        Mockito.when(this.service.deleteTicket(TICKET1.getId())).thenReturn(false);
+        Mockito.when(this.service.deleteById(TICKET1.getId())).thenReturn(false);
         Assertions.assertThat(this.controller.deleteById(TICKET1.getId())).isEqualTo(new ResponseEntity<>(HttpStatus.NOT_FOUND));
-        Mockito.verify(this.service, Mockito.times(1)).deleteTicket(TICKET1.getId());
+        Mockito.verify(this.service, Mockito.times(1)).deleteById(TICKET1.getId());
 
-        Mockito.when(this.service.deleteTicket(TICKET1.getId())).thenReturn(true);
+        Mockito.when(this.service.deleteById(TICKET1.getId())).thenReturn(true);
         Assertions.assertThat(this.controller.deleteById(TICKET1.getId())).isEqualTo(new ResponseEntity<>(HttpStatus.NO_CONTENT));
-        Mockito.verify(this.service, Mockito.times(2)).deleteTicket(TICKET1.getId());
+        Mockito.verify(this.service, Mockito.times(2)).deleteById(TICKET1.getId());
     }
 
     @Test
     void testReadById(){
-        Mockito.when(this.service.readTicketsById(TICKET1.getId())).thenReturn(TICKET1);
+        Mockito.when(this.service.readById(TICKET1.getId())).thenReturn(TICKET1);
         Assertions.assertThat(this.controller.readById(TICKET1.getId())).isEqualTo(new ResponseEntity<>(TICKET1, HttpStatus.OK));
-        Mockito.verify(this.service, Mockito.times(1)).readTicketsById(TICKET1.getId());
+        Mockito.verify(this.service, Mockito.times(1)).readById(TICKET1.getId());
     }
 }
