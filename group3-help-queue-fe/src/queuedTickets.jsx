@@ -7,7 +7,7 @@ import CardStructure from './cardStructure';
 import './Tickets.css';
 
 
-const QueuedTickets = ({tickets, setTickets , QueuedTickets2, setQueuedTickets2, CompletedTickets2, setCompletedTickets2}) => {
+const QueuedTickets = ({tickets, setTickets , QueuedTicketsList, setQueuedTicketsList, CompletedTicketsList, setCompletedTicketsList}) => {
 
     const [showCreateTicketModal, setShowCreateTicketModal] = useState(false);
     const [showTicketModal, setShowTicketModal] = useState(false);
@@ -16,27 +16,31 @@ const QueuedTickets = ({tickets, setTickets , QueuedTickets2, setQueuedTickets2,
     const [createdTicket, setCreatedTicket] = useState("");
 
     // const [QueuedTickets, setQueuedTickets] = useState(tickets.filter((ticket) => ticket.isCompleted === "false"));
-    console.log('number of queued tickets', QueuedTickets2);
+    // console.log('number of queued tickets', QueuedTicketsList);
 
     // const numOfTickets = tickets.length;
-    const numOfTickets = QueuedTickets2.length;
-    console.log(numOfTickets);
+    const numOfTickets = QueuedTicketsList.length;
+    // console.log(numOfTickets);
     const ticketsPerPage = 4;
     const firstTicketToDisplay = ((pageNum-1) * ticketsPerPage) + 1;
    
     // eg. user clicks page 2 button, we want tickets 5-8 to display.
     // const displayTickets = tickets.slice((firstTicketToDisplay - 1), (firstTicketToDisplay + (ticketsPerPage - 1)));
-    const displayTickets = QueuedTickets2.slice((firstTicketToDisplay - 1), (firstTicketToDisplay + (ticketsPerPage - 1)));
-    console.log('first ticket', firstTicketToDisplay);
-    console.log('tickets range', displayTickets);
+    const displayTickets = QueuedTicketsList.slice((firstTicketToDisplay - 1), (firstTicketToDisplay + (ticketsPerPage - 1)));
+    // console.log('first ticket', firstTicketToDisplay);
+    // console.log('tickets range', displayTickets);
     const numOfPages = Math.ceil(numOfTickets/ticketsPerPage);
-    console.log('Number of pages:', numOfPages);
+    // console.log('Number of pages:', numOfPages);
 
     const openTicketModal = (ticketDetails) => {
         setShowTicketModal(prev => !prev);
         // console.log('opened', ticketDetails);
         setCurrentTicketModal(ticketDetails);
         // console.log('currentTicketModal', currentTicketModal);
+    }
+
+    const openCreateTicketModal = () => {
+        setShowCreateTicketModal(prev => !prev);
     }
 
     const updateTicketToCompleted = (id) => {
@@ -57,43 +61,46 @@ const QueuedTickets = ({tickets, setTickets , QueuedTickets2, setQueuedTickets2,
         });
         
         setTickets(newTickets);
-        setQueuedTickets2(tickets.filter((ticket) => ticket.isCompleted === "false"));
-        setCompletedTickets2(tickets.filter((ticket) => ticket.isCompleted === "true"));
+        setQueuedTicketsList(tickets.filter((ticket) => ticket.isCompleted === "false"));
+        setCompletedTicketsList(tickets.filter((ticket) => ticket.isCompleted === "true"));
 
         console.log('output of updateTicket:', tickets);
-        console.log('new queued ticket list:', QueuedTickets2);
-        console.log('new completed ticket list:', CompletedTickets2);
+        console.log('new queued ticket list:', QueuedTicketsList);
+        console.log('new completed ticket list:', CompletedTicketsList);
         
     }
 
-    const createNewTicket = () => {
-        setShowCreateTicketModal(prev => !prev);
-        // <CreateTicketModal showCreateTicketModal={showCreateTicketModal} setShowCreateTicketModal={setShowCreateTicketModal}/>
+    const createNewTicket = ({ id, name, time, ticketDescription, ticketTitle, isCompleted }) => {
+        // setShowCreateTicketModal(prev => !prev);
+
+        // console.log('new ticket: ', ticketItem)
+
         const newTicket = 
             {
-                id: (tickets.length + 1),
-                usersName: "Thomas Glynn",
-                time: "11:09",
-                ticketDescription: "Jenkins file is very broken",
-                ticketTitle: "Jenkins problem",
-                isCompleted: "false"
+                id: id,
+                usersName: name,
+                time: time,
+                ticketDescription: ticketDescription,
+                ticketTitle: ticketTitle,
+                isCompleted: isCompleted
             };  
 
+        console.log('new ticket is: ', newTicket);
         setCreatedTicket(newTicket);
-        setTickets(tickets => [...tickets, newTicket]);
-        setQueuedTickets2(QueuedTickets2 => [...QueuedTickets2, newTicket]);
+        // setTickets(tickets => [...tickets, newTicket]);
+        setQueuedTicketsList(QueuedTicketsList => [...QueuedTicketsList, newTicket]);
         console.log('updated list with new ticket: ', tickets);
     }
 
     const deleteTicket = (id) => {
-        setQueuedTickets2(QueuedTickets2.filter((ticket) => ticket.id !== id));
+        setQueuedTicketsList(QueuedTicketsList.filter((ticket) => ticket.id !== id));
         // console.log(tickets)
         }
 
     const changePage = ({selected}) => {
         setPageNum(selected + 1);
-        // console.log('updated list with new ticket: ', tickets);
-        // console.log('updated list with new ticket: ', QueuedTickets2);
+        console.log('updated list with new ticket: ', tickets);
+        console.log('updated queued list: ', QueuedTicketsList);
     }
     
 
@@ -101,7 +108,7 @@ const QueuedTickets = ({tickets, setTickets , QueuedTickets2, setQueuedTickets2,
         <>
         <div className="queuedHeading">
             <h2 className="header" id="create-ticket">Queued Tickets</h2>
-            <button className="btnCreate" id="create-ticket" onClick={createNewTicket}>
+            <button className="btnCreate" id="create-ticket" onClick={openCreateTicketModal}>
                 Create Ticket
 			</button>
     
@@ -114,7 +121,7 @@ const QueuedTickets = ({tickets, setTickets , QueuedTickets2, setQueuedTickets2,
                 
             }
             <CardModal showTicketModal={showTicketModal} setShowTicketModal={setShowTicketModal} currentTicketModal={currentTicketModal}/>
-            <CreateTicketModal showCreateTicketModal={showCreateTicketModal} setShowCreateTicketModal={setShowCreateTicketModal}/>
+            <CreateTicketModal showCreateTicketModal={showCreateTicketModal} setShowCreateTicketModal={setShowCreateTicketModal} createNewTicket={createNewTicket} tickets={tickets}/>
         </div>
         <div className="pageArea">
             <ReactPaginate

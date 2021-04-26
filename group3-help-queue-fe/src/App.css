@@ -8,19 +8,19 @@
 }
 
 .queue {
-  width: 44%;
+  width: 45%;
   height: 80%;
   position: absolute;
   top: 10%;
   left: 5%;
-  border: 2px solid black;
+  border-right: 1px solid black;
 }
 
 .completed {
-  width: 44%;
+  width: 45%;
   height: 80%;
   position: absolute;
   top: 10%;
   right: 5%;
-  border: 2px solid black;
+  border-left: 1px solid black;
 }
