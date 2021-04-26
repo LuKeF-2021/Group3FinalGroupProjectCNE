@@ -29,8 +29,8 @@ public class TicketController {
 	}
 	
 	@PostMapping("/create")
-	public Tickets create(@RequestBody Tickets newTicket) {
-		return this.service.create(newTicket);
+	public ResponseEntity<Tickets> create(@RequestBody Tickets newTicket) {
+		return new ResponseEntity<>(this.service.create(newTicket), HttpStatus.CREATED);
 	}
 	
 	@GetMapping("/readAll")

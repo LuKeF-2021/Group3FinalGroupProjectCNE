@@ -28,11 +28,8 @@ public class Tickets {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	@Column(name = "first_name")
-	private String firstName;
-
-	@Column(name = "last_name")
-	private String lastName;
+	@Column(name = "name")
+	private String name;
 	
 //	@Column(name = "email", unique = true)
 //	private String email;
@@ -51,12 +48,15 @@ public class Tickets {
 	@Column(name = "title")
 	private String title;
 
-	public Tickets(String firstName, String lastName, String description, String title) {
+	@Column(name = "complete")
+	private Boolean complete;
+
+	public Tickets(String name, String description, String title, Boolean complete) {
 		super();
-		this.firstName = firstName;
-		this.lastName = lastName;
+		this.name = name;
 		this.description = description;
 		this.title = title;
+		this.complete = complete;
 	}
 	
 	
