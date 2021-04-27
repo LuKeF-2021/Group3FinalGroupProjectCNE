@@ -1,9 +1,8 @@
 import './App.css';
-import CompletedTickets from './completedTickets';
-import QueuedTickets from './queuedTickets';
 import axios from 'axios';
-import WelcomeUser from './welcomeUser';
 import { useEffect, useState } from 'react';
+import Main from './main';
+import './Tickets.css';
 
 function App() {
 
@@ -33,12 +32,6 @@ function App() {
     }, 2000)
   }, [])
 
-  console.log('contents of tickets state:', tickets);
-  const [QueuedTicketsList, setQueuedTicketsList] = useState(tickets.filter((ticket) => ticket.complete === false));
-  console.log('Queued tickets: ', QueuedTicketsList);
-  const [CompletedTicketsList, setCompletedTicketsList] = useState([]);
-  const filteredComplete = tickets.filter((ticket) => ticket.complete === true);
-
   if (error) {
     return <h1>Something went wrong. Error: {error.message}</h1>
   } else if (!isLoaded) {
@@ -50,14 +43,10 @@ function App() {
   } else {
 
     return (
+
       <div className="screenDiv">
-        <WelcomeUser />
-        <div className="queue">
-          <QueuedTickets tickets={tickets} setTickets={setTickets} QueuedTicketsList={QueuedTicketsList} setQueuedTicketsList={setQueuedTicketsList} CompletedTicketsList={CompletedTicketsList} setCompletedTicketsList={setCompletedTicketsList} />
-        </div>
-        <div className="completed">
-          <CompletedTickets tickets={tickets} setTickets={setTickets} CompletedTicketsList={CompletedTicketsList} setCompletedTicketsList={setCompletedTicketsList} />
-        </div>
+      <h1>Welcome Group 3!</h1>
+      <Main tickets={tickets} setTickets={setTickets}/>
       </div>
     );
   }
