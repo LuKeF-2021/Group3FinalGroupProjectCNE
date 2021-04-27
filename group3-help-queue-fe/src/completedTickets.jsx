@@ -13,7 +13,7 @@ const CompletedTickets = ({tickets, setTickets, CompletedTicketsList, setComplet
     const [pageNum, setPageNum] = useState(1);
 
     // const [CompletedTickets, setCompletedTickets] = useState(tickets.filter((ticket) => ticket.isCompleted === "true"));
-    console.log('number of completed tickets', CompletedTicketsList);
+    // console.log('number of completed tickets', CompletedTicketsList);
 
     // const numOfTickets = tickets.length;
     const numOfTickets = CompletedTicketsList.length;

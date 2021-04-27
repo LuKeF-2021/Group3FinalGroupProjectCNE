@@ -14,7 +14,9 @@ const QueuedTickets = ({tickets, setTickets , QueuedTicketsList, setQueuedTicket
     const [currentTicketModal, setCurrentTicketModal] = useState([]);
     const [pageNum, setPageNum] = useState(1);
     const [createdTicket, setCreatedTicket] = useState("");
-
+    
+    console.log('tickets: ', tickets)
+    console.log('Queued tickets: ', QueuedTicketsList);
     // const [QueuedTickets, setQueuedTickets] = useState(tickets.filter((ticket) => ticket.isCompleted === "false"));
     // console.log('number of queued tickets', QueuedTicketsList);
 
