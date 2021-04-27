@@ -75,7 +75,8 @@ public class TicketService {
 			toUpdate.setDescription(ticket.getDescription());
 			toUpdate.setTitle(ticket.getTitle());
 			toUpdate.setComplete(ticket.getComplete());
-			return repo.save(ticket);
+			
+			return this.repo.save(ticket);
 		}
 		return null;
 		
