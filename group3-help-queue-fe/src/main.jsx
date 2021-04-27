@@ -9,10 +9,6 @@ const Main = ({ tickets, setTickets }) => {
     const [CompletedTicketsList, setCompletedTicketsList] = useState([]);
 
     return (
-        // tickets.map((ticket, index) => (
-        //     <TempCard tempVals={ticket} key={index} />
-        // ))
-        // 
         <>
             <div className="queue">
                 <QueuedTickets tickets={tickets} setTickets={setTickets} />

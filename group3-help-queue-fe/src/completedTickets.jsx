@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { CardModal } from './cardModal';
 import ReactPaginate from 'react-paginate';
+import axios from 'axios';
 
 import CardStructure from './cardStructure';
 import './Tickets.css';
@@ -22,8 +23,22 @@ const CompletedTickets = ({ tickets, setTickets }) => {
     }
 
 
+    const [deleteTheTicket, setDeleteTheTicket] = useState(false);
     const deleteTicket = (id) => {
+        // setCompletedTicketsList(CompletedTicketsList.filter((ticket) => ticket.id !== id))
+        // console.log(tickets)
         setTickets(tickets.filter((ticket) => ticket.id !== id));
+        axios.delete(`http://localhost:8901/tickets/delete/${id}`)
+            .then(function (response) {
+                console.log(response);
+                setDeleteTheTicket(true);
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+
+
+
     }
 
     const updateTicketToCompleted = (id) => {
