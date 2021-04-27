@@ -3,7 +3,7 @@
 }
 
 h1{
-	color: #05606D;
+	color: #004050;
 }
 
 .queuedHeading{
@@ -12,7 +12,7 @@ h1{
     /* text-align: center; */
 	padding: 0%;
 	/* border: 1px solid red; */
-	color: #05606D;
+	color: #004050;
 	font-size: large;
 	left: 10px;
 }
@@ -34,7 +34,7 @@ h1{
 .completedHeading{
     height: 10%;
     text-align: center;
-	color: #05606D;
+	color: #004050;
 	font-size: large;
 	padding: 0%;
 	position: relative;
@@ -42,18 +42,18 @@ h1{
 
 .btnCreate {
 	position: absolute;
-	background-color: #DDDFDF;
-	color: black;
+	background-color: #00EFB8;
+	color: #004050;
 	margin-top: 10px;
 	margin-bottom: 10px;
 	margin-right: 20px;
 	padding: 14px 28px;
 	cursor: pointer;
-	border: 1px solid black;
 	border-radius: 8px;
+	font-size: large;
 	/* float: right; */
 	right: 0px;
-	top: 8px;
+	top: 2px;
 }
 
 .btn {
@@ -71,12 +71,12 @@ h1{
 }
 
 button:hover {
-	color: #DDDFDF;
-	background-color: black;
+	color: #00EFB8;
+	background-color: #004050;
 }
 button:active {
-	color: #DDDFDF;
-	background-color: black;
+	color: #00EFB8;
+	background-color: #004050;
 }
 
 .card {
@@ -94,7 +94,8 @@ button:active {
 .ticket-user-time{
 	text-align: left;
 	font-size: small;
-	background-color: cornflowerblue;
+	background-color: #004050;
+	color: white;
 	padding-top: 10px;
 	padding-bottom: 10px;
 	border-top-left-radius: 10px;
@@ -107,6 +108,8 @@ button:active {
 	height: 68%;
 	/* border: 1px solid purple; */
 	overflow: hidden;
+	background-color: white;
+	color: #004050;
 }
 
 .inline{
@@ -167,9 +170,13 @@ button:active {
  }
 
  .card-actions{
-	 color: white;
+	 color: black;
+	 background-color: white;
 	 position: relative;
-	 height: 10%;
+	 height: 15%;
+	 border-bottom-left-radius: 10px;
+	 border-bottom-right-radius: 10px;
+	 /* border: 1px solid red; */
  }
 
  .check{
@@ -232,20 +239,20 @@ button:active {
 }
 
 .pageButtons a {
-	background-color: white;
-	color: black;
+	color: #004050;
+	background-color: #00EFB8;
 	margin-top: 5px;
 	margin-bottom: 5px;
 	margin-left: 10px;
 	padding: 6px 10px;
 	cursor: pointer;
-	border: 1px solid black;
+	border: 1px solid #004050;
 	border-radius: 2px;
 }
 
 .activePage a{
-	background-color: black;
-	color: white;
+	background-color: #004050;
+	color: #00EFB8;
 }
 
 .disabled a{
