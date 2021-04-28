@@ -25,7 +25,7 @@ const CardStructure = ({ cardStuff, openTicketModal, deleteTicket, updateTicketT
                     <div className="ticket-description"><h3>{cardStuff.title}</h3><p>{cardStuff.description}</p></div>
                     <div className="card-actions">
                         <HiCheck style={{ verticalAlign: 'middle' }} size={28} className="check" onClick={() => updateTicketToCompleted(cardStuff.id)} />
-                        <HiPencil style={{ verticalAlign: 'middle' }} size={28} className="editButton" onClick={() => openUpdateTicketModal(cardStuff.id)}/>
+                        <HiPencil style={{ verticalAlign: 'middle' }} size={28} className="editButton" onClick={() => openUpdateTicketModal(cardStuff)}/>
                         <HiX style={{ verticalAlign: 'middle' }} size={28} className="cross" onClick={() => deleteTicket(cardStuff.id)} />
                     </div>
                 </div>
