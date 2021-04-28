@@ -4,15 +4,17 @@ import { HiX } from "react-icons/hi";
 
 
 
-export const UpdateTicketModal = ({ showUpdateTicketModal, setShowUpdateTicketModal, tickets, updateTicketContents}) => {
+export const UpdateTicketModal = ({ showUpdateTicketModal, setShowUpdateTicketModal, currentTicketModal, updateTicketContents , ticketDescription, setTicketDescription, ticketTitle, setTicketTitle}) => {
 
-    console.log('in edit modal: ', tickets.description);
-    console.log('in edit modal2: ', tickets.title);
+    console.log('in edit modal: ', currentTicketModal.description);
+    console.log('in edit modal2: ', currentTicketModal.title);
     // const [id, setId] = useState(0);
     // const [name, setName] = useState('');
     // const [time, setTime] = useState();
-    const [ticketDescription, setTicketDescription] = useState(tickets.description);
-    const [ticketTitle, setTicketTitle] = useState(tickets.title);
+    // const [ticketDescription, setTicketDescription] = useState(currentTicketModal.description);
+    // const [ticketTitle, setTicketTitle] = useState(currentTicketModal.title);
+    // console.log('ticket description use state: ', ticketDescription);
+    // console.log('ticket ticket title :', ticketTitle);
     // const [isCompleted, setIsCompleted] = useState(false);
 
 
@@ -28,7 +30,7 @@ export const UpdateTicketModal = ({ showUpdateTicketModal, setShowUpdateTicketMo
             return
         }
 
-        updateTicketContents({ ticketDescription, ticketTitle })
+        updateTicketContents({ ticketDescription, ticketTitle, currentTicketModal})
         setShowUpdateTicketModal(prev => !prev);
 
         setTicketTitle('');
@@ -43,8 +45,7 @@ export const UpdateTicketModal = ({ showUpdateTicketModal, setShowUpdateTicketMo
                 <div className="modalPopup">
                     <div className="createCardModal">
                         <div className="ticket-user-time">
-                            <h3 className="inline">{tickets.name}</h3>
-                            <HiX style={{ verticalAlign: 'middle' }} size={28} className="crossModal" onClick={() => setShowUpdateTicketModal(prev => !prev)} />
+                            <h3 className="inline">{currentTicketModal.name}</h3><HiX style={{ verticalAlign: 'middle' }} size={28} className="crossModal" onClick={() => setShowUpdateTicketModal(prev => !prev)} />
                         </div>
                         <div className="ticket-description">
                             <h3>Ticket Title: </h3>

@@ -15,9 +15,10 @@ const QueuedTickets = ({ tickets, setTickets }) => {
     const [showUpdateTicketModal, setShowUpdateTicketModal] = useState(false);
     const [showTicketModal, setShowTicketModal] = useState(false);
     const [currentTicketModal, setCurrentTicketModal] = useState([]);
+    const [ticketDescription, setTicketDescription] = useState('');
+    const [ticketTitle, setTicketTitle] = useState('');
     const [pageNum, setPageNum] = useState(1);
     const [createdTicket, setCreatedTicket] = useState("");
-    const [editId, setEditId] = useState(0);
 
 
     const QueuedTicketsList = [];
@@ -41,19 +42,22 @@ const QueuedTickets = ({ tickets, setTickets }) => {
     const openTicketModal = (ticketDetails) => {
         setShowTicketModal(prev => !prev);
         setCurrentTicketModal(ticketDetails);
+        // console.log('object in current ticket modal: ', currentTicketModal);
     }
 
     const openCreateTicketModal = () => {
         setShowCreateTicketModal(prev => !prev);
     }
 
-    const openUpdateTicketModal = (id) => {
-        console.log('id is being passed back: ', id);
-        setEditId(12);
-        console.log('id in editId use state', editId);
+    const openUpdateTicketModal = (ticketDetails) => {
+        console.log('ticket being passed back: ', ticketDetails);
         setShowUpdateTicketModal(prev => !prev);
-        const ticketToChange = tickets.filter((ticket) => ticket.id === id);
-        console.log('ticket you clicked edit on:', ticketToChange);
+        setCurrentTicketModal(ticketDetails);
+        setTicketDescription(ticketDetails.description);
+        setTicketTitle(ticketDetails.title);
+        console.log('ticket description use state: ', ticketDescription);
+        console.log('ticket ticket title :', ticketTitle);
+        console.log('object in current ticket modal: ', currentTicketModal);
     }
 
     const updateTicketToCompleted = (id) => {
@@ -92,26 +96,26 @@ const QueuedTickets = ({ tickets, setTickets }) => {
 
     }
 
-    const updateTicketContents = (id) => {
+    const updateTicketContents = ({ ticketDescription, ticketTitle, currentTicketModal}) => {
         // openUpdateTicketModal();
-        const ticketToChange = tickets.filter((ticket) => ticket.id === id);
+        const ticketToChange = tickets.filter((ticket) => ticket.id === currentTicketModal.id);
         console.log('ticket you clicked edit on:', ticketToChange);
 
         const newTickets = tickets.map((ticket) => {
-            if (ticket.id === id) {
+            if (ticket.id === currentTicketModal.id) {
                 const updatedTicket = {
                     ...ticket,
                     complete: ticket.complete,
                     name: ticket.name,
-                    description: ticket.description,
-                    title: ticket.title,
+                    description: ticketDescription,
+                    title: ticketTitle,
                     createdAt: ticket.createdAt
                 };
-                axios.put(`http://localhost:8901/tickets/update/${id}`, {
+                axios.put(`http://localhost:8901/tickets/update/${currentTicketModal.id}`, {
                     complete: ticket.complete,
                     name: ticket.name,
-                    description: ticket.description,
-                    title: ticket.title,
+                    description: ticketDescription,
+                    title: ticketTitle,
                     createdAt: ticket.createdAt
                 })
                     .then(function (response) {
@@ -201,7 +205,7 @@ const QueuedTickets = ({ tickets, setTickets }) => {
                 }
                 <CardModal showTicketModal={showTicketModal} setShowTicketModal={setShowTicketModal} currentTicketModal={currentTicketModal} />
                 <CreateTicketModal showCreateTicketModal={showCreateTicketModal} setShowCreateTicketModal={setShowCreateTicketModal} createNewTicket={createNewTicket} tickets={tickets} />
-                <UpdateTicketModal showUpdateTicketModal={showUpdateTicketModal} setShowUpdateTicketModal={setShowCreateTicketModal} updateTicketContents={updateTicketContents} tickets={tickets} />
+                <UpdateTicketModal showUpdateTicketModal={showUpdateTicketModal} setShowUpdateTicketModal={setShowUpdateTicketModal} updateTicketContents={updateTicketContents} currentTicketModal={currentTicketModal} setCurrentTicketModal={setCurrentTicketModal} ticketDescription={ticketDescription} setTicketDescription={setTicketDescription} ticketTitle={ticketTitle} setTicketTitle={setTicketTitle}/>
             </div>
             <div className="pageArea">
                 <ReactPaginate
