@@ -12,8 +12,8 @@ export const CardModal = ({ showTicketModal, setShowTicketModal, currentTicketMo
             {showTicketModal ? (
                 <div className="modalPopup">
                     <div className="cardModal">
-                        <div className="ticket-user-time"><h3 className="inline">{currentTicketModal.usersName}</h3>      <p className="inline">{currentTicketModal.time}</p> <HiX style={{ verticalAlign: 'middle' }} size={28} className="crossModal" onClick={() => setShowTicketModal(prev => !prev)}/></div>
-                        <div className="ticket-description"><h3>{currentTicketModal.ticketTitle}</h3><p>{currentTicketModal.ticketDescription}</p></div>
+                        <div className="ticket-user-time"><h3 className="inline">{currentTicketModal.name}</h3>      <p className="inline">{currentTicketModal.created_at}</p> <HiX style={{ verticalAlign: 'middle' }} size={28} className="crossModal" onClick={() => setShowTicketModal(prev => !prev)}/></div>
+                        <div className="ticket-description"><h3>{currentTicketModal.title}</h3><p>{currentTicketModal.description}</p></div>
                     </div>
                 </div>
             ) : null}

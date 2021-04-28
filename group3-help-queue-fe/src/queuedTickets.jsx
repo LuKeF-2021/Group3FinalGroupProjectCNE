@@ -1,130 +1,214 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { CardModal } from './cardModal';
-import { CreateTicketModal} from './createTicketModal';
+import { CreateTicketModal } from './createTicketModal';
 import ReactPaginate from 'react-paginate';
+import axios from 'axios';
 
 import CardStructure from './cardStructure';
 import './Tickets.css';
+import { UpdateTicketModal } from './updateTicketModal';
 
 
-const QueuedTickets = ({tickets, setTickets , QueuedTicketsList, setQueuedTicketsList, CompletedTicketsList, setCompletedTicketsList}) => {
+const QueuedTickets = ({ tickets, setTickets }) => {
 
     const [showCreateTicketModal, setShowCreateTicketModal] = useState(false);
+    const [showUpdateTicketModal, setShowUpdateTicketModal] = useState(false);
     const [showTicketModal, setShowTicketModal] = useState(false);
     const [currentTicketModal, setCurrentTicketModal] = useState([]);
+    const [ticketDescription, setTicketDescription] = useState('');
+    const [ticketTitle, setTicketTitle] = useState('');
     const [pageNum, setPageNum] = useState(1);
     const [createdTicket, setCreatedTicket] = useState("");
 
-    // const [QueuedTickets, setQueuedTickets] = useState(tickets.filter((ticket) => ticket.isCompleted === "false"));
-    // console.log('number of queued tickets', QueuedTicketsList);
 
-    // const numOfTickets = tickets.length;
+    const QueuedTicketsList = [];
+    tickets.map((ticket) => {
+        if (ticket.complete === false) {
+            QueuedTicketsList.push(ticket);
+            console.log('queued tickets: ', QueuedTicketsList);
+        }
+    })
+
     const numOfTickets = QueuedTicketsList.length;
-    // console.log(numOfTickets);
     const ticketsPerPage = 4;
     const firstTicketToDisplay = ((pageNum-1) * ticketsPerPage) + 1;
-   
+
     // eg. user clicks page 2 button, we want tickets 5-8 to display.
     // const displayTickets = tickets.slice((firstTicketToDisplay - 1), (firstTicketToDisplay + (ticketsPerPage - 1)));
     const displayTickets = QueuedTicketsList.slice((firstTicketToDisplay - 1), (firstTicketToDisplay + (ticketsPerPage - 1)));
-    // console.log('first ticket', firstTicketToDisplay);
-    // console.log('tickets range', displayTickets);
     const numOfPages = Math.ceil(numOfTickets/ticketsPerPage);
-    // console.log('Number of pages:', numOfPages);
+
 
     const openTicketModal = (ticketDetails) => {
         setShowTicketModal(prev => !prev);
-        // console.log('opened', ticketDetails);
         setCurrentTicketModal(ticketDetails);
-        // console.log('currentTicketModal', currentTicketModal);
+        // console.log('object in current ticket modal: ', currentTicketModal);
     }
 
     const openCreateTicketModal = () => {
         setShowCreateTicketModal(prev => !prev);
     }
 
+    const openUpdateTicketModal = (ticketDetails) => {
+        console.log('ticket being passed back: ', ticketDetails);
+        setShowUpdateTicketModal(prev => !prev);
+        setCurrentTicketModal(ticketDetails);
+        setTicketDescription(ticketDetails.description);
+        setTicketTitle(ticketDetails.title);
+        console.log('ticket description use state: ', ticketDescription);
+        console.log('ticket ticket title :', ticketTitle);
+        console.log('object in current ticket modal: ', currentTicketModal);
+    }
+
     const updateTicketToCompleted = (id) => {
         const ticketToComplete = tickets.filter((ticket) => ticket.id === id);
         console.log('ticket you clicked complete on:', ticketToComplete);
-        
+
         const newTickets = tickets.map((ticket) => {
             if (ticket.id === id) {
                 const updatedTicket = {
                     ...ticket,
-                    isCompleted: ticket.isCompleted = "true"
+                    complete: ticket.complete = true
                 };
-
+                axios.put(`http://localhost:8901/tickets/update/${id}`, {
+                    complete: true,
+                    name: ticket.name,
+                    description: ticket.description,
+                    title: ticket.title,
+                    createdAt: ticket.createdAt
+                })
+                    .then(function (response) {
+                        console.log(response);
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    })
                 return updatedTicket;
-            }
-            return ticket;
-            
-        });
-        
-        setTickets(newTickets);
-        setQueuedTicketsList(tickets.filter((ticket) => ticket.isCompleted === "false"));
-        setCompletedTicketsList(tickets.filter((ticket) => ticket.isCompleted === "true"));
 
-        console.log('output of updateTicket:', tickets);
-        console.log('new queued ticket list:', QueuedTicketsList);
-        console.log('new completed ticket list:', CompletedTicketsList);
-        
+
+            }
+
+            return ticket;
+
+        });
+
+        setTickets(newTickets);
+
     }
 
-    const createNewTicket = ({ id, name, time, ticketDescription, ticketTitle, isCompleted }) => {
-        // setShowCreateTicketModal(prev => !prev);
+    const updateTicketContents = ({ ticketDescription, ticketTitle, currentTicketModal}) => {
+        // openUpdateTicketModal();
+        const ticketToChange = tickets.filter((ticket) => ticket.id === currentTicketModal.id);
+        console.log('ticket you clicked edit on:', ticketToChange);
 
-        // console.log('new ticket: ', ticketItem)
+        const newTickets = tickets.map((ticket) => {
+            if (ticket.id === currentTicketModal.id) {
+                const updatedTicket = {
+                    ...ticket,
+                    complete: ticket.complete,
+                    name: ticket.name,
+                    description: ticketDescription,
+                    title: ticketTitle,
+                    createdAt: ticket.createdAt
+                };
+                axios.put(`http://localhost:8901/tickets/update/${currentTicketModal.id}`, {
+                    complete: ticket.complete,
+                    name: ticket.name,
+                    description: ticketDescription,
+                    title: ticketTitle,
+                    createdAt: ticket.createdAt
+                })
+                    .then(function (response) {
+                        console.log(response);
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    })
+                return updatedTicket;
 
-        const newTicket = 
-            {
-                id: id,
-                usersName: name,
-                time: time,
-                ticketDescription: ticketDescription,
-                ticketTitle: ticketTitle,
-                isCompleted: isCompleted
-            };  
+
+            }
+
+            return ticket;
+
+        });
+
+        setTickets(newTickets);
+
+    }
+
+    // const handleFormUpdate = (e) => {
+    //     e.preventDefault();
+    //     updateTicketToCompleted();
+    //     //this handleform thing needs to go into the submit form button
+    // }
+
+    const createNewTicket = ({ name, ticketDescription, ticketTitle, isCompleted }) => {
+
+        const newTicket =
+        {
+            name: name,
+            description: ticketDescription,
+            title: ticketTitle,
+            completed: isCompleted
+        };
 
         console.log('new ticket is: ', newTicket);
         setCreatedTicket(newTicket);
-        // setTickets(tickets => [...tickets, newTicket]);
-        setQueuedTicketsList(QueuedTicketsList => [...QueuedTicketsList, newTicket]);
         console.log('updated list with new ticket: ', tickets);
     }
 
-    const deleteTicket = (id) => {
-        setQueuedTicketsList(QueuedTicketsList.filter((ticket) => ticket.id !== id));
-        // console.log(tickets)
-        }
+    // const deleteTicket = (id) => {
+    //     setTickets(tickets.filter((ticket) => ticket.id !== id));
+    // }
 
-    const changePage = ({selected}) => {
+    const [deleteTheTicket, setDeleteTheTicket] = useState(false);
+    const deleteTicket = (id) => {
+        // setCompletedTicketsList(CompletedTicketsList.filter((ticket) => ticket.id !== id))
+        // console.log(tickets)
+        setTickets(tickets.filter((ticket) => ticket.id !== id));
+        axios.delete(`http://localhost:8901/tickets/delete/${id}`)
+            .then(function (response) {
+                console.log(response);
+                setDeleteTheTicket(true);
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+
+
+
+    }
+
+    const changePage = ({ selected }) => {
         setPageNum(selected + 1);
         console.log('updated list with new ticket: ', tickets);
-        console.log('updated queued list: ', QueuedTicketsList);
     }
-    
+
 
     return (
         <>
-        <div className="queuedHeading">
-            <h2 className="header" id="create-ticket">Queued Tickets</h2>
-            <button className="btnCreate" id="create-ticket" onClick={openCreateTicketModal}>
-                Create Ticket
+            <div className="queuedHeading">
+                <h2 className="header" id="create-ticket">Queued Tickets</h2>
+                <button className="btnCreate" id="create-ticket" onClick={openCreateTicketModal}>
+                    Create Ticket
 			</button>
-    
-        </div>
-        <div className="cardGrid">
-            {
-                displayTickets.map((cardStuff) => (
-                    <CardStructure key={cardStuff.id} cardStuff={cardStuff} openTicketModal={openTicketModal} deleteTicket={deleteTicket} updateTicketToCompleted={updateTicketToCompleted}/>
-                ))
-                
-            }
-            <CardModal showTicketModal={showTicketModal} setShowTicketModal={setShowTicketModal} currentTicketModal={currentTicketModal}/>
-            <CreateTicketModal showCreateTicketModal={showCreateTicketModal} setShowCreateTicketModal={setShowCreateTicketModal} createNewTicket={createNewTicket} tickets={tickets}/>
-        </div>
-        <div className="pageArea">
-            <ReactPaginate
+
+            </div>
+            <div className="cardGrid">
+                {
+                    // tickets.filter(ticket => ticket.complete === false)
+                        displayTickets.map((cardStuff) => (
+                            <CardStructure key={cardStuff.id} cardStuff={cardStuff} openTicketModal={openTicketModal} deleteTicket={deleteTicket} updateTicketToCompleted={updateTicketToCompleted} openUpdateTicketModal={openUpdateTicketModal} />
+                        ))
+
+                }
+                <CardModal showTicketModal={showTicketModal} setShowTicketModal={setShowTicketModal} currentTicketModal={currentTicketModal} />
+                <CreateTicketModal showCreateTicketModal={showCreateTicketModal} setShowCreateTicketModal={setShowCreateTicketModal} createNewTicket={createNewTicket} tickets={tickets} />
+                <UpdateTicketModal showUpdateTicketModal={showUpdateTicketModal} setShowUpdateTicketModal={setShowUpdateTicketModal} updateTicketContents={updateTicketContents} currentTicketModal={currentTicketModal} setCurrentTicketModal={setCurrentTicketModal} ticketDescription={ticketDescription} setTicketDescription={setTicketDescription} ticketTitle={ticketTitle} setTicketTitle={setTicketTitle}/>
+            </div>
+            <div className="pageArea">
+                <ReactPaginate
                 previousLabel={"Previous"}
                 nextLabel={"Next"}
                 pageCount={numOfPages}
@@ -135,7 +219,7 @@ const QueuedTickets = ({tickets, setTickets , QueuedTicketsList, setQueuedTicket
                 activeClassName={"activePage"}
                 disabledClassName={"disabled"}
             />
-        </div>
+            </div>
         </>
 
     )
