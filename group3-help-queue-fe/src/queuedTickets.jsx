@@ -17,6 +17,11 @@ const QueuedTickets = ({ tickets, setTickets }) => {
     const [createdTicket, setCreatedTicket] = useState("");
 
 
+    const numOfTickets = tickets.length;
+    const ticketsPerPage = 4;
+    const firstTicketToDisplay = ((pageNum-1) * ticketsPerPage) + 1;
+    const displayTickets = tickets.slice((firstTicketToDisplay - 1), (firstTicketToDisplay + (ticketsPerPage - 1)));
+    const numOfPages = Math.ceil(numOfTickets/ticketsPerPage);
 
     const openTicketModal = (ticketDetails) => {
         setShowTicketModal(prev => !prev);
@@ -53,11 +58,11 @@ const QueuedTickets = ({ tickets, setTickets }) => {
                     })
                 return updatedTicket;
 
-                
+
             }
-            
+
             return ticket;
-            
+
         });
 
         setTickets(newTickets);
@@ -133,7 +138,7 @@ const QueuedTickets = ({ tickets, setTickets }) => {
             </div>
             <div className="cardGrid">
                 {
-                    tickets.filter(ticket => ticket.complete === false)
+                    displayTickets.filter(ticket => ticket.complete === false)
                         .map((cardStuff) => (
                             <CardStructure key={cardStuff.id} cardStuff={cardStuff} openTicketModal={openTicketModal} deleteTicket={deleteTicket} updateTicketToCompleted={updateTicketToCompleted} />
                         ))
@@ -143,7 +148,7 @@ const QueuedTickets = ({ tickets, setTickets }) => {
                 <CreateTicketModal showCreateTicketModal={showCreateTicketModal} setShowCreateTicketModal={setShowCreateTicketModal} createNewTicket={createNewTicket} tickets={tickets} />
             </div>
             <div className="pageArea">
-                {/* <ReactPaginate
+                <ReactPaginate
                 previousLabel={"Previous"}
                 nextLabel={"Next"}
                 pageCount={numOfPages}
@@ -153,7 +158,7 @@ const QueuedTickets = ({ tickets, setTickets }) => {
                 nextLinkClassName={"nextButton"}
                 activeClassName={"activePage"}
                 disabledClassName={"disabled"}
-            /> */}
+            />
             </div>
         </>
 
