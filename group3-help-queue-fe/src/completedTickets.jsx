@@ -16,6 +16,22 @@ const CompletedTickets = ({ tickets, setTickets }) => {
     const [createdTicket, setCreatedTicket] = useState("");
 
 
+    const CompletedTicketsList = [];
+    tickets.map((ticket) => {
+        if (ticket.complete === true) {
+            CompletedTicketsList.push(ticket);
+            // console.log('completed tickets: ', completedTicketsList);
+        }
+    })
+
+    const numOfTickets = CompletedTicketsList.length;
+    const ticketsPerPage = 4;
+    const firstTicketToDisplay = ((pageNum-1) * ticketsPerPage) + 1;
+   
+    // eg. user clicks page 2 button, we want tickets 5-8 to display.
+    // const displayTickets = tickets.slice((firstTicketToDisplay - 1), (firstTicketToDisplay + (ticketsPerPage - 1)));
+    const displayTickets = CompletedTicketsList.slice((firstTicketToDisplay - 1), (firstTicketToDisplay + (ticketsPerPage - 1)));
+    const numOfPages = Math.ceil(numOfTickets/ticketsPerPage);
 
     const openTicketModal = (ticketDetails) => {
         setShowTicketModal(prev => !prev);
@@ -63,6 +79,10 @@ const CompletedTickets = ({ tickets, setTickets }) => {
 
     }
 
+    const changePage = ({selected}) => {
+        setPageNum(selected + 1);
+    }
+
     return (
         <>
             <div className="completedHeading">
@@ -70,8 +90,8 @@ const CompletedTickets = ({ tickets, setTickets }) => {
             </div>
             <div className="cardGrid">
                 {
-                    tickets.filter(ticket => ticket.complete === true)
-                        .map((cardStuff) => (
+                    // tickets.filter(ticket => ticket.complete === true)
+                        displayTickets.map((cardStuff) => (
                             <CardStructure key={cardStuff.id} cardStuff={cardStuff} openTicketModal={openTicketModal} deleteTicket={deleteTicket} updateTicketToCompleted={updateTicketToCompleted} />
                         ))
 
@@ -79,17 +99,17 @@ const CompletedTickets = ({ tickets, setTickets }) => {
                 <CardModal showTicketModal={showTicketModal} setShowTicketModal={setShowTicketModal} currentTicketModal={currentTicketModal} />
             </div>
             <div className="pageArea">
-                {/* <ReactPaginate
-                // previousLabel={"Previous"}
-                // nextLabel={"Next"}
-                // pageCount={numOfPages}
-                // onPageChange={changePage}
-                // containerClassName={"pageButtons"}
-                // previousLinkClassName={"previousButton"}
-                // nextLinkClassName={"nextButton"}
-                // activeClassName={"activePage"}
-                // disabledClassName={"disabled"}
-                /> */}
+                <ReactPaginate
+                previousLabel={"Previous"}
+                nextLabel={"Next"}
+                pageCount={numOfPages}
+                onPageChange={changePage}
+                containerClassName={"pageButtons"}
+                previousLinkClassName={"previousButton"}
+                nextLinkClassName={"nextButton"}
+                activeClassName={"activePage"}
+                disabledClassName={"disabled"}
+                />
             </div>
         </>
     )
