@@ -1,95 +1,69 @@
 import './App.css';
-import CompletedTickets from './completedTickets';
-import QueuedTickets from './queuedTickets';
-import WelcomeUser from './welcomeUser';
-import { useState } from 'react';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import Main from './main';
+import './Tickets.css';
 
 function App() {
 
-  const [tickets, setTickets] = useState([
-    {
+  const [tickets, setTickets] = useState([])
+  // const [queueTest, setQueueTest] = useState([])
+  // setting out error obj
+  const [error, setError] = useState(null);
+  // loading...
+  const [isLoaded, setIsLoaded] = useState(false);
 
-      id: 1,
-      usersName: "Luke Foster",
-      time: "17:14",
-      ticketDescription: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error perferendis porro consequuntur illum omnis quas ex incidunt eius eos sed magni earum iusto maiores laboriosam numquam maxime, quidem nobis sint.",
-      ticketTitle: "Docker Problem",
-      isCompleted: "false"
-    },
-    {
-      id: 2,
-      usersName: "Jack Smith",
-      time: "17:36",
-      ticketDescription: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error perferendis porro consequuntur illum omnis quas ex incidunt eius eos sed magni earum iusto maiores laboriosam numquam maxime, quidem nobis sint.",
-      ticketTitle: "Terraform Problem",
-      isCompleted: "false"
-    },
-    {
-      id: 3,
-      usersName: "Ben Wellens",
-      time: "11:25",
-      ticketDescription: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error perferendis porro consequuntur illum omnis quas ex incidunt eius eos sed magni earum iusto maiores laboriosam numquam maxime, quidem nobis sint.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error perferendis porro consequuntur illum omnis quas ex incidunt eius eos sed magni earum iusto maiores laboriosam numquam maxime, quidem nobis sint",
-      ticketTitle: "Login Problem",
-      isCompleted: "false"
-    },
-    {
-      id: 4,
-      usersName: "Sam Matterson",
-      time: "14:52",
-      ticketDescription: "Lorem ipsum dolor sit",
-      ticketTitle: "500 Server error",
-      isCompleted: "false"
-    },
-    {
+  useEffect(() => {
+    setTimeout(() => {
+      const header = { "Access-Control-Allow-Origin": "*" };
+      axios
+        .get(`http://localhost:8901/tickets/readAll`, { header })
+        .then((response) => {
+          console.log(response);
+          console.log('response.data', response.data);
+          setIsLoaded(true);
+          setTickets(response.data)
+          // setQueueTest(response.data)
+          // {
+          //   (response.data).filter(ticket => ticket.complete === false).map((cardStuff) => (
+          //   setQueueTest([...queueTest, cardStuff])              
+          // ))
+          // }
+          // console.log('get data received:', tickets)
+        })
+        .catch((error) => {
+          setIsLoaded(true);
+          setError(error);
+        })
+    }, 2000)
 
-      id: 5,
-      usersName: "Amy Lawson",
-      time: "17:18",
-      ticketDescription: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error perferendis porro consequuntur illum omnis quas ex incidunt eius eos sed magni earum iusto maiores laboriosam numquam maxime, quidem nobis sint.",
-      ticketTitle: "Docker Problem 2",
-      isCompleted: "false"
 
-    },
-    {
-      id: 6,
-      usersName: "Jack Wellens",
-      time: "17:38",
-      ticketDescription: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error perferendis porro consequuntur illum omnis quas ex incidunt eius eos sed magni earum iusto maiores laboriosam numquam maxime, quidem nobis sint.",
-      ticketTitle: "Terraform Problem 2",
-      isCompleted: "true"
-    },
-    {
-      id: 7,
-      usersName: "Lee Richards",
-      time: "11:30",
-      ticketDescription: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error perferendis porro consequuntur illum omnis quas ex incidunt eius eos sed magni earum iusto maiores laboriosam numquam maxime, quidem nobis sint.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error perferendis porro consequuntur illum omnis quas ex incidunt eius eos sed magni earum iusto maiores laboriosam numquam maxime, quidem nobis sint",
-      ticketTitle: "Login Problem 2",
-      isCompleted: "false"
-    },
-    {
-      id: 8,
-      usersName: "Peter Matterson",
-      time: "18:52",
-      ticketDescription: "Lorem ipsum dolor sit",
-      ticketTitle: "500 Server error 2",
-      isCompleted: "true"
-    }
-  ])
+  }, [tickets])
+  // console.log('tickets outside of use effect: ', tickets)
+  // const [queueTest, setQueueTest] = useState([]);
+  // setQueueTest(tickets)
 
-  const [QueuedTicketsList, setQueuedTicketsList] = useState(tickets.filter((ticket) => ticket.isCompleted === "false"));
-  const [CompletedTicketsList, setCompletedTicketsList] = useState(tickets.filter((ticket) => ticket.isCompleted === "true"));
+  // console.log('queued list updated: ', queueTest)
 
-  return (
-    <div className="screenDiv">
-      <WelcomeUser />
-      <div className="queue">
-        <QueuedTickets tickets={tickets} setTickets={setTickets} QueuedTicketsList={QueuedTicketsList} setQueuedTicketsList={setQueuedTicketsList} CompletedTicketsList={CompletedTicketsList} setCompletedTicketsList={setCompletedTicketsList}/>
+
+
+  if (error) {
+    return <h1>Something went wrong. Error: {error.message}</h1>
+  } else if (!isLoaded) {
+    return (
+      <>
+        <p>Please wait.... we are getting your request</p>
+      </>
+    )
+  } else {
+
+    return (
+
+      <div className="screenDiv">
+      <h1>Welcome Group 3!</h1>
+      <Main tickets={tickets} setTickets={setTickets} />
       </div>
-      <div className="completed">
-        <CompletedTickets tickets={tickets} setTickets={setTickets} CompletedTicketsList={CompletedTicketsList} setCompletedTicketsList={setCompletedTicketsList}/>
-      </div>
-    </div>
-  );
+    );
+  }
 }
-
 export default App;
