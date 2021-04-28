@@ -31,12 +31,12 @@ const QueuedTickets = ({ tickets, setTickets }) => {
 
     const numOfTickets = QueuedTicketsList.length;
     const ticketsPerPage = 4;
-    const firstTicketToDisplay = ((pageNum-1) * ticketsPerPage) + 1;
+    const firstTicketToDisplay = ((pageNum - 1) * ticketsPerPage) + 1;
 
     // eg. user clicks page 2 button, we want tickets 5-8 to display.
     // const displayTickets = tickets.slice((firstTicketToDisplay - 1), (firstTicketToDisplay + (ticketsPerPage - 1)));
     const displayTickets = QueuedTicketsList.slice((firstTicketToDisplay - 1), (firstTicketToDisplay + (ticketsPerPage - 1)));
-    const numOfPages = Math.ceil(numOfTickets/ticketsPerPage);
+    const numOfPages = Math.ceil(numOfTickets / ticketsPerPage);
 
 
     const openTicketModal = (ticketDetails) => {
@@ -50,14 +50,14 @@ const QueuedTickets = ({ tickets, setTickets }) => {
     }
 
     const openUpdateTicketModal = (ticketDetails) => {
-        console.log('ticket being passed back: ', ticketDetails);
+        // console.log('ticket being passed back: ', ticketDetails);
         setShowUpdateTicketModal(prev => !prev);
         setCurrentTicketModal(ticketDetails);
         setTicketDescription(ticketDetails.description);
         setTicketTitle(ticketDetails.title);
-        console.log('ticket description use state: ', ticketDescription);
-        console.log('ticket ticket title :', ticketTitle);
-        console.log('object in current ticket modal: ', currentTicketModal);
+        // console.log('ticket description use state: ', ticketDescription);
+        // console.log('ticket ticket title :', ticketTitle);
+        // console.log('object in current ticket modal: ', currentTicketModal);
     }
 
     const updateTicketToCompleted = (id) => {
@@ -96,7 +96,7 @@ const QueuedTickets = ({ tickets, setTickets }) => {
 
     }
 
-    const updateTicketContents = ({ ticketDescription, ticketTitle, currentTicketModal}) => {
+    const updateTicketContents = ({ ticketDescription, ticketTitle, currentTicketModal }) => {
         // openUpdateTicketModal();
         const ticketToChange = tickets.filter((ticket) => ticket.id === currentTicketModal.id);
         console.log('ticket you clicked edit on:', ticketToChange);
@@ -143,19 +143,33 @@ const QueuedTickets = ({ tickets, setTickets }) => {
     //     //this handleform thing needs to go into the submit form button
     // }
 
-    const createNewTicket = ({ name, ticketDescription, ticketTitle, isCompleted }) => {
+    const createNewTicket = ({ name, ticketDescription, ticketTitle }) => {
 
-        const newTicket =
-        {
+        // const newTicket =
+        // {
+        //     name: name,
+        //     description: ticketDescription,
+        //     title: ticketTitle,
+        //     completed: false
+        // };
+
+        // console.log('new ticket is: ', newTicket);
+        // setCreatedTicket(newTicket);
+        // console.log('updated list with new ticket: ', tickets);
+
+        axios.post(`http://localhost:8901/tickets/create`, {
+            complete: false,
             name: name,
             description: ticketDescription,
             title: ticketTitle,
-            completed: isCompleted
-        };
+        })
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
 
-        console.log('new ticket is: ', newTicket);
-        setCreatedTicket(newTicket);
-        console.log('updated list with new ticket: ', tickets);
     }
 
     // const deleteTicket = (id) => {
@@ -198,27 +212,27 @@ const QueuedTickets = ({ tickets, setTickets }) => {
             <div className="cardGrid">
                 {
                     // tickets.filter(ticket => ticket.complete === false)
-                        displayTickets.map((cardStuff) => (
-                            <CardStructure key={cardStuff.id} cardStuff={cardStuff} openTicketModal={openTicketModal} deleteTicket={deleteTicket} updateTicketToCompleted={updateTicketToCompleted} openUpdateTicketModal={openUpdateTicketModal} />
-                        ))
+                    displayTickets.map((cardStuff) => (
+                        <CardStructure key={cardStuff.id} cardStuff={cardStuff} openTicketModal={openTicketModal} deleteTicket={deleteTicket} updateTicketToCompleted={updateTicketToCompleted} openUpdateTicketModal={openUpdateTicketModal} />
+                    ))
 
                 }
                 <CardModal showTicketModal={showTicketModal} setShowTicketModal={setShowTicketModal} currentTicketModal={currentTicketModal} />
                 <CreateTicketModal showCreateTicketModal={showCreateTicketModal} setShowCreateTicketModal={setShowCreateTicketModal} createNewTicket={createNewTicket} tickets={tickets} />
-                <UpdateTicketModal showUpdateTicketModal={showUpdateTicketModal} setShowUpdateTicketModal={setShowUpdateTicketModal} updateTicketContents={updateTicketContents} currentTicketModal={currentTicketModal} setCurrentTicketModal={setCurrentTicketModal} ticketDescription={ticketDescription} setTicketDescription={setTicketDescription} ticketTitle={ticketTitle} setTicketTitle={setTicketTitle}/>
+                <UpdateTicketModal showUpdateTicketModal={showUpdateTicketModal} setShowUpdateTicketModal={setShowUpdateTicketModal} updateTicketContents={updateTicketContents} currentTicketModal={currentTicketModal} setCurrentTicketModal={setCurrentTicketModal} ticketDescription={ticketDescription} setTicketDescription={setTicketDescription} ticketTitle={ticketTitle} setTicketTitle={setTicketTitle} />
             </div>
             <div className="pageArea">
                 <ReactPaginate
-                previousLabel={"Previous"}
-                nextLabel={"Next"}
-                pageCount={numOfPages}
-                onPageChange={changePage}
-                containerClassName={"pageButtons"}
-                previousLinkClassName={"previousButton"}
-                nextLinkClassName={"nextButton"}
-                activeClassName={"activePage"}
-                disabledClassName={"disabled"}
-            />
+                    previousLabel={"Previous"}
+                    nextLabel={"Next"}
+                    pageCount={numOfPages}
+                    onPageChange={changePage}
+                    containerClassName={"pageButtons"}
+                    previousLinkClassName={"previousButton"}
+                    nextLinkClassName={"nextButton"}
+                    activeClassName={"activePage"}
+                    disabledClassName={"disabled"}
+                />
             </div>
         </>
 
