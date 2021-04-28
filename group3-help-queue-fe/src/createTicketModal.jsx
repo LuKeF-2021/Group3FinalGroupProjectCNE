@@ -6,12 +6,12 @@ import { HiX } from "react-icons/hi";
 
 export const CreateTicketModal = ({ showCreateTicketModal, setShowCreateTicketModal, tickets, createNewTicket}) => {
 
-    const [id, setId] = useState(0);
+    // const [id, setId] = useState(0);
     const [name, setName] = useState('');
-    const [time, setTime] = useState('15:12');
+    // const [time, setTime] = useState('15:12');
     const [ticketDescription, setTicketDescription] = useState('');
     const [ticketTitle, setTicketTitle] = useState('');
-    const [isCompleted, setIsCompleted] = useState(false);
+    // const [isCompleted, setIsCompleted] = useState(false);
 
 
     const onSubmit = (e) => {
@@ -28,9 +28,9 @@ export const CreateTicketModal = ({ showCreateTicketModal, setShowCreateTicketMo
             return
         }
 
-        setId(tickets.length + 1);
-        setIsCompleted(false);
-        createNewTicket({ id, name, time, ticketDescription, ticketTitle, isCompleted })
+        // setId(tickets.length + 1);
+        // setIsCompleted(false);
+        createNewTicket({ name, ticketDescription, ticketTitle })
         setShowCreateTicketModal(prev => !prev);
 
         setName('');
