@@ -1,8 +1,7 @@
-package com.qa.deleteticketservice.service;
+package com.qa.readticketservice.service;
 
-
-import com.qa.deleteticketservice.persistence.domain.Ticket;
-import com.qa.deleteticketservice.persistence.repo.TicketRepo;
+import com.qa.readticketservice.persistence.domain.Ticket;
+import com.qa.readticketservice.persistence.repo.TicketRepo;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -13,28 +12,27 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
-import static org.assertj.core.api.Assertions.*;
 import static org.mockito.Mockito.*;
+import static org.assertj.core.api.Assertions.*;
 
 @SpringBootTest
 @ActiveProfiles(profiles = "test")
-public class DeleteTicketServiceUnitTest {
+public class ReadTicketServiceUnitTest {
     @Autowired
-    private DeleteTicketService service;
+    private ReadTicketService service;
 
     @MockBean
     private TicketRepo repo;
 
-
     private final static LocalDateTime DATE_TIME = LocalDateTime.of(2010, 2, 11,11,30);
     private final Ticket TICKET1 = new Ticket(1L,"Name Naming", DATE_TIME, "Description of ticket","Title of ticket", false);
+    private final Ticket TICKET2 = new Ticket(2L,"Name2", DATE_TIME, "Name description","hjsdfklgjsdlfkjsd", false);
 
     @Test
-    void testDelete(){
+    void testReadById(){
         when(this.repo.findById(TICKET1.getId())).thenReturn(Optional.of(TICKET1));
-        assertThat(this.service.deleteById(TICKET1.getId())).isEqualTo(true);
+        assertThat(this.service.readById(TICKET1.getId())).isEqualTo(TICKET1);
         verify(this.repo, times(1)).findById(TICKET1.getId());
-        verify(this.repo, times(1)).deleteById(TICKET1.getId());
-
     }
+
 }
