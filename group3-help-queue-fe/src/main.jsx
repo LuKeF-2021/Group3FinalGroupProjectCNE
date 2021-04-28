@@ -3,7 +3,7 @@ import CompletedTickets from './completedTickets';
 import { useEffect, useState } from 'react';
 import './App.css';
 
-const Main = ({ tickets, setTickets, queueTest, setQueueTest }) => {
+const Main = ({ tickets, setTickets }) => {
 
     const [queuedTicketsList, setQueuedTicketsList] = useState([]);
     // const [CompletedTicketsList, setCompletedTicketsList] = useState([]);
@@ -16,10 +16,17 @@ const Main = ({ tickets, setTickets, queueTest, setQueueTest }) => {
     // console.log('queue list on load: ', queueTest)
     // }, [])
 
+    const makeQueuedList = () => {
+    setQueuedTicketsList(tickets.filter((ticket) => ticket.complete === false))
+    console.log('queue list after function: ', queuedTicketsList)
+    }
+
+    makeQueuedList();
+    
     return (
         <>
             <div className="queue">
-                <QueuedTickets tickets={tickets} setTickets={setTickets} queueTest={queueTest} setQueueTest={setQueueTest}/>
+                <QueuedTickets tickets={tickets} setTickets={setTickets} />
             </div>
             <div className="completed">
                 <CompletedTickets tickets={tickets} setTickets={setTickets} />
