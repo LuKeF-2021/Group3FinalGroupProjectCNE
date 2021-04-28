@@ -87,6 +87,7 @@ button:active {
 	border: 1px solid black;
 	border-radius: 10px;
 	background-color: #B2ACAB;
+	/* background-color: white; */
 	/* border: 1px solid blue; */
   }
 
@@ -122,6 +123,7 @@ button:active {
 }
 
 .modalPopup{
+	background-color: white;
 	width: 90%;
 	height: 80%;
 	position: absolute;
@@ -139,7 +141,7 @@ button:active {
 	height: 100%;
 	border: 1px solid black;
 	border-radius: 10px;
-	background-color: #B2ACAB;
+	background-color: white;
 }
 
 .createCardModal {
@@ -147,7 +149,8 @@ button:active {
 	height: 100%;
 	border: 1px solid black;
 	border-radius: 10px;
-	background-color: #B2ACAB;
+	/* background-color: #B2ACAB; */
+	background-color: white;
 }
 
 .column {

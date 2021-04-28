@@ -14,7 +14,6 @@ function App() {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => {
       const header = { "Access-Control-Allow-Origin": "*" };
       axios
         .get(`http://localhost:8901/tickets/readAll`, { header })
@@ -34,8 +33,8 @@ function App() {
         .catch((error) => {
           setIsLoaded(true);
           setError(error);
-        })
-    }, 2000)
+        
+    })
 
 
   }, [tickets])
