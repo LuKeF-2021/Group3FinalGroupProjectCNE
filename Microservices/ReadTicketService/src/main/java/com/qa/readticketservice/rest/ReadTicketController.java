@@ -24,5 +24,4 @@ public class ReadTicketController {
     public ResponseEntity<Ticket> readById(@PathVariable Long id){
         return ResponseEntity.ok(this.service.readById(id));
     }
-
 }
