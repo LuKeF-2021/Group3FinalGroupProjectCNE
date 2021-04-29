@@ -31,6 +31,9 @@ public class UpdateTicketService {
 			toUpdate.setDescription(ticket.getDescription());
 			toUpdate.setTitle(ticket.getTitle());
 			toUpdate.setComplete(ticket.getComplete());
+			toUpdate.setSolution(ticket.getSolution());
+			toUpdate.setUrgency(ticket.getUrgency());
+			toUpdate.setCohort(ticket.getCohort());
 			return this.repo.save(toUpdate);
 		}
 		return null;

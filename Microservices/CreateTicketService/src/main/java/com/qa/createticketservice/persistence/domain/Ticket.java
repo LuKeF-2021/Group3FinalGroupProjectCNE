@@ -34,12 +34,13 @@ public class Ticket {
     @Column(name = "complete")
     private Boolean complete;
 
-    public Ticket(String name, String description, String title, Boolean complete) {
-        super();
-        this.name = name;
-        this.description = description;
-        this.title = title;
-        this.complete = complete;
-    }
+    @Column(name = "solution")
+    private String solution;
+
+    @Column(name = "urgency")
+    private String urgency;
+
+    @Column(name = "cohort")
+    private String cohort;
 
 }

@@ -49,9 +49,9 @@ public class CreateTicketControllerIntegrationTest {
 
     private final static LocalDateTime DATE_TIME = LocalDateTime.now().withNano(0).withSecond(0);
 
-    private final Ticket TICKET1 = new Ticket(1L, "Name Naming", DATE_TIME, "Description of ticket", "Title of ticket", false);
-    private final Ticket TICKET2 = new Ticket(2L, "Name2", DATE_TIME, "Name description", "hjsdfklgjsdlfkjsd", false);
-    private final Ticket TICKET3 = new Ticket(3L, "sdfsdf", DATE_TIME, "Name dfgdfgdfg", "asdasda", false);
+    private final Ticket TICKET1 = new Ticket(1L, "Name Naming", DATE_TIME, "Description of ticket", "Title of ticket", false, "This is a new solution", "Medium", "Cohort2");
+    private final Ticket TICKET2 = new Ticket(2L, "Name2", DATE_TIME, "Name description", "hjsdfklgjsdlfkjsd", false, "This is a new solution", "Medium", "Cohort2");
+    private final Ticket TICKET3 = new Ticket(3L, "sdfsdf", DATE_TIME, "Name dfgdfgdfg", "asdasda", false, "This is a new solution", "Medium", "Cohort2");
 
 
     private final List<Ticket> TICKETS_LIST = List.of(TICKET1, TICKET2);
