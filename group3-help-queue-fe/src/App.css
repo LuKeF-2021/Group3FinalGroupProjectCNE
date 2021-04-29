@@ -8,6 +8,26 @@
   text-align: center;
 }
 
+.filterDropdown {
+  position: absolute;
+  top: 20px;
+  right: 0px;
+  bottom: 0px;
+  left: 450px;
+  height: 5%;
+  width: 12%;
+}
+
+#filterText{
+  position: absolute;
+  top: 4px;
+  right: 0px;
+  bottom: 0px;
+  left: -1050px;
+  font-size: x-large;
+  color: #004050;
+}
+
 .queue {
   width: 45%;
   height: 80%;

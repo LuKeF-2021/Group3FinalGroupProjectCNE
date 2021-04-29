@@ -7,7 +7,6 @@ import './Tickets.css';
 function App() {
 
   const [tickets, setTickets] = useState([])
-  // const [queueTest, setQueueTest] = useState([])
   // setting out error obj
   const [error, setError] = useState(null);
   // loading...
