@@ -23,22 +23,29 @@ const QueuedTickets = ({ tickets, setTickets }) => {
     // const [createdTicket, setCreatedTicket] = useState("");
 
 
-    const QueuedTicketsList = [];
-    tickets.map((ticket) => {
-        if (ticket.complete === false) {
-            QueuedTicketsList.push(ticket);
-            console.log('queued tickets: ', QueuedTicketsList);
-        }
-    })
+    // const QueuedTicketsList = [];
+    // tickets.map((ticket) => {
+    //     if (ticket.complete === false) {
+    //         QueuedTicketsList.push(ticket);
+    //         console.log('queued tickets: ', QueuedTicketsList);
+    //     }
+    // })
 
-    const numOfTickets = QueuedTicketsList.length;
+    // const numOfTickets = QueuedTicketsList.length;
+    // const ticketsPerPage = 4;
+    // const firstTicketToDisplay = ((pageNum - 1) * ticketsPerPage) + 1;
+
+    // // eg. user clicks page 2 button, we want tickets 5-8 to display.
+    // const displayTickets = QueuedTicketsList.slice((firstTicketToDisplay - 1), (firstTicketToDisplay + (ticketsPerPage - 1)));
+    // const numOfPages = Math.ceil(numOfTickets / ticketsPerPage);
+
+    const numOfTickets = tickets.length;
     const ticketsPerPage = 4;
     const firstTicketToDisplay = ((pageNum - 1) * ticketsPerPage) + 1;
 
     // eg. user clicks page 2 button, we want tickets 5-8 to display.
-    const displayTickets = QueuedTicketsList.slice((firstTicketToDisplay - 1), (firstTicketToDisplay + (ticketsPerPage - 1)));
+    const displayTickets = tickets.slice((firstTicketToDisplay - 1), (firstTicketToDisplay + (ticketsPerPage - 1)));
     const numOfPages = Math.ceil(numOfTickets / ticketsPerPage);
-
 
     const openTicketModal = (ticketDetails) => {
         setShowTicketModal(prev => !prev);

@@ -14,21 +14,30 @@ const CompletedTickets = ({ tickets, setTickets }) => {
     const [pageNum, setPageNum] = useState(1);
 
 
-    const CompletedTicketsList = [];
-    tickets.map((ticket) => {
-        if (ticket.complete === true) {
-            CompletedTicketsList.push(ticket);
-            // console.log('completed tickets: ', completedTicketsList);
-        }
-    })
+    // const CompletedTicketsList = [];
+    // tickets.map((ticket) => {
+    //     if (ticket.complete === true) {
+    //         CompletedTicketsList.push(ticket);
+    //         // console.log('completed tickets: ', completedTicketsList);
+    //     }
+    // })
 
-    const numOfTickets = CompletedTicketsList.length;
-    const ticketsPerPage = 4;
-    const firstTicketToDisplay = ((pageNum-1) * ticketsPerPage) + 1;
+    // const numOfTickets = CompletedTicketsList.length;
+    // const ticketsPerPage = 4;
+    // const firstTicketToDisplay = ((pageNum-1) * ticketsPerPage) + 1;
    
+    // // eg. user clicks page 2 button, we want tickets 5-8 to display.
+    // const displayTickets = CompletedTicketsList.slice((firstTicketToDisplay - 1), (firstTicketToDisplay + (ticketsPerPage - 1)));
+    // const numOfPages = Math.ceil(numOfTickets/ticketsPerPage);
+
+    const numOfTickets = tickets.length;
+    const ticketsPerPage = 4;
+    const firstTicketToDisplay = ((pageNum - 1) * ticketsPerPage) + 1;
+
     // eg. user clicks page 2 button, we want tickets 5-8 to display.
-    const displayTickets = CompletedTicketsList.slice((firstTicketToDisplay - 1), (firstTicketToDisplay + (ticketsPerPage - 1)));
-    const numOfPages = Math.ceil(numOfTickets/ticketsPerPage);
+    const displayTickets = tickets.slice((firstTicketToDisplay - 1), (firstTicketToDisplay + (ticketsPerPage - 1)));
+    const numOfPages = Math.ceil(numOfTickets / ticketsPerPage);
+
 
     const openTicketModal = (ticketDetails) => {
         setShowTicketModal(prev => !prev);
