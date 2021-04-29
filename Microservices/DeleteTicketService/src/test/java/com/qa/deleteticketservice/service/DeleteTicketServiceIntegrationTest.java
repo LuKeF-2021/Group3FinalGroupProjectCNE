@@ -35,7 +35,7 @@ public class DeleteTicketServiceIntegrationTest {
 
     private final static LocalDateTime DATE_TIME = LocalDateTime.of(2010, 2, 11,11,30);
 
-    private final Ticket TICKET1 = new Ticket(2L,"Name Naming", DATE_TIME, "Description of ticket","Title of ticket", false);
+    private final Ticket TICKET1 = new Ticket(2L,"Name Naming", DATE_TIME, "Description of ticket","Title of ticket", false, "This is a new solution", "Medium", "Cohort2");
 
     private final List<Ticket> TICKETS_LIST = List.of(TICKET1);
 
