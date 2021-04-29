@@ -7,6 +7,7 @@ import axios from 'axios';
 import CardStructure from './cardStructure';
 import './Tickets.css';
 import { UpdateTicketModal } from './updateTicketModal';
+import { SolutionModal } from './solutionModal';
 
 
 const QueuedTickets = ({ tickets, setTickets }) => {
@@ -14,6 +15,7 @@ const QueuedTickets = ({ tickets, setTickets }) => {
     const [showCreateTicketModal, setShowCreateTicketModal] = useState(false);
     const [showUpdateTicketModal, setShowUpdateTicketModal] = useState(false);
     const [showTicketModal, setShowTicketModal] = useState(false);
+    const [showSolutionModal, setShowSolutionModal] = useState(false);
     const [currentTicketModal, setCurrentTicketModal] = useState([]);
     const [ticketDescription, setTicketDescription] = useState('');
     const [ticketTitle, setTicketTitle] = useState('');
@@ -54,23 +56,28 @@ const QueuedTickets = ({ tickets, setTickets }) => {
         setTicketTitle(ticketDetails.title);
     }
 
-    const updateTicketToCompleted = (cardStuff) => {
-        
-                axios.put(`http://localhost:8901/tickets/update/${cardStuff.id}`, {
-                    complete: true,
-                    name: cardStuff.name,
-                    description: cardStuff.description,
-                    title: cardStuff.title,
-                    createdAt: cardStuff.createdAt
-                })
-                    .then(function (response) {
-                        console.log(response);
-                    })
-                    .catch(function (error) {
-                        console.log(error);
-                    })
-
+    const openSolutionModal = (ticketDetails) => {
+        setShowSolutionModal(prev => !prev);
+        setCurrentTicketModal(ticketDetails);
     }
+
+    // const updateTicketToCompleted = (cardStuff) => {
+        
+    //             axios.put(`http://localhost:8901/tickets/update/${cardStuff.id}`, {
+    //                 complete: true,
+    //                 name: cardStuff.name,
+    //                 description: cardStuff.description,
+    //                 title: cardStuff.title,
+    //                 createdAt: cardStuff.createdAt
+    //             })
+    //                 .then(function (response) {
+    //                     console.log(response);
+    //                 })
+    //                 .catch(function (error) {
+    //                     console.log(error);
+    //                 })
+
+    // }
 
     const updateTicketContents = ({ ticketDescription, ticketTitle, currentTicketModal }) => {
        
@@ -89,6 +96,24 @@ const QueuedTickets = ({ tickets, setTickets }) => {
                     })
 
     }
+
+    const updateTicketWithSolution = ({ solution, currentTicketModal }) => {
+       
+        axios.put(`http://localhost:8901/tickets/update/${currentTicketModal.id}`, {
+            complete: true,
+            name: currentTicketModal.name,
+            description: currentTicketModal.description,
+            title: currentTicketModal.title,
+            solution: solution
+        })
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+
+}
 
 
     const createNewTicket = ({ name, ticketDescription, ticketTitle }) => {
@@ -141,13 +166,14 @@ const QueuedTickets = ({ tickets, setTickets }) => {
                 {
                     // tickets.filter(ticket => ticket.complete === false)
                     displayTickets.map((cardStuff) => (
-                        <CardStructure key={cardStuff.id} cardStuff={cardStuff} openTicketModal={openTicketModal} deleteTicket={deleteTicket} updateTicketToCompleted={updateTicketToCompleted} openUpdateTicketModal={openUpdateTicketModal} />
+                        <CardStructure key={cardStuff.id} cardStuff={cardStuff} openTicketModal={openTicketModal} deleteTicket={deleteTicket} openUpdateTicketModal={openUpdateTicketModal} openSolutionModal={openSolutionModal}/>
                     ))
 
                 }
                 <CardModal showTicketModal={showTicketModal} setShowTicketModal={setShowTicketModal} currentTicketModal={currentTicketModal} />
                 <CreateTicketModal showCreateTicketModal={showCreateTicketModal} setShowCreateTicketModal={setShowCreateTicketModal} createNewTicket={createNewTicket} tickets={tickets} />
                 <UpdateTicketModal showUpdateTicketModal={showUpdateTicketModal} setShowUpdateTicketModal={setShowUpdateTicketModal} updateTicketContents={updateTicketContents} currentTicketModal={currentTicketModal} setCurrentTicketModal={setCurrentTicketModal} ticketDescription={ticketDescription} setTicketDescription={setTicketDescription} ticketTitle={ticketTitle} setTicketTitle={setTicketTitle} />
+                <SolutionModal showSolutionModal={showSolutionModal} setShowSolutionModal={setShowSolutionModal} currentTicketModal={currentTicketModal} updateTicketWithSolution={updateTicketWithSolution}/>
             </div>
             <div className="pageArea">
                 <ReactPaginate
