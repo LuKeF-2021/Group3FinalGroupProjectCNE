@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`It should take a snapshot every time it's redered 1`] = `
+<p>
+  Please wait.... we are getting your request
+</p>
+`;
+
+exports[`Take a snapshot each time it is rendered 1`] = `
+<p>
+  Please wait.... we are getting your request
+</p>
+`;
