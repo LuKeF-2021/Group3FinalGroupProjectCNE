@@ -41,9 +41,9 @@ public class UpdateTicketServiceIntegrationTest {
 
     private final static LocalDateTime DATE_TIME = LocalDateTime.of(2010, 2, 11,11,30);
 
-    private final Ticket TICKET1 = new Ticket(1L,"Name Naming", DATE_TIME, "Description of ticket","Title of ticket", false);
+    private final Ticket TICKET1 = new Ticket(1L,"Name Naming", DATE_TIME, "Description of ticket","Title of ticket", false, "This is a solution", "Low", "Cohort");
 
-    private final Ticket TICKET1_CHANGE = new Ticket(1L,"Name2", DATE_TIME, "Name description","hjsdfklgjsdlfkjsd", false);
+    private final Ticket TICKET1_CHANGE = new Ticket(1L,"Name2", DATE_TIME, "Name description","hjsdfklgjsdlfkjsd", false, "This is a new solution", "Medium", "Cohort2");
 
     private final List<Ticket> TICKETS_LIST = List.of(TICKET1);
 

@@ -34,5 +34,14 @@ public class Ticket {
 	@Column(name = "complete")
 	private Boolean complete;
 
+	@Column(name = "solution")
+	private String solution;
+
+	@Column(name = "urgency")
+	private String urgency;
+
+	@Column(name = "cohort")
+	private String cohort;
+
 
 }

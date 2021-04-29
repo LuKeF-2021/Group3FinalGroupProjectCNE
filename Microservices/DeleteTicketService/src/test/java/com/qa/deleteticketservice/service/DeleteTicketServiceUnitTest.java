@@ -27,7 +27,7 @@ public class DeleteTicketServiceUnitTest {
 
 
     private final static LocalDateTime DATE_TIME = LocalDateTime.of(2010, 2, 11,11,30);
-    private final Ticket TICKET1 = new Ticket(1L,"Name Naming", DATE_TIME, "Description of ticket","Title of ticket", false);
+    private final Ticket TICKET1 = new Ticket(1L,"Name Naming", DATE_TIME, "Description of ticket","Title of ticket", false, "This is a new solution", "Medium", "Cohort2");
 
     @Test
     void testDelete(){
