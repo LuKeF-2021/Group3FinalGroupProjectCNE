@@ -4,7 +4,7 @@ import { HiX } from "react-icons/hi";
 import { HiOutlineArrowsExpand } from "react-icons/hi";
 
 
-const CardStructure = ({ cardStuff, openTicketModal, deleteTicket, updateTicketToCompleted, openUpdateTicketModal }) => {
+const CardStructure = ({ cardStuff, openTicketModal, deleteTicket, openUpdateTicketModal, openSolutionModal }) => {
     
     const temp = cardStuff.createdAt;
     const timeFormat = (temp.substring(8,10)) + '/' + (temp.substring(5,7)) + '  ' + (temp.substring(11,16));
@@ -28,7 +28,7 @@ const CardStructure = ({ cardStuff, openTicketModal, deleteTicket, updateTicketT
                     <div className="ticket-user-time"><h3 className="inline">{cardStuff.name}</h3>      <p className="inline">{timeFormat}</p><HiOutlineArrowsExpand style={{ verticalAlign: 'middle' }} size={28} className="expand" onClick={() => openTicketModal(cardStuff)} /></div>
                     <div className="ticket-description"><h3>{cardStuff.title}</h3><p>{cardStuff.description}</p></div>
                     <div className="card-actions">
-                        <HiCheck style={{ verticalAlign: 'middle' }} size={28} className="check" onClick={() => updateTicketToCompleted(cardStuff)} />
+                        <HiCheck style={{ verticalAlign: 'middle' }} size={28} className="check" onClick={() => openSolutionModal(cardStuff)} />
                         <HiPencil style={{ verticalAlign: 'middle' }} size={28} className="editButton" onClick={() => openUpdateTicketModal(cardStuff)}/>
                         <HiX style={{ verticalAlign: 'middle' }} size={28} className="cross" onClick={() => deleteTicket(cardStuff.id)} />
                     </div>
