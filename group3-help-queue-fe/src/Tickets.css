@@ -279,3 +279,19 @@ textarea{
 	border-radius: 4px;
 	font-family: Verdana;
 }
+
+select{
+	width: 20% ;
+	padding: 6px;
+	border: 1px solid black; 
+	border-radius: 4px;
+	box-sizing: border-box;
+	font-family: Verdana;
+	font-size: medium;
+}
+
+.inline-right{
+	position: absolute;
+	top: -6px;
+	right: 70px;
+}
