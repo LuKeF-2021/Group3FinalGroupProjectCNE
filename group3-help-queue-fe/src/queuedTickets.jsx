@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CardModal } from './cardModal';
+import CardModal from './cardModal';
 import { CreateTicketModal } from './createTicketModal';
 import ReactPaginate from 'react-paginate';
 import axios from 'axios';
@@ -86,7 +86,7 @@ const QueuedTickets = ({ tickets, setTickets }) => {
                     name: currentTicketModal.name,
                     description: ticketDescription,
                     title: ticketTitle,
-                    
+                    urgency: currentTicketModal.urgency
                 })
                     .then(function (response) {
                         console.log(response);
@@ -104,7 +104,8 @@ const QueuedTickets = ({ tickets, setTickets }) => {
             name: currentTicketModal.name,
             description: currentTicketModal.description,
             title: currentTicketModal.title,
-            solution: solution
+            solution: solution,
+            urgency: currentTicketModal.urgency
         })
             .then(function (response) {
                 console.log(response);
@@ -116,13 +117,14 @@ const QueuedTickets = ({ tickets, setTickets }) => {
 }
 
 
-    const createNewTicket = ({ name, ticketDescription, ticketTitle }) => {
+    const createNewTicket = ({ name, ticketDescription, ticketTitle, urgency }) => {
 
         axios.post(`http://localhost:8901/tickets/create`, {
             complete: false,
             name: name,
             description: ticketDescription,
             title: ticketTitle,
+            urgency: urgency
         })
             .then(function (response) {
                 console.log(response);
@@ -171,7 +173,7 @@ const QueuedTickets = ({ tickets, setTickets }) => {
 
                 }
                 <CardModal showTicketModal={showTicketModal} setShowTicketModal={setShowTicketModal} currentTicketModal={currentTicketModal} />
-                <CreateTicketModal showCreateTicketModal={showCreateTicketModal} setShowCreateTicketModal={setShowCreateTicketModal} createNewTicket={createNewTicket} tickets={tickets} />
+                <CreateTicketModal showCreateTicketModal={showCreateTicketModal} setShowCreateTicketModal={setShowCreateTicketModal} createNewTicket={createNewTicket} />
                 <UpdateTicketModal showUpdateTicketModal={showUpdateTicketModal} setShowUpdateTicketModal={setShowUpdateTicketModal} updateTicketContents={updateTicketContents} currentTicketModal={currentTicketModal} setCurrentTicketModal={setCurrentTicketModal} ticketDescription={ticketDescription} setTicketDescription={setTicketDescription} ticketTitle={ticketTitle} setTicketTitle={setTicketTitle} />
                 <SolutionModal showSolutionModal={showSolutionModal} setShowSolutionModal={setShowSolutionModal} currentTicketModal={currentTicketModal} updateTicketWithSolution={updateTicketWithSolution}/>
             </div>

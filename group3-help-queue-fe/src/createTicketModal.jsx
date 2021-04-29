@@ -4,13 +4,14 @@ import { HiX } from "react-icons/hi";
 
 
 
-export const CreateTicketModal = ({ showCreateTicketModal, setShowCreateTicketModal, tickets, createNewTicket}) => {
+export const CreateTicketModal = ({ showCreateTicketModal, setShowCreateTicketModal, createNewTicket}) => {
 
     // const [id, setId] = useState(0);
     const [name, setName] = useState('');
     // const [time, setTime] = useState('15:12');
     const [ticketDescription, setTicketDescription] = useState('');
     const [ticketTitle, setTicketTitle] = useState('');
+    const [urgency, setUrgency] = useState('');
     // const [isCompleted, setIsCompleted] = useState(false);
 
 
@@ -30,12 +31,13 @@ export const CreateTicketModal = ({ showCreateTicketModal, setShowCreateTicketMo
 
         // setId(tickets.length + 1);
         // setIsCompleted(false);
-        createNewTicket({ name, ticketDescription, ticketTitle })
+        createNewTicket({ name, ticketDescription, ticketTitle, urgency})
         setShowCreateTicketModal(prev => !prev);
 
         setName('');
         setTicketTitle('');
         setTicketDescription('');
+        setUrgency('');
 
     }
 
@@ -54,6 +56,12 @@ export const CreateTicketModal = ({ showCreateTicketModal, setShowCreateTicketMo
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
                             />
+                            <h3 className="inline">Urgency: </h3>
+                            <select id="urgency" name="urgency" value={urgency} onChange={e => setUrgency(e.currentTarget.value)}>
+                                <option value="Low">Low</option>
+                                <option value="Medium">Medium</option>
+                                <option value="High">High</option>
+                            </select>
                             <HiX style={{ verticalAlign: 'middle' }} size={28} className="crossModal" onClick={() => setShowCreateTicketModal(prev => !prev)} />
                         </div>
                         <div className="ticket-description">

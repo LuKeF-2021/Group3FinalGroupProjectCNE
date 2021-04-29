@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CardModal } from './cardModal';
+import CardModal from './cardModal';
 import ReactPaginate from 'react-paginate';
 import axios from 'axios';
 
