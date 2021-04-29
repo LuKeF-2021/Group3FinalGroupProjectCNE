@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RequestMapping("/tickets")
 @RestController
+@CrossOrigin
 public class UpdateTicketController {
 	
 	private UpdateTicketService service;
