@@ -17,7 +17,7 @@ export const SolutionModal = ({ showSolutionModal, setShowSolutionModal, current
         updateTicketWithSolution({ solution, currentTicketModal})
         setShowSolutionModal(prev => !prev);
 
-        setSolution('');
+        setSolution('N/A');
 
 
     }

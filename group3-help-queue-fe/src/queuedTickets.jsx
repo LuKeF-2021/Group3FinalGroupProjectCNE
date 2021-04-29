@@ -20,7 +20,7 @@ const QueuedTickets = ({ tickets, setTickets }) => {
     const [ticketDescription, setTicketDescription] = useState('');
     const [ticketTitle, setTicketTitle] = useState('');
     const [pageNum, setPageNum] = useState(1);
-    const [createdTicket, setCreatedTicket] = useState("");
+    // const [createdTicket, setCreatedTicket] = useState("");
 
 
     const QueuedTicketsList = [];

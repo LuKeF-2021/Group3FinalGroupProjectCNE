@@ -59,7 +59,7 @@ function App() {
     return (
 
       <div className="screenDiv">
-      <h1>Welcome Group 3!</h1>
+      <h1>QA Help Ticket System</h1>
       <Main tickets={tickets} setTickets={setTickets} />
       </div>
     );
