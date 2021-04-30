@@ -18,7 +18,7 @@ public class DeleteTicketController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<Void> deleteById(@PathVariable Long id) {
+    public ResponseEntity<Object> deleteById(@PathVariable Long id) {
         if (this.service.deleteById(id)) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         } else {
