@@ -2,8 +2,6 @@ package com.qa.ticketgateway.rest;
 
 import com.qa.ticketgateway.persistence.domain.Ticket;
 import com.qa.ticketgateway.service.TicketGatewayService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,10 +11,9 @@ import java.util.List;
 
 @RequestMapping("/tickets")
 @RestController
+@CrossOrigin
 public class TicketGatewayController {
     private final TicketGatewayService service;
-
-    private static final Logger logger = LoggerFactory.getLogger(TicketGatewayController.class);
 
     public TicketGatewayController(TicketGatewayService service) {
         super();
@@ -39,7 +36,6 @@ public class TicketGatewayController {
         try {
             return ResponseEntity.ok(this.service.readById(id));
         } catch (Exception e) {
-            logger.error(e.getMessage());
             return null;
         }
     }
