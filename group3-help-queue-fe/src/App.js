@@ -20,7 +20,7 @@ function App() {
   useEffect(() => {
       const header = { "Access-Control-Allow-Origin": "*" };
       axios
-        .get(`http://localhost:8901/tickets/readAll`, { header })
+        .get(`http://localhost:8899/tickets/readAll`, { header })
         .then((response) => {
           // console.log(response);
           // console.log('response.data', response.data);
@@ -38,6 +38,7 @@ function App() {
         .catch((error) => {
           setIsLoaded(true);
           setError(error);
+          console.log(error.response.data.error);
         
     })
 

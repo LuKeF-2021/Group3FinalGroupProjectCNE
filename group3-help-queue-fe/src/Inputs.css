@@ -7,6 +7,17 @@ input[type=text] {
 	font-family: Verdana;
 }
 
+#searchQuery{
+	position: absolute;
+	left: 100px;
+	top: 20px;
+	width: 10% ;
+	padding: 6px;
+	border: 1px solid black; 
+	border-radius: 4px;
+	font-family: Verdana;
+}
+
 input:invalid {
 	border:2px solid red;
 }
