@@ -1,94 +1,14 @@
-* {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
-h1{
-	color: #004050;
-}
-
-.queuedHeading{
-	height: 10%;
-	position: relative;
-    /* text-align: center; */
-	padding: 0%;
-	/* border: 1px solid red; */
-	color: #004050;
-	font-size: large;
-	left: 10px;
-}
-
-.header{
-	position: absolute;
-	text-align: center;
-	vertical-align: middle;
-	left: 285px;
-}
-
-
 .cardGrid{
 	height: 80%;
 	width: 100%;
-	/* border: 1px solid blue; */
-}
-
-.completedHeading{
-    height: 10%;
-    text-align: center;
-	color: #004050;
-	font-size: large;
-	padding: 0%;
-	position: relative;
-}
-
-.btnCreate {
-	position: absolute;
-	background-color: #00EFB8;
-	color: #004050;
-	margin-top: 10px;
-	margin-bottom: 10px;
-	margin-right: 20px;
-	padding: 14px 28px;
-	cursor: pointer;
-	border-radius: 8px;
-	font-size: large;
-	/* float: right; */
-	right: 0px;
-	top: 2px;
-}
-
-.btn {
-	background-color: #00EFB8;
-	color: #004050;
-	margin-top: 30px;
-	margin-bottom: 5px;
-	margin-left: 10px;
-	padding: 6px 10px;
-	cursor: pointer;
-	border: 1px solid black;
-	border-radius: 12px;
-	display: inline;
-	font-size: large;
-}
-
-button:hover {
-	color: #00EFB8;
-	background-color: #004050;
-}
-button:active {
-	color: #00EFB8;
-	background-color: #004050;
 }
 
 .card {
 	width: 100%;
 	height: 100%;
-	/* margin-left: 5%;
-	margin-left: 5%; */
 	border: 1px solid black;
 	border-radius: 10px;
 	background-color: #B2ACAB;
-	/* background-color: white; */
-	/* border: 1px solid blue; */
   }
 
 
@@ -107,7 +27,6 @@ button:active {
 .ticket-description{
 	position: relative;
 	height: 68%;
-	/* border: 1px solid purple; */
 	overflow: hidden;
 	background-color: white;
 	color: #004050;
@@ -149,7 +68,6 @@ button:active {
 	height: 100%;
 	border: 1px solid black;
 	border-radius: 10px;
-	/* background-color: #B2ACAB; */
 	background-color: white;
 }
 
@@ -179,7 +97,6 @@ button:active {
 	 height: 15%;
 	 border-bottom-left-radius: 10px;
 	 border-bottom-right-radius: 10px;
-	 /* border: 1px solid red; */
  }
 
  .check{
@@ -209,85 +126,6 @@ button:active {
 	float: right;
 	margin-right: 10px;
 	cursor: pointer;
-}
-
-.pageArea{
-	/* border: 1px solid green; */
-	height: 10%;
-}
-
-
-/* .btn-page-num{
-	background-color: white;
-	color: black;
-	margin-top: 5px;
-	margin-bottom: 5px;
-	margin-left: 10px;
-	padding: 6px 10px;
-	cursor: pointer;
-	border: 1px solid black;
-	border-radius: 2px;
-} */
-
-.pageButtons{
-	width: 86%;
-	height: 32px;
-	/* border: 1px solid gray; */
-	/* left: 7.5%; */
-	/* bottom:-5%; */
-	list-style: none;
-	display: flex;
-	justify-content: center;
-	right: 50px;
-}
-
-.pageButtons a {
-	color: #004050;
-	background-color: #00EFB8;
-	margin-top: 5px;
-	margin-bottom: 5px;
-	margin-left: 10px;
-	padding: 6px 10px;
-	cursor: pointer;
-	border: 1px solid #004050;
-	border-radius: 2px;
-}
-
-.activePage a{
-	background-color: #004050;
-	color: #00EFB8;
-}
-
-.disabled a{
-	visibility: hidden;
-}
-
-input[type=text] {
-	width: 40% ;
-	padding: 6px;
-	border: 1px solid black; 
-	border-radius: 4px;
-	box-sizing: border-box;
-	font-family: Verdana;
-}
-
-textarea{
-	width: 90%;
-	height: 90%;
-	padding: 6px;
-	border: 1px solid black; 
-	border-radius: 4px;
-	font-family: Verdana;
-}
-
-select{
-	width: 20% ;
-	padding: 6px;
-	border: 1px solid black; 
-	border-radius: 4px;
-	box-sizing: border-box;
-	font-family: Verdana;
-	font-size: medium;
 }
 
 .inline-right{

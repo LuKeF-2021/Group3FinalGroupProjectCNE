@@ -4,10 +4,14 @@ import ReactPaginate from 'react-paginate';
 import axios from 'axios';
 
 import CardStructure from './cardStructure';
+import './Headings.css';
 import './Tickets.css';
+import './Buttons.css';
+import './Pagnation.css';
+import './Inputs.css';
 
 
-const CompletedTickets = ({ tickets, setTickets }) => {
+const CompletedTickets = ({ tickets, setTickets, refresh, setRefresh }) => {
 
     const [showTicketModal, setShowTicketModal] = useState(false);
     const [currentTicketModal, setCurrentTicketModal] = useState([]);
@@ -55,7 +59,7 @@ const CompletedTickets = ({ tickets, setTickets }) => {
                 console.log(error);
             })
 
-
+            setRefresh(true);
 
     }
 
