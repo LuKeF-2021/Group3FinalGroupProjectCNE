@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
+import './Headings.css';
 import './Tickets.css';
+import './Buttons.css';
+import './Pagnation.css';
+import './Inputs.css';
 import { HiX } from "react-icons/hi";
 
 
@@ -18,16 +22,16 @@ export const CreateTicketModal = ({ showCreateTicketModal, setShowCreateTicketMo
     const onSubmit = (e) => {
         e.preventDefault();
 
-        if(!name) {
-            alert('Please enter a name')
-            return
-        }else if(!ticketTitle){
-            alert('Please enter a ticket title')
-            return
-        }else if(!ticketDescription){
-            alert('Please enter a ticket description')
-            return
-        }
+        // if(!name) {
+        //     alert('Please enter a name')
+        //     return
+        // }else if(!ticketTitle){
+        //     alert('Please enter a ticket title')
+        //     return
+        // }else if(!ticketDescription){
+        //     alert('Please enter a ticket description')
+        //     return
+        // }
 
         // setId(tickets.length + 1);
         // setIsCompleted(false);
@@ -55,6 +59,7 @@ export const CreateTicketModal = ({ showCreateTicketModal, setShowCreateTicketMo
                                 name="name"
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
+                                required
                             />
                             <h3 className="inline">Urgency: </h3>
                             <select id="urgency" name="urgency" value={urgency} onChange={e => setUrgency(e.currentTarget.value)}>
@@ -72,6 +77,7 @@ export const CreateTicketModal = ({ showCreateTicketModal, setShowCreateTicketMo
                                 name="ticketTitle"
                                 value={ticketTitle}
                                 onChange={(e) => setTicketTitle(e.target.value)}
+                                required
                             />
                             <h3>Ticket Description: </h3>
                             <textarea
@@ -79,6 +85,7 @@ export const CreateTicketModal = ({ showCreateTicketModal, setShowCreateTicketMo
                                 name="ticketDescription"
                                 value={ticketDescription}
                                 onChange={(e) => setTicketDescription(e.target.value)}
+                                required
                             ></textarea>
                         </div>
                         <button className="btn">Submit</button>

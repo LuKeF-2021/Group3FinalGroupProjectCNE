@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
+import './Headings.css';
 import './Tickets.css';
+import './Buttons.css';
+import './Pagnation.css';
+import './Inputs.css';
 import { HiX } from "react-icons/hi";
 
 
@@ -22,13 +26,13 @@ export const UpdateTicketModal = ({ showUpdateTicketModal, setShowUpdateTicketMo
         e.preventDefault();
 
         
-        if(!ticketTitle){
-            alert('Please enter a ticket title')
-            return
-        }else if(!ticketDescription){
-            alert('Please enter a ticket description')
-            return
-        }
+        // if(!ticketTitle){
+        //     alert('Please enter a ticket title')
+        //     return
+        // }else if(!ticketDescription){
+        //     alert('Please enter a ticket description')
+        //     return
+        // }
 
         updateTicketContents({ ticketDescription, ticketTitle, currentTicketModal})
         setShowUpdateTicketModal(prev => !prev);
@@ -55,6 +59,7 @@ export const UpdateTicketModal = ({ showUpdateTicketModal, setShowUpdateTicketMo
                                 name="ticketTitle"
                                 value={ticketTitle}
                                 onChange={(e) => setTicketTitle(e.target.value)}
+                                required
                             />
                             <h3>Ticket Description: </h3>
                             <textarea
@@ -62,6 +67,7 @@ export const UpdateTicketModal = ({ showUpdateTicketModal, setShowUpdateTicketMo
                                 name="ticketDescription"
                                 value={ticketDescription}
                                 onChange={(e) => setTicketDescription(e.target.value)}
+                                required
                             ></textarea>
                         </div>
                         <button className="btn">Submit</button>

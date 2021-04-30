@@ -3,7 +3,7 @@ import CompletedTickets from './completedTickets';
 import { useState } from 'react';
 import './App.css';
 
-const Main = ({ tickets, setTickets }) => {
+const Main = ({ tickets, setTickets, refresh, setRefresh }) => {
 
     const [filterDropdown, setFilterDropdown] = useState('Show All Tickets');
     
@@ -34,32 +34,32 @@ const Main = ({ tickets, setTickets }) => {
             </select>
             {(filterDropdown === "Show All Tickets") && (
                 <>
-                <div className="queue"><QueuedTickets tickets={filteredAllQueuedTickets} setTickets={setTickets} /></div>
-                <div className="completed"><CompletedTickets tickets={filteredAllCompletedTickets} setTickets={setTickets} /></div>
+                <div className="queue"><QueuedTickets tickets={filteredAllQueuedTickets} setTickets={setTickets} refresh={refresh} setRefresh={setRefresh}/></div>
+                <div className="completed"><CompletedTickets tickets={filteredAllCompletedTickets} setTickets={setTickets} refresh={refresh} setRefresh={setRefresh}/></div>
                 </>
             )}
             {(filterDropdown === "urgencyLow") && (
                 <>
-                <div className="queue"><QueuedTickets tickets={filteredQueuedLowTickets} setTickets={setTickets} /></div>
-                <div className="completed"><CompletedTickets tickets={filteredCompletedLowTickets} setTickets={setTickets} /></div>
+                <div className="queue"><QueuedTickets tickets={filteredQueuedLowTickets} setTickets={setTickets} refresh={refresh} setRefresh={setRefresh}/></div>
+                <div className="completed"><CompletedTickets tickets={filteredCompletedLowTickets} setTickets={setTickets} refresh={refresh} setRefresh={setRefresh}/></div>
                 </>
             )}
             {(filterDropdown === "urgencyMedium") && (
                 <>
-                <div className="queue"><QueuedTickets tickets={filteredQueuedMediumTickets} setTickets={setTickets} /></div>
-                <div className="completed"><CompletedTickets tickets={filteredCompletedMediumTickets} setTickets={setTickets} /></div>
+                <div className="queue"><QueuedTickets tickets={filteredQueuedMediumTickets} setTickets={setTickets} refresh={refresh} setRefresh={setRefresh}/></div>
+                <div className="completed"><CompletedTickets tickets={filteredCompletedMediumTickets} setTickets={setTickets} refresh={refresh} setRefresh={setRefresh}/></div>
                 </>
             )}
             {(filterDropdown === "urgencyHigh") && (
                 <>
-                <div className="queue"><QueuedTickets tickets={filteredQueuedHighTickets} setTickets={setTickets} /></div>
-                <div className="completed"><CompletedTickets tickets={filteredCompletedHighTickets} setTickets={setTickets} /></div>
+                <div className="queue"><QueuedTickets tickets={filteredQueuedHighTickets} setTickets={setTickets} refresh={refresh} setRefresh={setRefresh}/></div>
+                <div className="completed"><CompletedTickets tickets={filteredCompletedHighTickets} setTickets={setTickets} refresh={refresh} setRefresh={setRefresh}/></div>
                 </>
             )}
             {(filterDropdown === "newToOld") && (
                 <>
-                <div className="queue"><QueuedTickets tickets={sortAllQueuedNew2Old} setTickets={setTickets} /></div>
-                <div className="completed"><CompletedTickets tickets={sortAllCompletedNew2Old} setTickets={setTickets} /></div>
+                <div className="queue"><QueuedTickets tickets={sortAllQueuedNew2Old} setTickets={setTickets} refresh={refresh} setRefresh={setRefresh}/></div>
+                <div className="completed"><CompletedTickets tickets={sortAllCompletedNew2Old} setTickets={setTickets} refresh={refresh} setRefresh={setRefresh}/></div>
                 </>
             )}
             {/* <div className="queue">

@@ -2,7 +2,11 @@ import './App.css';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Main from './main';
+import './Headings.css';
 import './Tickets.css';
+import './Buttons.css';
+import './Pagnation.css';
+import './Inputs.css';
 
 function App() {
 
@@ -11,6 +15,7 @@ function App() {
   const [error, setError] = useState(null);
   // loading...
   const [isLoaded, setIsLoaded] = useState(false);
+  const [refresh, setRefresh] = useState(false);
 
   useEffect(() => {
       const header = { "Access-Control-Allow-Origin": "*" };
@@ -20,7 +25,8 @@ function App() {
           console.log(response);
           console.log('response.data', response.data);
           setIsLoaded(true);
-          setTickets(response.data)
+          setTickets(response.data);
+          setRefresh(false);
           // setQueueTest(response.data)
           // {
           //   (response.data).filter(ticket => ticket.complete === false).map((cardStuff) => (
@@ -36,7 +42,7 @@ function App() {
     })
 
 
-  }, [])
+  }, [refresh])
   // console.log('tickets outside of use effect: ', tickets)
   // const [queueTest, setQueueTest] = useState([]);
   // setQueueTest(tickets)
@@ -59,7 +65,7 @@ function App() {
 
       <div className="screenDiv">
       <h1>QA Help Ticket System</h1>
-      <Main tickets={tickets} setTickets={setTickets} />
+      <Main tickets={tickets} setTickets={setTickets} refresh={refresh} setRefresh={setRefresh}/>
       </div>
     );
   }

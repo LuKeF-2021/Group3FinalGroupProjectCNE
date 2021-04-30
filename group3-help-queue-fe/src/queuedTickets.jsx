@@ -5,12 +5,16 @@ import ReactPaginate from 'react-paginate';
 import axios from 'axios';
 
 import CardStructure from './cardStructure';
+import './Headings.css';
 import './Tickets.css';
+import './Buttons.css';
+import './Pagnation.css';
+import './Inputs.css';
 import { UpdateTicketModal } from './updateTicketModal';
 import { SolutionModal } from './solutionModal';
 
 
-const QueuedTickets = ({ tickets, setTickets }) => {
+const QueuedTickets = ({ tickets, setTickets, refresh, setRefresh }) => {
 
     const [showCreateTicketModal, setShowCreateTicketModal] = useState(false);
     const [showUpdateTicketModal, setShowUpdateTicketModal] = useState(false);
@@ -101,7 +105,7 @@ const QueuedTickets = ({ tickets, setTickets }) => {
                     .catch(function (error) {
                         console.log(error);
                     })
-
+                    setRefresh(true);
     }
 
     const updateTicketWithSolution = ({ solution, currentTicketModal }) => {
@@ -120,12 +124,11 @@ const QueuedTickets = ({ tickets, setTickets }) => {
             .catch(function (error) {
                 console.log(error);
             })
-
+            setRefresh(true);
 }
 
 
     const createNewTicket = ({ name, ticketDescription, ticketTitle, urgency }) => {
-
         axios.post(`http://localhost:8901/tickets/create`, {
             complete: false,
             name: name,
@@ -139,7 +142,7 @@ const QueuedTickets = ({ tickets, setTickets }) => {
             .catch(function (error) {
                 console.log(error);
             })
-
+            setRefresh(true);
     }
 
    
@@ -152,7 +155,7 @@ const QueuedTickets = ({ tickets, setTickets }) => {
                 console.log(error);
             })
 
-
+            setRefresh(true);
 
     }
 

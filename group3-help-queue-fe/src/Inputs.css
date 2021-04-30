@@ -1,0 +1,35 @@
+input[type=text] {
+	width: 40% ;
+	padding: 6px;
+	border: 1px solid black; 
+	border-radius: 4px;
+	box-sizing: border-box;
+	font-family: Verdana;
+}
+
+input:invalid {
+	border:2px solid red;
+}
+
+textarea:invalid {
+	border:2px solid red;
+}
+
+textarea{
+	width: 90%;
+	height: 90%;
+	padding: 6px;
+	border: 1px solid black; 
+	border-radius: 4px;
+	font-family: Verdana;
+}
+
+select{
+	width: 20% ;
+	padding: 6px;
+	border: 1px solid black; 
+	border-radius: 4px;
+	box-sizing: border-box;
+	font-family: Verdana;
+	font-size: medium;
+}
