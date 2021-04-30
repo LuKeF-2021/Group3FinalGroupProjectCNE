@@ -11,7 +11,7 @@ export const CreateTicketModal = ({ showCreateTicketModal, setShowCreateTicketMo
     // const [time, setTime] = useState('15:12');
     const [ticketDescription, setTicketDescription] = useState('');
     const [ticketTitle, setTicketTitle] = useState('');
-    const [urgency, setUrgency] = useState('');
+    const [urgency, setUrgency] = useState('Low');
     // const [isCompleted, setIsCompleted] = useState(false);
 
 
@@ -37,7 +37,7 @@ export const CreateTicketModal = ({ showCreateTicketModal, setShowCreateTicketMo
         setName('');
         setTicketTitle('');
         setTicketDescription('');
-        setUrgency('');
+        setUrgency('Low');
 
     }
 

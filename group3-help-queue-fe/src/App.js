@@ -7,7 +7,6 @@ import './Tickets.css';
 function App() {
 
   const [tickets, setTickets] = useState([])
-  // const [queueTest, setQueueTest] = useState([])
   // setting out error obj
   const [error, setError] = useState(null);
   // loading...
@@ -37,7 +36,7 @@ function App() {
     })
 
 
-  }, [tickets])
+  }, [])
   // console.log('tickets outside of use effect: ', tickets)
   // const [queueTest, setQueueTest] = useState([]);
   // setQueueTest(tickets)
@@ -59,7 +58,7 @@ function App() {
     return (
 
       <div className="screenDiv">
-      <h1>Welcome Group 3!</h1>
+      <h1>QA Help Ticket System</h1>
       <Main tickets={tickets} setTickets={setTickets} />
       </div>
     );
