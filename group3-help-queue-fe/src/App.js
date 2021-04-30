@@ -36,7 +36,7 @@ function App() {
     })
 
 
-  }, [tickets])
+  }, [])
   // console.log('tickets outside of use effect: ', tickets)
   // const [queueTest, setQueueTest] = useState([]);
   // setQueueTest(tickets)
