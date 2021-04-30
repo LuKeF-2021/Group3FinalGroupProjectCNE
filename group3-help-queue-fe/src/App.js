@@ -22,8 +22,8 @@ function App() {
       axios
         .get(`http://localhost:8901/tickets/readAll`, { header })
         .then((response) => {
-          console.log(response);
-          console.log('response.data', response.data);
+          // console.log(response);
+          // console.log('response.data', response.data);
           setIsLoaded(true);
           setTickets(response.data);
           setRefresh(false);

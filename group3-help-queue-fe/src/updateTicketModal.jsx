@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Headings.css';
 import './Tickets.css';
 import './Buttons.css';
@@ -10,8 +10,8 @@ import { HiX } from "react-icons/hi";
 
 export const UpdateTicketModal = ({ showUpdateTicketModal, setShowUpdateTicketModal, currentTicketModal, updateTicketContents , ticketDescription, setTicketDescription, ticketTitle, setTicketTitle}) => {
 
-    console.log('in edit modal: ', currentTicketModal.description);
-    console.log('in edit modal2: ', currentTicketModal.title);
+    // console.log('in edit modal: ', currentTicketModal.description);
+    // console.log('in edit modal2: ', currentTicketModal.title);
     // const [id, setId] = useState(0);
     // const [name, setName] = useState('');
     // const [time, setTime] = useState();
