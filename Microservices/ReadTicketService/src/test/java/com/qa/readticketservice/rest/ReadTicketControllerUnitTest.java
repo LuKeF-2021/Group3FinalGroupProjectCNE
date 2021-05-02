@@ -8,6 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+
 import org.springframework.test.context.ActiveProfiles;
 
 import static org.mockito.Mockito.*;
@@ -17,6 +18,7 @@ import java.time.LocalDateTime;
 
 @SpringBootTest
 @ActiveProfiles(profiles = "test")
+
 public class ReadTicketControllerUnitTest {
     private final static LocalDateTime DATE_TIME = LocalDateTime.of(2010, 2, 11,11,30);
 
