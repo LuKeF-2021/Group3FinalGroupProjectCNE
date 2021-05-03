@@ -29,9 +29,9 @@ public class TicketGatewayControllerUnitTest {
 
     private final Ticket TICKET1 = new Ticket(1L,"Name Naming", DATE_TIME, "Description of ticket","Title of ticket", false, "This is a new solution", "Medium", "Cohort2");
     private final Ticket TICKET1_CHANGE = new Ticket(1L,"Name2", DATE_TIME, "Name description","hjsdfklgjsdlfkjsd", true, "This is a new solution", "Medium", "Cohort2");
-    private final Ticket TICKET2 = new Ticket(2L,"Name2", DATE_TIME, "Name description","hjsdfklgjsdlfkjsd", false, "This is a new solution", "Medium", "Cohort2");
+    private final Ticket TICKET2 = new Ticket(2L,"Name2", DATE_TIME, "Name description","hjsdfklgjsdlfkjsd", false, "This is a new solution", "Medium", "Cohort2" );
 
-    private final List<Ticket> TICKETS_LIST = List.of(TICKET1,TICKET2);
+    private final Ticket[] TICKETS_LIST = {TICKET1,TICKET2};
 
     @Test
     void testReadById(){
@@ -50,7 +50,8 @@ public class TicketGatewayControllerUnitTest {
     @Test
     void testReadAll(){
         when(this.service.readAll()).thenReturn(TICKETS_LIST);
-        assertThat(this.controller.readAll().getBody().isEmpty()).isFalse();
+        Ticket[] array = this.controller.readAll().getBody();
+        assertThat(array == null || array.length == 0).isFalse();
         verify(this.service, times(1)).readAll();
     }
 

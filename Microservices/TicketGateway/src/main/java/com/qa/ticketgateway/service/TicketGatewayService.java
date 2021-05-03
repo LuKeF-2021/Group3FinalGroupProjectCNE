@@ -25,8 +25,8 @@ public class TicketGatewayService {
     }
 
 
-    public List<Ticket> readAll(){
-        return this.rest.getForObject("https://read-all-tickets-api/tickets/readAll", List.class);
+    public Ticket[] readAll(){
+        return this.rest.getForObject("https://read-all-tickets-api/tickets/readAll", Ticket[].class);
 
     }
 
