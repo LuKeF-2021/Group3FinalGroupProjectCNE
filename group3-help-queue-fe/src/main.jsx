@@ -7,7 +7,6 @@ const Main = ({ tickets, setTickets, refresh, setRefresh }) => {
 
     const [filterDropdown, setFilterDropdown] = useState('Show All Tickets');
     // const [searchQuery, setSearchQuery] = useState('');
-    
     const filteredAllQueuedTickets = tickets.filter(ticket => ticket.complete === false);
     const filteredAllCompletedTickets = tickets.filter(ticket => ticket.complete === true);
     const filteredAllQueuedTickets2 = tickets.filter(ticket => ticket.complete === false);
@@ -22,7 +21,6 @@ const Main = ({ tickets, setTickets, refresh, setRefresh }) => {
     const sortAllCompletedNew2Old = filteredAllCompletedTickets2.reverse();
     // const keyWordResultsQueued = filteredAllQueuedTickets.filter(ticket => ticket.description.includes(searchQuery));
     // const keyWordResultsCompleted = filteredAllCompletedTickets.filter(ticket => ticket.description.includes(searchQuery));
-    
 
     return (
         <>
