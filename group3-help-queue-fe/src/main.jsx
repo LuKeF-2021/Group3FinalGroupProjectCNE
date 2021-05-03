@@ -5,7 +5,7 @@ import './App.css';
 
 const Main = ({ tickets, setTickets, refresh, setRefresh }) => {
 
-    const [filterDropdown, setFilterDropdown] = useState('');
+    const [filterDropdown, setFilterDropdown] = useState('Show All Tickets');
     const [searchQuery, setSearchQuery] = useState('');
     
     const filteredAllQueuedTickets = tickets.filter(ticket => ticket.complete === false);
@@ -28,7 +28,7 @@ const Main = ({ tickets, setTickets, refresh, setRefresh }) => {
 
     return (
         <>
-            <h3 id="filterText">Filters: </h3>
+            {/* <h3 id="filterText">Filters: </h3>
             <input
                 id="searchQuery"
                 type="text"
@@ -36,7 +36,7 @@ const Main = ({ tickets, setTickets, refresh, setRefresh }) => {
                 placeholder="Filter by key word..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-            />
+            /> */}
             <select className="filterDropdown" value={filterDropdown} onChange={e => setFilterDropdown(e.currentTarget.value)}>
                 <option value="Show All Tickets">Show All Tickets</option>
                 <option value="urgencyLow">Urgency - Low</option>
@@ -44,12 +44,12 @@ const Main = ({ tickets, setTickets, refresh, setRefresh }) => {
                 <option value="urgencyHigh">Urgency - High</option>
                 <option value="newToOld">Order - Newest First</option>
             </select>
-            {(searchQuery !== "") && (
+            {/* {(searchQuery !== "") && (
                 <>
                 <div className="queue"><QueuedTickets tickets={keyWordResultsQueued} setTickets={setTickets} refresh={refresh} setRefresh={setRefresh}/></div>
                 <div className="completed"><CompletedTickets tickets={keyWordResultsCompleted} setTickets={setTickets} refresh={refresh} setRefresh={setRefresh}/></div>
                 </>
-            )}
+            )} */}
             {(filterDropdown === "Show All Tickets") && (
                 <>
                 <div className="queue"><QueuedTickets tickets={filteredAllQueuedTickets} setTickets={setTickets} refresh={refresh} setRefresh={setRefresh}/></div>
