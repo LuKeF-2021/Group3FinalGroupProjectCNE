@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backendApp
+  namespace: projectApp
+  labels: 
+    app: backendApp
+spec:
+  selector:
+    matchLabels:
+      app: backendApp
+  template:
+    metadata:
+      labels:
+        app: backendApp
+    spec:
+      containers:
+      - name: backendApp
+        image: lukef2021/backend
+        ports:
+        - containerPort: 8899

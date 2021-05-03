@@ -32,8 +32,14 @@ resource "aws_security_group" "project-sg" {
     cidr_blocks = [var.configure_vm_cidr]
   }
   ingress {
-    from_port = 5000 #change to port of app
-    to_port = 5000 #change to port of app
+    from_port = 8899
+    to_port = 8899
+    protocol = "tcp"
+    cidr_blocks = [var.configure_vm_cidr]
+  }
+  ingress {
+    from_port = 3000
+    to_port = 3000
     protocol = "tcp"
     cidr_blocks = [var.configure_vm_cidr]
   }

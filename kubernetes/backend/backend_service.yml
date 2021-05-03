@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: backendApp
+  namespace: projectApp
+  labels:
+    app: backendApp
+spec:
+  containers:
+  - name: backendApp
+    image: lukef2021/backend
+    ports:
+    - containerPort: 8899
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backendApp
+  namespace: projectApp
+  labels:
+    app: backendApp
+spec:
+  selector:
+    app: backendApp
+  ports:
+  - protocol: TCP
+    port: 8899
+    targetPort: 8899
+  type: ClusterIP

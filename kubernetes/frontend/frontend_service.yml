@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: frontendApp
+  namespace: projectApp
+  labels:
+    app: frontendApp
+spec:
+  containers:
+  - name: frontendApp
+    image: lukef2021/frontend
+    ports:
+    - containerPort: 3000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontendApp
+  namespace: projectApp
+  labels:
+    app: frontendApp
+spec:
+  selector:
+    app: frontendApp
+  ports:
+  - protocol: TCP
+    port: 3000
+    targetPort: 3000
+  type: ClusterIP
