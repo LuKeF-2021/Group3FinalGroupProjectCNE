@@ -57,25 +57,25 @@ const QueuedTickets = ({ tickets, setTickets, refresh, setRefresh }) => {
 
     const updateTicketContents = ({ ticketDescription, ticketTitle, currentTicketModal }) => {
        
-                axios.put(`http://localhost:8901/tickets/update/${currentTicketModal.id}`, {
-                    complete: currentTicketModal.complete,
-                    name: currentTicketModal.name,
-                    description: ticketDescription,
-                    title: ticketTitle,
-                    urgency: currentTicketModal.urgency
-                })
-                    .then(function (response) {
-                        console.log(response);
-                    })
-                    .catch(function (error) {
-                        console.log(error);
-                    })
-                    setRefresh(true);
+        axios.put(`http://localhost:8899/tickets/update/${currentTicketModal.id}`, {
+            complete: currentTicketModal.complete,
+            name: currentTicketModal.name,
+            description: ticketDescription,
+            title: ticketTitle,
+            urgency: currentTicketModal.urgency
+        })
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+        setRefresh(true);
     }
 
     const updateTicketWithSolution = ({ solution, currentTicketModal }) => {
        
-        axios.put(`http://localhost:8901/tickets/update/${currentTicketModal.id}`, {
+        axios.put(`http://localhost:8899/tickets/update/${currentTicketModal.id}`, {
             complete: true,
             name: currentTicketModal.name,
             description: currentTicketModal.description,
@@ -94,7 +94,7 @@ const QueuedTickets = ({ tickets, setTickets, refresh, setRefresh }) => {
 
 
     const createNewTicket = ({ name, ticketDescription, ticketTitle, urgency }) => {
-        axios.post(`http://localhost:8901/tickets/create`, {
+        axios.post(`http://localhost:8899/tickets/create`, {
             complete: false,
             name: name,
             description: ticketDescription,
@@ -112,7 +112,7 @@ const QueuedTickets = ({ tickets, setTickets, refresh, setRefresh }) => {
 
    
     const deleteTicket = (id) => {
-        axios.delete(`http://localhost:8901/tickets/delete/${id}`)
+        axios.delete(`http://localhost:8899/tickets/delete/${id}`)
             .then(function (response) {
                 console.log(response);
             })

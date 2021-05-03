@@ -51,7 +51,7 @@ const CompletedTickets = ({ tickets, setTickets, refresh, setRefresh }) => {
 
     
     const deleteTicket = (id) => {
-        axios.delete(`http://localhost:8901/tickets/delete/${id}`)
+        axios.delete(`http://localhost:8899/tickets/delete/${id}`)
             .then(function (response) {
                 console.log(response);
             })
