@@ -27,7 +27,7 @@ public class TicketGatewayController {
 
     @GetMapping("/readAll")
 
-    public ResponseEntity<List<Ticket>> readAll(){
+    public ResponseEntity<Ticket[]> readAll(){
         return ResponseEntity.ok(this.service.readAll());
     }
 
