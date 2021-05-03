@@ -51,7 +51,7 @@ const CompletedTickets = ({ tickets, setTickets, refresh, setRefresh }) => {
 
     
     const deleteTicket = (id) => {
-        axios.delete(`http://localhost:8899/tickets/delete/${id}`)
+        axios.delete(`http://localhost:8901/tickets/delete/${id}`)
             .then(function (response) {
                 console.log(response);
             })
@@ -75,7 +75,6 @@ const CompletedTickets = ({ tickets, setTickets, refresh, setRefresh }) => {
             </div>
             <div className="cardGrid">
                 {
-                    // tickets.filter(ticket => ticket.complete === true)
                         displayTickets.map((cardStuff) => (
                             <CardStructure key={cardStuff.id} cardStuff={cardStuff} openTicketModal={openTicketModal} deleteTicket={deleteTicket} />
                         ))

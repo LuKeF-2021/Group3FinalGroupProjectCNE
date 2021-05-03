@@ -6,7 +6,7 @@ import './App.css';
 const Main = ({ tickets, setTickets, refresh, setRefresh }) => {
 
     const [filterDropdown, setFilterDropdown] = useState('Show All Tickets');
-    const [searchQuery, setSearchQuery] = useState('');
+    // const [searchQuery, setSearchQuery] = useState('');
     
     const filteredAllQueuedTickets = tickets.filter(ticket => ticket.complete === false);
     const filteredAllCompletedTickets = tickets.filter(ticket => ticket.complete === true);
@@ -18,12 +18,10 @@ const Main = ({ tickets, setTickets, refresh, setRefresh }) => {
     const filteredCompletedLowTickets = filteredAllCompletedTickets.filter(ticket => ticket.urgency === "Low");
     const filteredCompletedMediumTickets = filteredAllCompletedTickets.filter(ticket => ticket.urgency === "Medium");
     const filteredCompletedHighTickets = filteredAllCompletedTickets.filter(ticket => ticket.urgency === "High");
-    // const sortAllQueuedNew2Old = filteredAllQueuedTickets.sort((a,b) => a.id < b.id);
-    // const sortAllCompletedNew2Old = filteredAllCompletedTickets.sort((a,b) => a.id < b.id);
     const sortAllQueuedNew2Old = filteredAllQueuedTickets2.reverse();
     const sortAllCompletedNew2Old = filteredAllCompletedTickets2.reverse();
-    const keyWordResultsQueued = filteredAllQueuedTickets.filter(ticket => ticket.description.includes(searchQuery));
-    const keyWordResultsCompleted = filteredAllCompletedTickets.filter(ticket => ticket.description.includes(searchQuery));
+    // const keyWordResultsQueued = filteredAllQueuedTickets.filter(ticket => ticket.description.includes(searchQuery));
+    // const keyWordResultsCompleted = filteredAllCompletedTickets.filter(ticket => ticket.description.includes(searchQuery));
     
 
     return (
@@ -80,34 +78,6 @@ const Main = ({ tickets, setTickets, refresh, setRefresh }) => {
                 <div className="completed"><CompletedTickets tickets={sortAllCompletedNew2Old} setTickets={setTickets} refresh={refresh} setRefresh={setRefresh}/></div>
                 </>
             )}
-            {/* <div className="queue">
-                {(filterDropdown === "Show All Tickets") && (
-                    <QueuedTickets tickets={filteredAllQueuedTickets} setTickets={setTickets} />
-                )}
-                {(filterDropdown === "urgencyLow") && (
-                    <QueuedTickets tickets={filteredQueuedLowTickets} setTickets={setTickets} />
-                )}
-                {(filterDropdown === "urgencyMedium") && (
-                    <QueuedTickets tickets={filteredQueuedMediumTickets} setTickets={setTickets} />
-                )}
-                {(filterDropdown === "urgencyHigh") && (
-                    <QueuedTickets tickets={filteredQueuedHighTickets} setTickets={setTickets} />
-                )}
-            </div> */}
-            {/* <div className="completed">
-                {(filterDropdown === "Show All Tickets") && (
-                    <CompletedTickets tickets={filteredAllCompletedTickets} setTickets={setTickets} />
-                )}
-                {(filterDropdown === "urgencyLow") && (
-                    <CompletedTickets tickets={filteredCompletedLowTickets} setTickets={setTickets} />
-                )}
-                {(filterDropdown === "urgencyMedium") && (
-                    <CompletedTickets tickets={filteredCompletedMediumTickets} setTickets={setTickets} />
-                )}
-                {(filterDropdown === "urgencyHigh") && (
-                    <CompletedTickets tickets={filteredCompletedHighTickets} setTickets={setTickets} />
-                )}
-            </div> */}
         </>
     )
 }
