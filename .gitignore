@@ -33,5 +33,4 @@ override.tf.json
 .terraformrc
 terraform.rc
 /node_modules
-/group3-help-queue-fe
 .env
