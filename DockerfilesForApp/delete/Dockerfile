@@ -1,6 +1,6 @@
 FROM maven:latest as build-stage
 
-COPY . /build
+COPY ../../Microservices/DeleteTicketService /build
 
 WORKDIR /build
 
