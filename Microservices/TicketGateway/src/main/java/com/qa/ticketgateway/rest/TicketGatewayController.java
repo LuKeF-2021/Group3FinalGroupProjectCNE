@@ -51,7 +51,7 @@ public class TicketGatewayController {
     }
     @PutMapping("/update/{id}")
     public ResponseEntity<Ticket> updateById(@PathVariable Long id, @RequestBody Ticket ticket) {
-        Ticket updatedObject = this.service.updateById(ticket, id);
+        Ticket updatedObject = this.service.updateById(id, ticket);
         return new ResponseEntity<>(updatedObject, HttpStatus.ACCEPTED);
     }
 }

@@ -52,7 +52,7 @@ public class TicketGatewayService {
 
     }
 
-    public Ticket updateById(Ticket ticket, Long id) {
+    public Ticket updateById(Long id, Ticket ticket) {
         HttpEntity<Ticket> request = new HttpEntity<>(ticket);
         ResponseEntity<Ticket> response = this.rest.exchange("https://update-ticket-api/tickets/update/"+id, HttpMethod.PUT, request, Ticket.class);
         Ticket updatedTicket = response.getBody();

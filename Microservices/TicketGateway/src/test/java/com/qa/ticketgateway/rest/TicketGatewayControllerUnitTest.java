@@ -10,8 +10,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.ActiveProfiles;
 
 import java.time.LocalDateTime;
-import java.util.List;
-
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -42,9 +40,9 @@ public class TicketGatewayControllerUnitTest {
 
     @Test
     void testUpdateById(){
-        when(this.service.updateById(TICKET1_CHANGE, TICKET1.getId())).thenReturn(TICKET1_CHANGE);
+        when(this.service.updateById( TICKET1.getId(), TICKET1_CHANGE)).thenReturn(TICKET1_CHANGE);
         assertThat(this.controller.updateById( TICKET1.getId(), TICKET1_CHANGE)).isEqualTo(new ResponseEntity<>(TICKET1_CHANGE, HttpStatus.ACCEPTED));
-        verify(this.service, times(1)).updateById(TICKET1_CHANGE, TICKET1.getId());
+        verify(this.service, times(1)).updateById(TICKET1.getId(),TICKET1_CHANGE);
     }
 
     @Test
