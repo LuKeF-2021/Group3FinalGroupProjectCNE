@@ -16,14 +16,14 @@ services:
           - "discovery-server"
     CreateTicketService:
         build: ./create
-        container_name: createTicketService
+        container_name: create-ticket-api
         ports: 
           - target: 8901
             published: 8901
         depends_on:
     ReadTicketService:
         build: ./read
-        container_name: readTicketService
+        container_name: read-ticket-api
         ports: 
           - target: 8904
             published: 8904
@@ -31,7 +31,7 @@ services:
           - "discovery-server"
     ReadAllTicketService:
         build: ./readAll
-        container_name: readAllTicketService
+        container_name: read-all-tickets-api
         ports: 
           - target: 8903
             published: 8903
@@ -39,7 +39,7 @@ services:
           - "discovery-server"
     UpdateTicketService:
         build: ./Update
-        container_name: updateTicketService
+        container_name: update-ticket-api
         ports: 
           - target: 8905
             published: 8905
@@ -47,7 +47,7 @@ services:
           - "discovery-server"
     DeleteTicketService:
         build: ./Delete
-        container_name: deleteTicketService
+        container_name: delete-ticket-api
         ports: 
           - target: 8902
             published: 8902

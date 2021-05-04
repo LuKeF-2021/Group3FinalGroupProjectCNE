@@ -12,6 +12,6 @@ COPY --from=build-stage /build/target/TicketGateway-*.jar /app/ticketgateway.jar
 
 WORKDIR /app
 
-ENTRYPOINT ["java", "-jar", "account-api.jar"]
+ENTRYPOINT ["java", "-jar", "ticketgateway.jar","--eureka.client.serviceUrl.defaultZone=http://discovery-server:8900/eureka/"]
 
 EXPOSE 8899

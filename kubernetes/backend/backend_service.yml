@@ -1,27 +1,51 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: backendApp
+  name: ticket-gateway
   namespace: projectApp
   labels:
-    app: backendApp
+    app: ticket-gateway
 spec:
   containers:
-  - name: backendApp
-    image: lukef2021/backend
-    ports:
-    - containerPort: 8899
+      - name: create-ticket-api
+        image: lukef2021/createTicketService
+        ports:
+        - containerPort: 8901
+      - name: read-ticket-api
+        image: lukef2021/readTicketService
+        ports:
+        - containerPort: 8904
+      - name: read-all-tickets-api
+        image: lukef2021/readAllTicketService
+        ports:
+        - containerPort: 8903
+      - name: update-ticket-api
+        image: lukef2021/updateTicketService
+        ports:
+        - containerPort: 8905
+      - name: delete-ticket-api
+        image: lukef2021/deleteTicketService
+        ports:
+        - containerPort: 8902
+      - name: ticket-gateway
+        image: lukef2021/ticket-gateway
+        ports:
+        - containerPort: 8899
+      - name: discovery-server
+        image: lukef2021/discovery-server
+        ports:
+        - containerPort: 8900
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: backendApp
+  name: ticket-gateway
   namespace: projectApp
   labels:
-    app: backendApp
+    app: ticket-gateway
 spec:
   selector:
-    app: backendApp
+    app: ticket-gateway
   ports:
   - protocol: TCP
     port: 8899

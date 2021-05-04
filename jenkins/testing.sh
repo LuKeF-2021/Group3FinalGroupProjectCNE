@@ -12,11 +12,11 @@ cd Group3FinalGroupProjectCNE
 
 docker-compose up -d --build
 
-docker exec createTicketService bash -c "mvn test"
-docker exec readTicketService bash -c "mvn test"
-docker exec updateTicketService bash -c "mvn test"
-docker exec readAllTicketService bash -c "mvn test"
-docker exec deleteTicketService bash -c "mvn test"
+docker exec create-ticket-api bash -c "mvn test"
+docker exec read-ticket-api bash -c "mvn test"
+docker exec update-ticket-api bash -c "mvn test"
+docker exec read-all-tickets-api bash -c "mvn test"
+docker exec delete-ticket-api bash -c "mvn test"
 docker exec ticket-gateway bash -c "mvn test"
 docker exec discovery-server bash -c "mvn test"
 
