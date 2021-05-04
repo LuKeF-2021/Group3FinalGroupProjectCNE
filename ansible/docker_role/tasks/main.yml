@@ -1,0 +1,10 @@
+---
+# tasks file for docker_role
+
+# - name: 'install docker'
+#   apt:
+#     name: docker.io
+#     state: present
+#     update_cache: true
+- name: 'install docker and docker-compose'
+  script: /home/ubuntu/practicalProject/Practical-Project/ansible/docker-install.sh

@@ -1,0 +1,27 @@
+---
+# tasks file for jenkins-role
+# - name: 'install packages'
+#   apt:
+#     name: "{{ packages }}"
+#     state: present
+#     update_cache: yes
+#   vars:
+#     packages:
+#       - openjdk-8-jdk
+# - name: 'install jenkins'
+#   apt_key:
+#     url: https://pkg.jenkins.io/debian-stable/jenkins.io.key
+#     state: present
+- name: 'install jenkins'
+  script: /home/ubuntu/practicalProject/Practical-Project/ansible/jenkins-install.sh
+# - name: 'ensure jenkins is installed'
+#   apt: 
+#     name: jenkins
+#     update_cache: true
+- name: 'ensure jenkins is running'
+  service:
+    name: jenkins
+    state: started
+
+
+

@@ -1,0 +1,27 @@
+---
+# tasks file for kubernetes_role
+
+- name: 'download kubectl binary'
+  get_url:
+    url: "https://storage.googleapis.com/kubernetes-release/release/v1.20.5/bin/linux/amd64/kubectl"
+    dest: ./kubectl
+  tags:
+    - kubectl
+- name: 'Copy kubectl binary to destination directory'
+  copy:
+    src: ./kubectl
+    dest: /usr/local/bin/kubectl
+    mode: 0755
+    remote_src: yes
+
+- name: 'download eksctl'
+  get_url:
+    url: "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_Linux_amd64.tar.gz"
+    dest: /tmp
+- name: 'unarchive eksctl'
+  unarchive:
+    src: /tmp/eksctl_Linux_amd64.tar.gz
+    dest: /usr/local/bin
+    remote_src: true
+    mode: 0755
+  become: true
