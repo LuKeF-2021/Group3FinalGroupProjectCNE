@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.CreatedDate;
+import org.springframework.test.annotation.DirtiesContext;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

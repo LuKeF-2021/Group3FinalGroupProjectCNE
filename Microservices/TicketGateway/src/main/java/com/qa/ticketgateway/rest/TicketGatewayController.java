@@ -13,6 +13,7 @@ import java.util.List;
 @RestController
 @CrossOrigin
 public class TicketGatewayController {
+
     private final TicketGatewayService service;
 
     public TicketGatewayController(TicketGatewayService service) {
