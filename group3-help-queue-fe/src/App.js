@@ -15,15 +15,15 @@ function App() {
   const [error, setError] = useState(null);
   // loading...
   const [isLoaded, setIsLoaded] = useState(false);
-  const [refresh, setRefresh] = useState(false);
+  const [refresh, setRefresh] = useState(true);
 
   useEffect(() => {
       const header = { "Access-Control-Allow-Origin": "*" };
       axios
         .get(`http://localhost:8899/tickets/readAll`, { header })
         .then((response) => {
-          // console.log(response);
-          // console.log('response.data', response.data);
+          console.log(response);
+          console.log('response.data', response.data);
           setIsLoaded(true);
           setTickets(response.data);
           setRefresh(false);
@@ -44,7 +44,7 @@ function App() {
 
 
   }, [refresh])
-  // console.log('tickets outside of use effect: ', tickets)
+  console.log('tickets outside of use effect: ', tickets)
   // const [queueTest, setQueueTest] = useState([]);
   // setQueueTest(tickets)
 
