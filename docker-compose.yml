@@ -1,12 +1,12 @@
 version: "3.8"
 services:
-    discovery-server:
+    Discovery-Server:
         build: ./Discovery-Server
         container_name: discovery-server
         ports: 
           - target: 8900
             published: 8900
-    ticketGateway:
+    TicketGateway:
         build: ./TicketGateway
         container_name: ticket-gateway
         ports:
@@ -14,41 +14,40 @@ services:
            published: 8899
         depends_on:
           - "discovery-server"
-    create:
+    CreateTicketService:
         build: ./create
-        container_name: create
+        container_name: createTicketService
         ports: 
           - target: 8901
             published: 8901
         depends_on:
-          - "discovery-server"    
-    read:
+    ReadTicketService:
         build: ./read
-        container_name: read
+        container_name: readTicketService
         ports: 
           - target: 8904
             published: 8904
         depends_on:
           - "discovery-server"
-    readAll:
+    ReadAllTicketService:
         build: ./readAll
-        container_name: readAll
+        container_name: readAllTicketService
         ports: 
           - target: 8903
             published: 8903
         depends_on:
           - "discovery-server"
-    update:
+    UpdateTicketService:
         build: ./Update
-        container_name: update
+        container_name: updateTicketService
         ports: 
           - target: 8905
             published: 8905
         depends_on:
           - "discovery-server"
-    delete:
+    DeleteTicketService:
         build: ./Delete
-        container_name: delete
+        container_name: deleteTicketService
         ports: 
           - target: 8902
             published: 8902
