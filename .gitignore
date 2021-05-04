@@ -1,3 +1,4 @@
+
 # Local .terraform directories
 **/.terraform/*
 
@@ -34,3 +35,6 @@ override.tf.json
 terraform.rc
 /node_modules
 .env
+.idea/
+
+

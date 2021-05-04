@@ -1,0 +1,47 @@
+.screenDiv {
+  background-color: #EFEFEF;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+}
+
+.filterDropdown {
+  position: absolute;
+  top: 20px;
+  right: 0px;
+  bottom: 0px;
+  left: 450px;
+  height: 5%;
+  width: 12%;
+}
+
+#filterText{
+  position: absolute;
+  top: 4px;
+  right: 0px;
+  bottom: 0px;
+  left: -1050px;
+  font-size: x-large;
+  color: #004050;
+}
+
+.queue {
+  width: 45%;
+  height: 80%;
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  border-right: 1px solid black;
+}
+
+.completed {
+  width: 45%;
+  height: 80%;
+  position: absolute;
+  top: 10%;
+  right: 5%;
+  border-left: 1px solid black;
+}
