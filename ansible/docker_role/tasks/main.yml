@@ -7,4 +7,4 @@
 #     state: present
 #     update_cache: true
 - name: 'install docker and docker-compose'
-  script: /home/ubuntu/practicalProject/Practical-Project/ansible/docker-install.sh
+  script: /home/ubuntu/Group3FinalGroupProjectCNE/ansible/docker-install.sh
