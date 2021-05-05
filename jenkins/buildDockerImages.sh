@@ -68,7 +68,7 @@ sudo docker tag updateticketservice:latest lukef2021/updateticketservice:latest
 sudo docker tag readallticketservice:latest lukef2021/readallticketservice:latest
 sudo docker tag deleteticketservice:latest lukef2021/deleteticketservice:latest
 sudo docker tag ticket-gateway:latest lukef2021/ticket-gateway:latest
-sudo docker tag discover-server:latest lukef2021/discovery-server:latest
+sudo docker tag discovery-server:latest lukef2021/discovery-server:latest
 sudo docker tag frontend:latest lukef2021/frontend:latest
 sudo docker login -u $USERNAME -p $PASSWORD
 sudo docker push lukef2021/frontend:latest
