@@ -15,8 +15,8 @@ cd ..
 
 # finding backend/Dockerfile
 echo "build backend-create images started"
-cd DockerfilesForApp
-cd create
+cd Microservices
+cd CreateTicketService
 sudo docker build -t createticketservice:latest .
 cd ..
 
