@@ -4,6 +4,7 @@
 - Jira Board - [Jira Board](https://fundementalscrum.atlassian.net/secure/RapidBoard.jspa?projectKey=FIN&rapidView=2)
 - Github - [Github Repo](https://github.com/LuKeF-2021/Group3FinalGroupProjectCNE)
 
+## Technologies
 ## Brief
 ## React Architecture
 
