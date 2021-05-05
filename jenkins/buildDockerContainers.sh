@@ -11,6 +11,6 @@ sudo docker run -d --name read-all-tickets-api readallticketservice:latest
 sudo docker run -d --name create-ticket-api createticketservice:latest
 sudo docker run -d --name update-ticket-api updateticketservice:latest
 sudo docker run -d --name delete-ticket-api deleteticketservice:latest
-# sudo docker run frontend:latest
+sudo docker run -d --name frontend frontend:latest
 
 # EOF
