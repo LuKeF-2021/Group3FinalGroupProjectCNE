@@ -9,10 +9,10 @@ pipeline{
     stages{
         stage('Building and pushing new Docker images'){
             steps{
-                sh "chmod +x buildDockerImages.sh"
-                sh "buildDockerImages.sh"
-                sh "chmod +x buildDockerContainers.sh"
-                sh "buildDockerContainers.sh"
+                sh "chmod +x jenkins/buildDockerImages.sh"
+                sh "jenkins/buildDockerImages.sh"
+                sh "chmod +x jenkins/buildDockerContainers.sh"
+                sh "jenkins/buildDockerContainers.sh"
             }
         }
         stage('Building docker stuff and Test App'){
