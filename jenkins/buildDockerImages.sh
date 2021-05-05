@@ -22,31 +22,31 @@ cd ..
 
 echo "build backend-delete images started"
 
-cd delete
+cd DeleteTicketService
 sudo docker build -t deleteticketservice:latest .
 cd ..
 
 echo "build backend-read images started"
 
-cd read
+cd ReadTicketService
 sudo docker build -t readticketservice:latest .
 cd ..
 
 echo "build backend-readAll images started"
 
-cd readAll
+cd ReadAllTicketsService
 sudo docker build -t readallticketservice:latest .
 cd ..
 
 echo "build backend-update images started"
 
-cd update
+cd UpdateTicketService
 sudo docker build -t updateticketservice:latest .
 cd ..
 
 echo "build backend-discoServer images started"
 
-cd Discover-Server
+cd Disco-Server
 sudo docker build -t discovery-server:latest .
 cd ..
 
