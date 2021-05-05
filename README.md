@@ -5,6 +5,7 @@
 - Github - [Github Repo](https://github.com/LuKeF-2021/Group3FinalGroupProjectCNE)
 
 ## Technologies
+- Database Technologies: AWS RDS, MySQL, H2
 - Backend Services: Java, Maven, Spring
 - Service Registry: Eureka
 - Java Testing: JUnit, Spring Boot Test, Spring Test, Mockito
