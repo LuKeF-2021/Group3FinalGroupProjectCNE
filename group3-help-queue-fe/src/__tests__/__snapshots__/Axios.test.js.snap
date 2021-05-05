@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<createNewTicket
+  complete={false}
+  name="Jest Test"
+  ticketDescription="Jest Test description"
+  ticketTitle="Jest Test Title"
+/>
+`;
+
+exports[`renders correctly 2`] = `
+<updateTicketContents
+  name="Jest Test"
+  ticketDescription="Jest Test description"
+  ticketTitle="Jest Test Title"
+/>
+`;
+
+exports[`renders correctly 3`] = `
+<deleteTicket
+  id={2}
+/>
+`;
+
+exports[`updated to complete correctly 1`] = `
+<updateTicketToCompleted
+  complete={true}
+/>
+`;
