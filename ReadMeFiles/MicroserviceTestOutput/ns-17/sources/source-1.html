@@ -1,0 +1,198 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > TicketGatewayService</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+    @import "../../.css/highlight-idea.css";
+  </style>
+  <script type="text/javascript" src="../../.js/highlight.pack.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.qa.ticketgateway.service</a>
+</div>
+
+<h1>Coverage Summary for Class: TicketGatewayService (com.qa.ticketgateway.service)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">TicketGatewayService</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (6/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    87.5%
+  </span>
+  <span class="absValue">
+    (14/16)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">TicketGatewayService$MockitoMock$268832454</td>
+  </tr>
+  <tr>
+    <td class="name">TicketGatewayService$MockitoMock$268832454$auxiliary$FaUPa1sC</td>
+  </tr>
+  <tr>
+    <td class="name">TicketGatewayService$MockitoMock$268832454$auxiliary$n7IyOBnt</td>
+  </tr>
+  <tr>
+    <td class="name">TicketGatewayService$MockitoMock$268832454$auxiliary$PZzDiOL0</td>
+  </tr>
+  <tr>
+    <td class="name">TicketGatewayService$MockitoMock$268832454$auxiliary$S03RD9I0</td>
+  </tr>
+  <tr>
+    <td class="name">TicketGatewayService$MockitoMock$268832454$auxiliary$SPPCRMtE</td>
+  </tr>
+  <tr>
+    <td class="name">TicketGatewayService$MockitoMock$268832454$auxiliary$y13ZG9I1</td>
+  </tr>
+  <tr>
+    <td class="name">TicketGatewayService$MockitoMock$268832454$auxiliary$zh95Ux06</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (6/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    87.5%
+  </span>
+  <span class="absValue">
+    (14/16)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package com.qa.ticketgateway.service;
+<i class="no-highlight">2</i>&nbsp;
+<i class="no-highlight">3</i>&nbsp;import com.qa.ticketgateway.persistence.domain.Ticket;
+<i class="no-highlight">4</i>&nbsp;import org.springframework.beans.factory.annotation.Autowired;
+<i class="no-highlight">5</i>&nbsp;import org.springframework.boot.CommandLineRunner;
+<i class="no-highlight">6</i>&nbsp;import org.springframework.boot.autoconfigure.SpringBootApplication;
+<i class="no-highlight">7</i>&nbsp;import org.springframework.http.HttpEntity;
+<i class="no-highlight">8</i>&nbsp;import org.springframework.http.HttpMethod;
+<i class="no-highlight">9</i>&nbsp;import org.springframework.http.ResponseEntity;
+<i class="no-highlight">10</i>&nbsp;import org.springframework.stereotype.Service;
+<i class="no-highlight">11</i>&nbsp;import org.springframework.web.client.RestTemplate;
+<i class="no-highlight">12</i>&nbsp;
+<i class="no-highlight">13</i>&nbsp;
+<i class="no-highlight">14</i>&nbsp;import java.util.List;
+<i class="no-highlight">15</i>&nbsp;
+<i class="no-highlight">16</i>&nbsp;@Service
+<i class="no-highlight">17</i>&nbsp;public class TicketGatewayService {
+<i class="no-highlight">18</i>&nbsp;
+<i class="no-highlight">19</i>&nbsp;    private final RestTemplate rest;
+<i class="no-highlight">20</i>&nbsp;
+<i class="no-highlight">21</i>&nbsp;    @Autowired
+<i class="no-highlight">22</i>&nbsp;    public TicketGatewayService(RestTemplate rest) {
+<b class="fc"><i class="no-highlight">23</i>&nbsp;        super();</b>
+<b class="fc"><i class="no-highlight">24</i>&nbsp;        this.rest = rest;</b>
+<b class="fc"><i class="no-highlight">25</i>&nbsp;    }</b>
+<i class="no-highlight">26</i>&nbsp;
+<i class="no-highlight">27</i>&nbsp;
+<i class="no-highlight">28</i>&nbsp;    public Ticket[] readAll(){
+<b class="fc"><i class="no-highlight">29</i>&nbsp;        return this.rest.getForObject(&quot;https://read-all-tickets-api/tickets/readAll&quot;, Ticket[].class);</b>
+<i class="no-highlight">30</i>&nbsp;
+<i class="no-highlight">31</i>&nbsp;    }
+<i class="no-highlight">32</i>&nbsp;
+<i class="no-highlight">33</i>&nbsp;    public Ticket readById(Long id) {
+<b class="fc"><i class="no-highlight">34</i>&nbsp;        return this.rest.getForObject(&quot;https://read-ticket-api/tickets/read/&quot;+id, Ticket.class);</b>
+<i class="no-highlight">35</i>&nbsp;
+<i class="no-highlight">36</i>&nbsp;    }
+<i class="no-highlight">37</i>&nbsp;
+<i class="no-highlight">38</i>&nbsp;    public Ticket create(Ticket ticket) {
+<b class="fc"><i class="no-highlight">39</i>&nbsp;        Ticket newTicket = rest.postForObject(&quot;https://create-ticket-api/tickets/create&quot;, ticket, Ticket.class);</b>
+<i class="no-highlight">40</i>&nbsp;
+<b class="fc"><i class="no-highlight">41</i>&nbsp;        return newTicket;</b>
+<i class="no-highlight">42</i>&nbsp;    }
+<i class="no-highlight">43</i>&nbsp;
+<i class="no-highlight">44</i>&nbsp;    public Boolean deleteById(Long id) {
+<b class="fc"><i class="no-highlight">45</i>&nbsp;        String url = &quot;https://delete-ticket-api/tickets/delete/&quot;+id;</b>
+<i class="no-highlight">46</i>&nbsp;        try {
+<b class="fc"><i class="no-highlight">47</i>&nbsp;            this.rest.delete(url);</b>
+<b class="fc"><i class="no-highlight">48</i>&nbsp;            return true;</b>
+<b class="nc"><i class="no-highlight">49</i>&nbsp;        } catch (Exception e) {</b>
+<b class="nc"><i class="no-highlight">50</i>&nbsp;            return false;</b>
+<i class="no-highlight">51</i>&nbsp;        }
+<i class="no-highlight">52</i>&nbsp;
+<i class="no-highlight">53</i>&nbsp;    }
+<i class="no-highlight">54</i>&nbsp;
+<i class="no-highlight">55</i>&nbsp;    public Ticket updateById(Long id, Ticket ticket) {
+<b class="fc"><i class="no-highlight">56</i>&nbsp;        HttpEntity&lt;Ticket&gt; request = new HttpEntity&lt;&gt;(ticket);</b>
+<b class="fc"><i class="no-highlight">57</i>&nbsp;        ResponseEntity&lt;Ticket&gt; response = this.rest.exchange(&quot;https://update-ticket-api/tickets/update/&quot;+id, HttpMethod.PUT, request, Ticket.class);</b>
+<b class="fc"><i class="no-highlight">58</i>&nbsp;        Ticket updatedTicket = response.getBody();</b>
+<b class="fc"><i class="no-highlight">59</i>&nbsp;        return(updatedTicket);</b>
+<i class="no-highlight">60</i>&nbsp;    }
+<i class="no-highlight">61</i>&nbsp;
+<i class="no-highlight">62</i>&nbsp;}
+</div>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+        var codeBlock = document.getElementById('sourceCode');
+
+        if (codeBlock) {
+            hljs.highlightBlock(codeBlock);
+        }
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-05-05 10:57</div>
+</div>
+</body>
+</html>

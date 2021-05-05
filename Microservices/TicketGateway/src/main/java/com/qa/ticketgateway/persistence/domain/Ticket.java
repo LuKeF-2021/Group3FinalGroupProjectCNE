@@ -24,7 +24,6 @@ public class Ticket {
 
     private String solution;
 
-
     private String urgency;
 
     private String cohort;

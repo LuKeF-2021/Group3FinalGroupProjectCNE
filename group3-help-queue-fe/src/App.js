@@ -27,13 +27,6 @@ function App() {
           setIsLoaded(true);
           setTickets(response.data);
           setRefresh(false);
-          // setQueueTest(response.data)
-          // {
-          //   (response.data).filter(ticket => ticket.complete === false).map((cardStuff) => (
-          //   setQueueTest([...queueTest, cardStuff])              
-          // ))
-          // }
-          // console.log('get data received:', tickets)
         })
         .catch((error) => {
           setIsLoaded(true);
@@ -45,11 +38,6 @@ function App() {
 
   }, [refresh])
   console.log('tickets outside of use effect: ', tickets)
-  // const [queueTest, setQueueTest] = useState([]);
-  // setQueueTest(tickets)
-
-  // console.log('queued list updated: ', queueTest)
-
 
 
   if (error) {
