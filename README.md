@@ -13,6 +13,7 @@
 This is the original monolithic architecture: 
 
 ![Monolithic architecture diagram](https://github.com/LuKeF-2021/Group3FinalGroupProjectCNE/blob/main/ReadMeFiles/Monolith%20Architecture%20Diagram.png)
+
 This was quick to set up and was built and ready to be used with Postman within a day. We were able to use this as a base for our final microservice based springboot app. 
 ### Microservices
 ![Microservices architecture diagram](https://github.com/LuKeF-2021/Group3FinalGroupProjectCNE/blob/main/ReadMeFiles/Microservices%20Architecture%20Diagram.png)
@@ -34,6 +35,10 @@ We used a Microservice architecture for our final project because of its key Ben
 ![Test coverage table](https://github.com/LuKeF-2021/Group3FinalGroupProjectCNE/blob/main/ReadMeFiles/BackendCoverageReportTable.png)
 ### Test Coverage Graph
 ![Test coverage graph](https://github.com/LuKeF-2021/Group3FinalGroupProjectCNE/blob/main/ReadMeFiles/BackendTestCoverage.png)
+### Front-End Testing
+JEST testing Axios statements using expect().toMatchSnapshot
+![JEST TEST Coverage](https://github.com/LuKeF-2021/Group3FinalGroupProjectCNE/blob/main/ReadMeFiles/jesttestsnaps.png)
+All snapshots passsed and both test suits reported no failures.
 ## Automated Devlopment
 
 - Terraform:- Provisioning Resources
