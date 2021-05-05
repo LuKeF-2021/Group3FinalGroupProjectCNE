@@ -29,6 +29,7 @@ We used a Microservice architecture for our final project because of its key Ben
 ## JIRA board
 
 ## Testing
+[Test coverage report](https://htmlpreview.github.io/?https://github.com/LuKeF-2021/Group3FinalGroupProjectCNE/blob/main/ReadMeFiles/MicroserviceTestOutput/index.html)
 [Test coverage spreadsheet](https://github.com/LuKeF-2021/Group3FinalGroupProjectCNE/blob/main/ReadMeFiles/TestCoverageReport.xlsx)
 ### Test Coverage Table
 ![Test coverage table](https://github.com/LuKeF-2021/Group3FinalGroupProjectCNE/blob/main/ReadMeFiles/BackendCoverageReportTable.png)
