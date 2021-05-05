@@ -3,22 +3,28 @@ package com.qa.ticketgateway.rest;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.qa.ticketgateway.persistence.domain.Ticket;
 import com.qa.ticketgateway.service.TicketGatewayService;
-//import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.web.client.RestTemplate;
-//import org.testng.annotations.Test;
+import org.springframework.http.MediaType;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+
 
 import java.time.LocalDateTime;
 
 
-//@RunWith(SpringRunner.class)
 @WebMvcTest(TicketGatewayController.class)
 @AutoConfigureMockMvc
+@ActiveProfiles(profiles = "test")
 public class TicketGatewayControllerIntegrationTest {
 
     @Autowired
@@ -36,11 +42,16 @@ public class TicketGatewayControllerIntegrationTest {
     private final Ticket TICKET1 = new Ticket(1L,"Name Naming", DATE_TIME, "Description of ticket","Title of ticket", false, "This is a new solution", "Medium", "Cohort2");
     private final Ticket TICKET2 = new Ticket(2L,"Name2", DATE_TIME, "Name description","hjsdfklgjsdlfkjsd", false, "This is a new solution", "Medium", "Cohort2");
 
+//    @BeforeEach
+//    void setup() {
+//        service = new TicketGatewayService(rest);
+//    }
 //
+
 //    @Test
 //    void testReadById() throws Exception {
-//        mockMVC.perform(post("/account/register").contentType(MediaType.APPLICATION_JSON)
+//        mockMVC.perform(get("/read/"+TICKET1.getId()).contentType(MediaType.APPLICATION_JSON)
 //                .content(mapper.writeValueAsString(TICKET1)).accept(MediaType.APPLICATION_JSON))
-//                .andExpect(status().isOk()).andDo(print());
+//                .andExpect(status().isOk());
 //    }
 }
