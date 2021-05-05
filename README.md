@@ -7,7 +7,6 @@
 ## Brief
 ## React Architecture
 
-## Jest Architecture
 ## Java Architecture
 ### Monolithic
 This is the original monolithic architecture: 
