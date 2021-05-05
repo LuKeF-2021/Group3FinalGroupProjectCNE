@@ -1,6 +1,6 @@
 FROM maven:latest as build-stage
-ENTRYPOINT ["pwd"]
-COPY /Microservices/CreateTicketService/ /build
+
+COPY . /build
 
 WORKDIR /build
 
