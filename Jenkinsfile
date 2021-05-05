@@ -9,7 +9,7 @@ pipeline{
     stages{
         stage('Remove local images'){
             steps{
-                sh "sudo docker image prune"
+                sh "sudo docker system prune -a -f"
             }
         }
         stage('Building, pushing new Docker images and tests'){
