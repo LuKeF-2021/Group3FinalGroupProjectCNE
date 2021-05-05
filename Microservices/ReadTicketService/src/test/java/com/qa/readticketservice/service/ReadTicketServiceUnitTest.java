@@ -2,6 +2,7 @@ package com.qa.readticketservice.service;
 
 import com.qa.readticketservice.persistence.domain.Ticket;
 import com.qa.readticketservice.persistence.repo.TicketRepo;
+import com.qa.readticketservice.util.exceptions.TicketNotFoundException;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
