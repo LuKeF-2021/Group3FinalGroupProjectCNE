@@ -4,7 +4,7 @@
 # sh './logindocker.sh'
 sudo docker login -u $USERNAME -p $PASSWORD
 sudo docker network create project-network
-sudo docker run -d --network project-network -p 3000:3000 --name lukef2021/frontend:latest 
+sudo docker run -d --network project-network -p 3000:3000 --name lukef2021/frontend:latest
 sudo docker run -d --network project-network -p 8904:8904 --name lukef2021/readticketservice:latest
 sudo docker run -d --network project-network -p 8903:8903 --name lukef2021/readallticketservice:latest
 sudo docker run -d --network project-network -p 8901:8901 --name lukef2021/createticketservice:latest

@@ -12,6 +12,6 @@ COPY --from=build-stage /build/target/Disco-Server-*.jar /app/disco-server.jar
 
 WORKDIR /app
 
-ENTRYPOINT ["java", "-jar", "discovery-server.jar"]
+ENTRYPOINT ["java", "-jar", "disco-server.jar"]
 
 EXPOSE 8900
