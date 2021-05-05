@@ -8,7 +8,7 @@ RUN mvn clean package -DskipTests
 
 FROM openjdk:latest as run-time
 
-COPY --from=build-stage /build/target/CreateTicketService-0.0.1-SNAPSHOT.jar /app/CreateTicketService.jar
+COPY --from=build-stage /build/target/CreateTicketService-*.jar /app/CreateTicketService.jar
 
 WORKDIR /app
 
