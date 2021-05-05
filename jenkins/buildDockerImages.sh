@@ -9,7 +9,7 @@ echo "Docker image building in process"
 
 # finding frontend/Dockerfile
 echo "build frontend image started"
-cd frontend
+cd group3-help-queue-fe
 sudo docker build -t frontend:latest .
 cd ..
 
