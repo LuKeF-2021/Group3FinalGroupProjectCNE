@@ -1,9 +1,9 @@
 #! /bin/bash
 
-ssh -o StrictHostKeyChecking=no -i /home/jenkins/.ssh/id_rsa ubuntu@${IP_ADDRESS} << EOF
+ssh -o StrictHostKeyChecking=no -i /home/jenkins/.ssh/id_rsa ubuntu@34.240.61.86 << EOF
 
 # get username and password
-source ~/.bash_profile
+# source ~/.bash_profile
 
 echo "Docker image building in process"
 
@@ -21,37 +21,37 @@ sudo docker build -t createTicketService:latest .
 cd ..
 
 echo "build backend-delete images started"
-cd backend
+
 cd delete
 sudo docker build -t deleteTicketService:latest .
 cd ..
 
 echo "build backend-read images started"
-cd backend
+
 cd read
 sudo docker build -t readTicketService:latest .
 cd ..
 
 echo "build backend-readAll images started"
-cd backend
+
 cd readAll
 sudo docker build -t readAllTicketService:latest .
 cd ..
 
 echo "build backend-update images started"
-cd backend
+
 cd update
 sudo docker build -t updateTicketService:latest .
 cd ..
 
 echo "build backend-discoServer images started"
-cd backend
+
 cd Discover-Server
 sudo docker build -t discovery-server:latest .
 cd ..
 
 echo "build backend-gateway images started"
-cd backend
+
 cd TicketGateway
 sudo docker build -t ticket-gateway:latest .
 cd ..
@@ -61,7 +61,7 @@ cd ..
 
 echo "Pushing images to DockerHub"
 
-sh './logindocker.sh'
+# sh './logindocker.sh'
 sudo docker tag readTicketService:latest lukef2021/readTicketService:latest
 sudo docker tag createTicketService:latest lukef2021/createTicketService:latest
 sudo docker tag updateTicketService:latest lukef2021/updateTicketService:latest

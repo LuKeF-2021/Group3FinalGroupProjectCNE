@@ -3,6 +3,7 @@ pipeline{
     environment {
     USERNAME=credentials('docker_username')
     PASSWORD=credentials('docker_password')
+    
     // IP_ADDRESS=credentials('') //sort this out
     }
     stages{

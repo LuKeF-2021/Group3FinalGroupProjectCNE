@@ -1,7 +1,7 @@
 #! /bin/bash
 
-ssh -o StrictHostKeyChecking=no -i /home/jenkins/.ssh/id_rsa ubuntu@${IP_ADDRESS} << EOF
-sh './logindocker.sh'
+ssh -o StrictHostKeyChecking=no -i /home/jenkins/.ssh/id_rsa ubuntu@34.240.61.86 << EOF
+# sh './logindocker.sh'
 sudo docker login -u $USERNAME -p $PASSWORD
 sudo docker network create project-network
 sudo docker run -d --network project-network -p 3000:3000 --name lukef2021/frontend:latest 
