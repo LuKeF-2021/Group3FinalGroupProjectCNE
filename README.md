@@ -1,4 +1,13 @@
 # Group3FinalGroupProjectCNE
+## Links:
+
+- Jira Board - [Jira Board](https://fundementalscrum.atlassian.net/secure/RapidBoard.jspa?projectKey=FIN&rapidView=2)
+- Github - [Github Repo](https://github.com/LuKeF-2021/Group3FinalGroupProjectCNE)
+
+## Brief
+## React Architecture
+
+##Jest Architecture
 ## Java Architecture
 ### Monolithic
 This is the original monolithic architecture:
@@ -13,3 +22,6 @@ This is the original monolithic architecture:
 ![Test coverage table](https://github.com/LuKeF-2021/Group3FinalGroupProjectCNE/blob/main/ReadMeFiles/BackendCoverageReportTable.png)
 ![Test coverage graph](https://github.com/LuKeF-2021/Group3FinalGroupProjectCNE/blob/main/ReadMeFiles/BackendTestCoverage.png)
 
+## JIRA board
+
+## Testing
