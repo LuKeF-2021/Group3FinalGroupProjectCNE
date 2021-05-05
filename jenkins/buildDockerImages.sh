@@ -1,6 +1,6 @@
 #! /bin/bash
 
-ssh -o StrictHostKeyChecking=no -i /home/jenkins/.ssh/id_rsa ubuntu@34.240.61.86 << EOF
+# ssh -o StrictHostKeyChecking=no -i /home/jenkins/.ssh/id_rsa ubuntu@34.240.61.86 << EOF
 
 # get username and password
 # source ~/.bash_profile
@@ -81,4 +81,4 @@ sudo docker push lukef2021/ticket-gateway:latest
 sudo docker push lukef2021/discovery-server:latest
 
 
-EOF
+# EOF

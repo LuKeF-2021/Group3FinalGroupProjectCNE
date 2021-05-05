@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ssh -o StrictHostKeyChecking=no -i /home/jenkins/.ssh/id_rsa ubuntu@34.240.61.86 << EOF
+# ssh -o StrictHostKeyChecking=no -i /home/jenkins/.ssh/id_rsa ubuntu@34.240.61.86 << EOF
 
 rm -rf Group3FinalGroupProjectCNE
 
@@ -22,4 +22,4 @@ docker exec discovery-server bash -c "mvn test"
 
 docker-compose down
 
-EOF
+# EOF
