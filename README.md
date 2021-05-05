@@ -30,12 +30,13 @@ We used a Microservice architecture for our final project because of its key Ben
 ## JIRA board
 
 ## Testing
+### Backend
 [Test coverage report](https://htmlpreview.github.io/?https://github.com/LuKeF-2021/Group3FinalGroupProjectCNE/blob/main/ReadMeFiles/MicroserviceTestOutput/index.html)
 
 [Test coverage spreadsheet](https://github.com/LuKeF-2021/Group3FinalGroupProjectCNE/blob/main/ReadMeFiles/TestCoverageReport.xlsx)
-### Test Coverage Table
+#### Test Coverage Table
 ![Test coverage table](https://github.com/LuKeF-2021/Group3FinalGroupProjectCNE/blob/main/ReadMeFiles/BackendCoverageReportTable.png)
-### Test Coverage Graph
+#### Test Coverage Graph
 ![Test coverage graph](https://github.com/LuKeF-2021/Group3FinalGroupProjectCNE/blob/main/ReadMeFiles/BackendTestCoverage.png)
 ### Front-End Testing
 JEST testing Axios statements using expect().toMatchSnapshot
