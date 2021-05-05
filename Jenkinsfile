@@ -9,7 +9,7 @@ pipeline{
     stages{
         stage('Test App'){
             steps{
-                sh "testing.sh"
+                sh "jenkins/testing.sh"
             }   
         }
         stage('Remove prev containers'){
