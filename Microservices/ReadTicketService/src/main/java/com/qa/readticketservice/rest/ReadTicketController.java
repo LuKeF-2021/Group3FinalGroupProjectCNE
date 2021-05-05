@@ -3,10 +3,10 @@ package com.qa.readticketservice.rest;
 
 import com.qa.readticketservice.persistence.domain.Ticket;
 import com.qa.readticketservice.service.ReadTicketService;
+import com.qa.readticketservice.util.exceptions.TicketNotFoundException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@RequestMapping("/tickets")
 @RestController
 @CrossOrigin
 public class ReadTicketController {
@@ -18,8 +18,13 @@ public class ReadTicketController {
 		this.service = service;
 	}
 	
-	@GetMapping("/read/{id}")
-    public ResponseEntity<Ticket> readById(@PathVariable Long id){
-        return ResponseEntity.ok(this.service.readById(id));
-    }
+	@GetMapping("/{id}")
+    public ResponseEntity<Ticket> readById(@PathVariable Long id) {
+
+		try {
+			return ResponseEntity.ok(this.service.readById(id));
+		} catch (Exception e) {
+			return null;
+		}
+	}
 }

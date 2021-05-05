@@ -13,7 +13,6 @@ import java.util.List;
 
 
 
-@RequestMapping("/tickets")
 @RestController
 @CrossOrigin
 public class ReadAllTicketsController {
@@ -25,7 +24,7 @@ public class ReadAllTicketsController {
 		this.service = service;
 	}
 
-	@GetMapping("/readAll")
+	@GetMapping()
 	public ResponseEntity<List<Ticket>> readAll(){
 		return ResponseEntity.ok(this.service.readAll());
 	}

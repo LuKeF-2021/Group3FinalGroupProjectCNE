@@ -8,7 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
-@RequestMapping("/tickets")
 @RestController
 @CrossOrigin
 public class CreateTicketController {
@@ -20,7 +19,7 @@ public class CreateTicketController {
         this.service = service;
     }
 
-    @PostMapping("/create")
+    @PostMapping()
     public ResponseEntity<Ticket> create(@RequestBody Ticket newTicket) {
         return new ResponseEntity<>(this.service.create(newTicket), HttpStatus.CREATED);
     }
