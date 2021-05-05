@@ -1,10 +1,10 @@
 FROM maven:latest as build-stage
 
-COPY ../../Microservices/Disco-Server /build
+COPY . /build
 
 WORKDIR /build
 
-RUN mvn clean package
+RUN mvn clean package -DskipTests
 
 FROM openjdk:latest as run-time
 
