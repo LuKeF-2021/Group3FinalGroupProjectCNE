@@ -1,0 +1,19 @@
+---
+
+- name: 'install jenkins'
+  script: /home/ubuntu/Group3FinalGroupProjectCNE/ansible/jenkins-install.sh
+# - name: 'ensure jenkins is installed'
+#   apt: 
+#     name: jenkins
+#     update_cache: true
+- name: 'ensure jenkins is running'
+  service:
+    name: jenkins
+    state: started
+- name: 'Display initial admin password'
+  shell: cd .. && cat jenkins/.jenkins/secrets/initialAdminPassword
+  register: details
+- debug: msg="password = {{details.stdout}}" 
+
+
+
