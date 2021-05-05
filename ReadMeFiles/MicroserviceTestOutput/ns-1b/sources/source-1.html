@@ -1,0 +1,134 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > UpdateTicketController</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+    @import "../../.css/highlight-idea.css";
+  </style>
+  <script type="text/javascript" src="../../.js/highlight.pack.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.qa.updateticketservice.rest</a>
+</div>
+
+<h1>Coverage Summary for Class: UpdateTicketController (com.qa.updateticketservice.rest)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">UpdateTicketController</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (5/5)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package com.qa.updateticketservice.rest;
+<i class="no-highlight">2</i>&nbsp;
+<i class="no-highlight">3</i>&nbsp;import com.qa.updateticketservice.persistence.domain.Ticket;
+<i class="no-highlight">4</i>&nbsp;import com.qa.updateticketservice.service.UpdateTicketService;
+<i class="no-highlight">5</i>&nbsp;import org.springframework.http.HttpStatus;
+<i class="no-highlight">6</i>&nbsp;import org.springframework.http.ResponseEntity;
+<i class="no-highlight">7</i>&nbsp;import org.springframework.web.bind.annotation.*;
+<i class="no-highlight">8</i>&nbsp;
+<i class="no-highlight">9</i>&nbsp;
+<i class="no-highlight">10</i>&nbsp;@RequestMapping(&quot;/tickets&quot;)
+<i class="no-highlight">11</i>&nbsp;@RestController
+<i class="no-highlight">12</i>&nbsp;@CrossOrigin
+<i class="no-highlight">13</i>&nbsp;public class UpdateTicketController {
+<i class="no-highlight">14</i>&nbsp;	
+<i class="no-highlight">15</i>&nbsp;	private UpdateTicketService service;
+<i class="no-highlight">16</i>&nbsp;
+<i class="no-highlight">17</i>&nbsp;	public UpdateTicketController(UpdateTicketService service) {
+<b class="fc"><i class="no-highlight">18</i>&nbsp;		super();</b>
+<b class="fc"><i class="no-highlight">19</i>&nbsp;		this.service = service;</b>
+<b class="fc"><i class="no-highlight">20</i>&nbsp;	}</b>
+<i class="no-highlight">21</i>&nbsp;
+<i class="no-highlight">22</i>&nbsp;    @PutMapping(&quot;/update/{id}&quot;)
+<i class="no-highlight">23</i>&nbsp;    public ResponseEntity&lt;Ticket&gt; updateById(@PathVariable Long id, @RequestBody Ticket ticket) {
+<b class="fc"><i class="no-highlight">24</i>&nbsp;        Ticket updatedObject = this.service.updateById(ticket, id);</b>
+<b class="fc"><i class="no-highlight">25</i>&nbsp;        return new ResponseEntity&lt;&gt;(updatedObject, HttpStatus.ACCEPTED);</b>
+<i class="no-highlight">26</i>&nbsp;    }
+<i class="no-highlight">27</i>&nbsp;	
+<i class="no-highlight">28</i>&nbsp;
+<i class="no-highlight">29</i>&nbsp;}
+</div>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+        var codeBlock = document.getElementById('sourceCode');
+
+        if (codeBlock) {
+            hljs.highlightBlock(codeBlock);
+        }
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-05-05 10:57</div>
+</div>
+</body>
+</html>

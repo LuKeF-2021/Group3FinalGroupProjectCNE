@@ -2,18 +2,21 @@ package com.qa.ticketgateway.service;
 
 import com.qa.ticketgateway.persistence.domain.Ticket;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+
 import java.util.List;
 
 @Service
 public class TicketGatewayService {
 
-    private RestTemplate rest;
+    private final RestTemplate rest;
 
     @Autowired
     public TicketGatewayService(RestTemplate rest) {
@@ -49,7 +52,7 @@ public class TicketGatewayService {
 
     }
 
-    public Ticket updateById(Ticket ticket, Long id) {
+    public Ticket updateById(Long id, Ticket ticket) {
         HttpEntity<Ticket> request = new HttpEntity<>(ticket);
         ResponseEntity<Ticket> response = this.rest.exchange("https://update-ticket-api/tickets/update/"+id, HttpMethod.PUT, request, Ticket.class);
         Ticket updatedTicket = response.getBody();
