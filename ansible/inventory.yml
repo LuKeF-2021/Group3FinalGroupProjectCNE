@@ -1,6 +1,6 @@
 jenkins-user:
   hosts:
-    34.240.61.86:
+    34.247.252.79:
     # "'{{ lookup('env', 'jenkins_ip') }}'":
   vars:
     ansible_user: ubuntu

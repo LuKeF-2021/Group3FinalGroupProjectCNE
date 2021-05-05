@@ -4,7 +4,7 @@ COPY . /build
 
 WORKDIR /build
 
-RUN mvn clean package -Dmaven.test.skip=true
+RUN mvn clean package -DskipTests
 
 FROM openjdk:latest as run-time
 
