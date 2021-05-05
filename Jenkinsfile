@@ -9,6 +9,7 @@ pipeline{
     stages{
         stage('Test App'){
             steps{
+                sh "chmod +x jenkins/testing.sh"
                 sh "jenkins/testing.sh"
             }   
         }
