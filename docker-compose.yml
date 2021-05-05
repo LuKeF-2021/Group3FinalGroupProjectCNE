@@ -1,0 +1,63 @@
+version: "3.8"
+services:
+    Discovery-Server:
+        build: ./Discovery-Server
+        container_name: discovery-server
+        ports: 
+          - target: 8900
+            published: 8900
+    TicketGateway:
+        build: ./TicketGateway
+        container_name: ticket-gateway
+        ports:
+          -target: 8899
+           published: 8899
+        depends_on:
+          - "discovery-server"
+    CreateTicketService:
+        build: ./create
+        container_name: create-ticket-api
+        ports: 
+          - target: 8901
+            published: 8901
+        depends_on:
+    ReadTicketService:
+        build: ./read
+        container_name: read-ticket-api
+        ports: 
+          - target: 8904
+            published: 8904
+        depends_on:
+          - "discovery-server"
+    ReadAllTicketService:
+        build: ./readAll
+        container_name: read-all-tickets-api
+        ports: 
+          - target: 8903
+            published: 8903
+        depends_on:
+          - "discovery-server"
+    UpdateTicketService:
+        build: ./Update
+        container_name: update-ticket-api
+        ports: 
+          - target: 8905
+            published: 8905
+        depends_on:
+          - "discovery-server"
+    DeleteTicketService:
+        build: ./Delete
+        container_name: delete-ticket-api
+        ports: 
+          - target: 8902
+            published: 8902
+        depends_on:
+          - "discovery-server"
+    frontend:
+        container_name: frontend
+        build: ./Frontend
+        image: zonaira/frontend:latest
+        ports:
+        - target: 3000
+          published: 3000
+          protocol: tcp
