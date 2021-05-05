@@ -12,12 +12,8 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.web.client.RestTemplate;
-import org.springframework.http.MediaType;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
-
+import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.annotation.DirtiesContext.*;
 
 import java.time.LocalDateTime;
 
@@ -25,6 +21,7 @@ import java.time.LocalDateTime;
 @WebMvcTest(TicketGatewayController.class)
 @AutoConfigureMockMvc
 @ActiveProfiles(profiles = "test")
+@DirtiesContext(classMode = ClassMode.BEFORE_EACH_TEST_METHOD)
 public class TicketGatewayControllerIntegrationTest {
 
     @Autowired
