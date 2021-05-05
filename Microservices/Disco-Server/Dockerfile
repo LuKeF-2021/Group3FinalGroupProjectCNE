@@ -8,7 +8,7 @@ RUN mvn clean package -DskipTests
 
 FROM openjdk:latest as run-time
 
-COPY --from=build-stage /build/target/Discovery-Server-*.jar /app/discovery-server.jar
+COPY --from=build-stage /build/target/Disco-Server-*.jar /app/disco-server.jar
 
 WORKDIR /app
 
