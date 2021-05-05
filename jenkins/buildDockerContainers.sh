@@ -1,6 +1,6 @@
 #! /bin/bash
 
-ssh -o StrictHostKeyChecking=no -i /home/jenkins/.ssh/id_rsa ubuntu@34.240.61.86 << EOF
+# ssh -o StrictHostKeyChecking=no -i /home/jenkins/.ssh/id_rsa ubuntu@34.240.61.86 << EOF
 # sh './logindocker.sh'
 sudo docker login -u $USERNAME -p $PASSWORD
 sudo docker network create project-network
@@ -12,4 +12,4 @@ sudo docker run -d --network project-network -p 8905:8905 --name lukef2021/updat
 sudo docker run -d --network project-network -p 8902:8902 --name lukef2021/deleteTicketService:latest
 sudo docker run -d --network project-network -p 8900:8900 --name lukef2021/discovery-server:latest
 sudo docker run -d --network project-network -p 80:8899 --name lukef2021/ticket-gateway:latest
-EOF
+# EOF
