@@ -1,6 +1,6 @@
 FROM maven:latest as build-stage
 
-COPY ../Microservices/CreateTicketService /build
+COPY /Microservices/CreateTicketService /build
 
 WORKDIR /build
 
