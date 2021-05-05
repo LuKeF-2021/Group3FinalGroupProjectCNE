@@ -16,8 +16,8 @@ pipeline{
             steps{
                 sh "chmod +x jenkins/buildDockerImages.sh"
                 sh "jenkins/buildDockerImages.sh"
-                // sh "chmod +x jenkins/buildDockerContainers.sh"
-                // sh "jenkins/buildDockerContainers.sh"
+                sh "chmod +x jenkins/buildDockerContainers.sh"
+                sh "jenkins/buildDockerContainers.sh"
             }
         }
         // stage('Building docker stuff and Test App'){

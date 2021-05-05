@@ -4,13 +4,13 @@
 # sh './logindocker.sh'
 sudo docker login -u $USERNAME -p $PASSWORD
 # sudo docker network create project-network
-sudo docker run discovery-server:latest
-sudo docker run ticket-gateway:latest
-sudo docker run readticketservice:latest
-sudo docker run readallticketservice:latest
-sudo docker run createticketservice:latest
-sudo docker run updateticketservice:latest
-sudo docker run deleteticketservice:latest
+sudo docker run -d --name discovery-server discovery-server:latest
+sudo docker run -d --name ticket-gateway ticket-gateway:latest
+sudo docker run -d --name read-ticket-api readticketservice:latest
+sudo docker run -d --name read-all-tickets-api readallticketservice:latest
+sudo docker run -d --name create-ticket-api createticketservice:latest
+sudo docker run -d --name update-ticket-api updateticketservice:latest
+sudo docker run -d --name delete-ticket-api deleteticketservice:latest
 # sudo docker run frontend:latest
 
 # EOF
