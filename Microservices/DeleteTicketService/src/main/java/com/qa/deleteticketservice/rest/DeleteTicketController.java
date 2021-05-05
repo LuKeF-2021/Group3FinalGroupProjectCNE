@@ -5,7 +5,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@RequestMapping("/tickets")
 @RestController
 @CrossOrigin
 public class DeleteTicketController {
@@ -17,7 +16,7 @@ public class DeleteTicketController {
         this.service = service;
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Object> deleteById(@PathVariable Long id) {
         if (this.service.deleteById(id)) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);

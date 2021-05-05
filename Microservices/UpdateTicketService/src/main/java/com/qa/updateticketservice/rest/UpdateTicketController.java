@@ -7,7 +7,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
-@RequestMapping("/tickets")
 @RestController
 @CrossOrigin
 public class UpdateTicketController {
@@ -19,7 +18,7 @@ public class UpdateTicketController {
 		this.service = service;
 	}
 
-    @PutMapping("/update/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<Ticket> updateById(@PathVariable Long id, @RequestBody Ticket ticket) {
         Ticket updatedObject = this.service.updateById(ticket, id);
         return new ResponseEntity<>(updatedObject, HttpStatus.ACCEPTED);
