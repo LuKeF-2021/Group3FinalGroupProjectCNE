@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<deleteTicket
+  id={2}
+/>
+`;
+
+exports[`renders correctly 2`] = `
+<p>
+  Please wait.... we are getting your request
+</p>
+`;

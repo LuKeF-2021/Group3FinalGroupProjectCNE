@@ -7,7 +7,7 @@ import { HiOutlineArrowsExpand } from "react-icons/hi";
 const CardStructure = ({ cardStuff, openTicketModal, deleteTicket, updateTicketToCompleted, openUpdateTicketModal }) => {
     
     const temp = cardStuff.createdAt;
-    const timeFormat = (temp.substring(8,10)) + '/' + (temp.substring(5,7)) + '  ' + (temp.substring(11,16));
+    const timeFormat = (temp.text().substring(8,10)) + '/' + (temp.substring(5,7)) + '  ' + (temp.substring(11,16));
 
     if (cardStuff.complete === true) {
         return (

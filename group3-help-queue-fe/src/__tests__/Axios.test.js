@@ -1,39 +1,44 @@
-  
-import { TestScheduler } from "@jest/core";
+import React from 'react';
+import renderer from 'react-test-renderer';
+import createNewTicket from  '../queuedTickets';
+import deleteTicket from  '../queuedTickets';
+import updateTicketContents from  '../queuedTickets';
+import updateTicketToCompleted from '../queuedTickets';
 
-const simpleFunc = ()=>{
-    return "hello";
-}
-async function asyncFunc1(){
-    return 1;
-}
 
-describe(`Suite - async function`,()=>{
 
-    it(`testing our simpleFunc`,()=>{
-        expect(simpleFunc()).toEqual("hello");
-    })
-    test(`async function 1`,()=>{
-        expect(asyncFunc1()).resolves.toEqual(1);
-    })
 
-    it(`await async function resolves`,()=>{
-        async function iUseAwait(){
-            let myProm= new Promise((resolve,reject)=>{
-                setTimeout( () => resolve("hello my friends"),2000);
-            });
-            let result = await myProm;
-        };
-        expect(iUseAwait()).resolves.toMatch("hello my friends");
-    })
-    it(`await async function reject`,()=>{
-        async function iUseAwait(){
-            let myProm= new Promise((resolve,reject)=>{
-                setTimeout( () => reject("oh no!!!"),2000);
-            });
-            let result = await myProm;
-        };
-        expect(iUseAwait()).resolves.toMatch("oh no!!!");
-    })
+it('renders correctly', () => {
+    const name = "Jest Test";
+    const ticketDescription = "Jest Test description";
+    const ticketTitle = "Jest Test Title";
+    const complete = false;
+    const tree = renderer.create(<createNewTicket name={name} ticketDescription={ticketDescription} ticketTitle={ticketTitle} complete={complete}/>).toJSON();
+    expect(tree).toMatchSnapshot();
+});
 
+it('renders correctly', () => {
+    const name = "Jest Test";
+    const ticketDescription = "Jest Test description";
+    const ticketTitle = "Jest Test Title";
+    const tree = renderer.create(<updateTicketContents name={name} ticketDescription={ticketDescription} ticketTitle={ticketTitle}/>).toJSON();
+    expect(tree).toMatchSnapshot(
+    //     {
+    //     name: "Jest Test",
+    //     ticketDescription: "Jest Test description",
+    //     ticketTitle: "Jest Test Title"
+    // }
+    );
+});
+
+it('renders correctly', () => {
+    const id = 2;
+    const tree = renderer.create(<deleteTicket id={id} />).toJSON();
+    expect(tree).toMatchSnapshot();
+});
+
+it('updated to complete correctly', () => {
+    const complete = true;
+    const tree = renderer.create(<updateTicketToCompleted complete={complete} />).toJSON();
+    expect(tree).toMatchSnapshot();
 })
