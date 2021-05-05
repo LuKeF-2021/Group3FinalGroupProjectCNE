@@ -5,6 +5,9 @@
 - Github - [Github Repo](https://github.com/LuKeF-2021/Group3FinalGroupProjectCNE)
 
 ## Technologies
+- Backend Services: Java, Maven, Spring
+- Service Registry: Eureka
+- Java Testing: JUnit, Spring Boot Test, Spring Test, Mockito
 ## Brief
 ## React Architecture
 
