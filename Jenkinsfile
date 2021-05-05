@@ -3,7 +3,7 @@ pipeline{
     environment {
     USERNAME=credentials('docker_username')
     PASSWORD=credentials('docker_password')
-    IP_ADDRESS=credentials('') //sort this out
+    // IP_ADDRESS=credentials('') //sort this out
     }
     stages{
         stage('Test App'){
@@ -22,11 +22,11 @@ pipeline{
                 sh "buildDockerContainers.sh"
             }
         }
-        stage('Deploy the app'){
-            steps{
-                sh "kubernetes.sh"
-            }
-        }
+        // stage('Deploy the app'){
+        //     steps{
+        //         sh "kubernetes.sh"
+        //     }
+        // }
     }
     
 }
