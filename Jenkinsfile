@@ -7,6 +7,11 @@ pipeline{
     // IP_ADDRESS=credentials('') //sort this out
     }
     stages{
+        stage('Remove local images'){
+            steps{
+                sh "sudo docker image prune"
+            }
+        }
         stage('Building and pushing new Docker images'){
             steps{
                 sh "chmod +x jenkins/buildDockerImages.sh"
