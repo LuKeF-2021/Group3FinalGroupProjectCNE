@@ -12,6 +12,6 @@ COPY --from=build-stage /build/target/DeleteTicketService-*.jar /app/DeleteTicke
 
 WORKDIR /app
 
-ENTRYPOINT ["java", "-jar", "DeleteTicketService.jar","--spring.datasource.url=${db_uri}","--spring.datasource.username=${db_user}", "--spring.datasource.pass=${db_pass}","--eureka.client.serviceUrl.defaultZone=http://discovery-server:8900/eureka/"]
+ENTRYPOINT ["java", "-jar", "DeleteTicketService.jar","--spring.datasource.url=$DBURI","--spring.datasource.username=$DBUSER", "--spring.datasource.pass=$DBPASS","--eureka.client.serviceUrl.defaultZone=http://discovery-server:8900/eureka/"]
 
 EXPOSE 8902

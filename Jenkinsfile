@@ -3,6 +3,9 @@ pipeline{
     environment {
     USERNAME=credentials('docker_username')
     PASSWORD=credentials('docker_password')
+    DBURI=credentials('db_uri')
+    DBUSER=credentials('db_user')
+    DBPASS=credentials('db_pass')
     
     // IP_ADDRESS=credentials('') //sort this out
     }
