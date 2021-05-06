@@ -10,14 +10,7 @@ pipeline{
     // IP_ADDRESS=credentials('') //sort this out
     }
     stages{
-        // stage('Remove local images'){
-        //     steps{
-        //         sh "sudo docker kill frontend"
-        //         sh "sudo docker kill ticket-gateway"
-        //         sh "sudo docker kill doscovery-server"
-        //         sh "sudo docker system prune -a -f"
-        //     }
-        // }
+        
         stage('Create database and table'){
             steps{
                 sh "chmod +x jenkins/create-db.sh"
@@ -32,23 +25,25 @@ pipeline{
                 sh "jenkins/buildDockerContainers.sh"
             }
         }
-        // stage('Building docker stuff and Test App'){
-        //     steps{
-        //         sh "chmod +x jenkins/testing.sh"
-        //         sh "jenkins/testing.sh"
-        //     }   
-        // }
-        // stage('Remove prev containers'){
-        //     steps{
-        //         sh "cleanContainers.sh"
-        //     }
-        // }
-        
-        // stage('Deploy the app'){
-        //     steps{
-        //         sh "kubernetes.sh"
-        //     }
-        // }
+        stage('Remove local images'){
+            steps{
+                sh "sudo docker kill frontend"
+                sh "sudo docker kill createticketservice"
+                sh "sudo docker kill readallticketservice"
+                sh "sudo docker kill readticketservice"
+                sh "sudo docker kill deleteticketservice"
+                sh "sudo docker kill updateticketservice"
+                sh "sudo docker kill ticket-gateway"
+                sh "sudo docker kill discovery-server"
+                sh "sudo docker system prune -a -f"
+            }
+        }
+        stage('Deploy the app'){
+            steps{
+                sh "chmod +x jenkins/kubernetes.sh"
+                sh "jenkins/kubernetes.sh"
+            }
+        }
     }
     
 }
