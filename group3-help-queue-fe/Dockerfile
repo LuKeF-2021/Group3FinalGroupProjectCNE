@@ -6,4 +6,4 @@ COPY package-lock.json ./
 RUN npm install --silent
 COPY . .
 EXPOSE 3000
-ENTRYPOINT ["npm", "start", "test"]
+ENTRYPOINT ["npm", "start", "test", "--coverage"]
