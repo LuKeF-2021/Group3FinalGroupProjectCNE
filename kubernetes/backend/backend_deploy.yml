@@ -1,6 +1,30 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  name: backend-disco
+  namespace: projectapp
+  labels: 
+    app: backend-disco
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: backend-disco
+  template:
+    metadata:
+      labels:
+        app: backend-disco
+    spec:
+      containers:
+      - name: discovery-server
+        image: lukef2021/discovery-server
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8900
+        
+apiVersion: apps/v1
+kind: Deployment
+metadata:
   name: backend-create
   namespace: projectapp
   labels: 
@@ -142,26 +166,3 @@ spec:
         ports:
         - containerPort: 8899
 
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: backend-disco
-  namespace: projectapp
-  labels: 
-    app: backend-disco
-spec:
-  replicas: 3
-  selector:
-    matchLabels:
-      app: backend-disco
-  template:
-    metadata:
-      labels:
-        app: backend-disco
-    spec:
-      containers:
-      - name: discovery-server
-        image: lukef2021/discovery-server
-        imagePullPolicy: Always
-        ports:
-        - containerPort: 8900
