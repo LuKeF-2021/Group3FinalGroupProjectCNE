@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Deployment
 metadata:
   name: nginx
-  Namespace: projectApp
+  Namespace: projectapp
   labels:
     app: nginx
 spec:
