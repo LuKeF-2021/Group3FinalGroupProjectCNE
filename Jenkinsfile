@@ -38,6 +38,12 @@ pipeline{
                 sh "sudo docker system prune -a -f"
             }
         }
+        stage('Testing the frontend'){
+            steps{
+                sh "chmod +x jenkins/testing.sh"
+                sh "jenkins/testing.sh"
+            }
+        }
         stage('Deploy the app'){
             steps{
                 sh "chmod +x jenkins/kubernetes.sh"

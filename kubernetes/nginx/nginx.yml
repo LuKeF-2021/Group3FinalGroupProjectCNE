@@ -17,6 +17,8 @@ spec:
       containers:
       - name: nginx
         image: nginx:latest
+        imagePullSecrets:
+          - name: cred
         ports:
         - containerPort: 80
         volumeMounts:

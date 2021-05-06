@@ -17,8 +17,10 @@ spec:
     spec:
       containers:
       - name: discovery-server
-        image: lukef2021/discovery-server
+        image: lukef2021/discovery-server:latest
         imagePullPolicy: Always
+        imagePullSecrets:
+          - name: cred
         ports:
         - containerPort: 8900
 ---
@@ -44,8 +46,10 @@ spec:
       # env: 
         #   - name: eureka-server-port
         #     value: http://backend-disco:8900/eureka/
-        image: lukef2021/createticketservice
+        image: lukef2021/createticketservice:latest
         imagePullPolicy: Always
+        imagePullSecrets:
+          - name: cred
         ports:
         - containerPort: 8901
 ---
@@ -68,8 +72,10 @@ spec:
     spec:
       containers:
       - name: read-ticket-api
-        image: lukef2021/readticketservice
+        image: lukef2021/readticketservice:latest
         imagePullPolicy: Always
+        imagePullSecrets:
+          - name: cred
         ports:
         - containerPort: 8904
 ---
@@ -92,8 +98,10 @@ spec:
     spec:
       containers:
       - name: read-all-tickets-api
-        image: lukef2021/readallticketservice
+        image: lukef2021/readallticketservice:latest
         imagePullPolicy: Always
+        imagePullSecrets:
+          - name: cred
         ports:
         - containerPort: 8903
 ---
@@ -116,8 +124,10 @@ spec:
     spec:
       containers:
       - name: update-ticket-api
-        image: lukef2021/updateticketservice
+        image: lukef2021/updateticketservice:latest
         imagePullPolicy: Always
+        imagePullSecrets:
+          - name: cred
         ports:
         - containerPort: 8905
 ---
@@ -140,8 +150,10 @@ spec:
     spec:
       containers:
       - name: delete-ticket-api
-        image: lukef2021/deleteticketservice
+        image: lukef2021/deleteticketservice:latest
         imagePullPolicy: Always
+        imagePullSecrets:
+          - name: cred
         ports:
         - containerPort: 8902
 ---
@@ -164,8 +176,10 @@ spec:
     spec:
       containers:
       - name: ticket-gateway
-        image: lukef2021/ticket-gateway
+        image: lukef2021/ticket-gateway:latest
         imagePullPolicy: Always
+        imagePullSecrets:
+          - name: cred
         ports:
         - containerPort: 8899
 
