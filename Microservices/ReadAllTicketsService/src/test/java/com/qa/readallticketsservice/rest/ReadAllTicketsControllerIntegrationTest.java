@@ -51,7 +51,7 @@ public class ReadAllTicketsControllerIntegrationTest {
     @Test
     void testReadAll() throws Exception {
         this.mock
-                .perform(get("/tickets/readAll")
+                .perform(get("/")
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(content().json(this.toJson.writeValueAsString(TICKETS_LIST)));

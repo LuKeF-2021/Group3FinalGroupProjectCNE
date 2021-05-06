@@ -55,7 +55,7 @@ public class UpdateTicketControllerIntegrationTest {
     @Test
     void testUpdateById() throws Exception {
         this.mock
-                .perform(put("/tickets/update/"+TICKET1.getId())
+                .perform(put("/"+TICKET1.getId())
                         .accept(MediaType.APPLICATION_JSON)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(this.toJson.writeValueAsString(TICKET1_CHANGE)))

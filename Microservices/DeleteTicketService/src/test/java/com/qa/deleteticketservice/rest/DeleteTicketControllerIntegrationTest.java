@@ -55,13 +55,13 @@ public class DeleteTicketControllerIntegrationTest {
     @Test
     void testDeleteById() throws Exception {
         this.mock
-                .perform(delete("/tickets/delete/"+TICKET1.getId())
+                .perform(delete("/"+TICKET1.getId())
                         .accept(MediaType.APPLICATION_JSON)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNoContent());
 
         this.mock
-                .perform(delete("/tickets/delete/"+TICKET3.getId())
+                .perform(delete("/"+TICKET3.getId())
                         .accept(MediaType.APPLICATION_JSON)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNotFound());
