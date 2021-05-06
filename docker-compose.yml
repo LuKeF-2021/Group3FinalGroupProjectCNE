@@ -1,13 +1,15 @@
 version: "3.8"
 services:
     Discovery-Server:
-        build: ./Discovery-Server
+        image: discovery-server:latest
+        # build: ./Discovery-Server
         container_name: discovery-server
         ports: 
           - target: 8900
             published: 8900
     TicketGateway:
-        build: ./TicketGateway
+        image: ticket-gateway:latest
+        # build: ./TicketGateway
         container_name: ticket-gateway
         ports:
           -target: 8899
@@ -15,14 +17,16 @@ services:
         depends_on:
           - "discovery-server"
     CreateTicketService:
-        build: ./create
+        # build: ./create
+        image: createticketservice:latest
         container_name: create-ticket-api
         ports: 
           - target: 8901
             published: 8901
         depends_on:
     ReadTicketService:
-        build: ./read
+        # build: ./read
+        image: readticketservice:latest
         container_name: read-ticket-api
         ports: 
           - target: 8904
@@ -30,7 +34,8 @@ services:
         depends_on:
           - "discovery-server"
     ReadAllTicketService:
-        build: ./readAll
+        # build: ./readAll
+        image: readallticketservice:latest
         container_name: read-all-tickets-api
         ports: 
           - target: 8903
@@ -38,7 +43,8 @@ services:
         depends_on:
           - "discovery-server"
     UpdateTicketService:
-        build: ./Update
+        # build: ./Update
+        image: updateticketservice:latest
         container_name: update-ticket-api
         ports: 
           - target: 8905
@@ -46,7 +52,8 @@ services:
         depends_on:
           - "discovery-server"
     DeleteTicketService:
-        build: ./Delete
+        # build: ./Delete
+        image: deleteticketservice:latest
         container_name: delete-ticket-api
         ports: 
           - target: 8902
@@ -55,8 +62,8 @@ services:
           - "discovery-server"
     frontend:
         container_name: frontend
-        build: ./Frontend
-        image: zonaira/frontend:latest
+        # build: ./Frontend
+        image: frontend:latest
         ports:
         - target: 3000
           published: 3000
