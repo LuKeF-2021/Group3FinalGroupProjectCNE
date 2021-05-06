@@ -93,6 +93,9 @@ We would like to Acknowledge all the QA Teaching team as well various online sou
 ## Authors
 
 Luke Foster
+
 Zonaria Hussain
+
 Dylan Ritchings
+
 Thomas Glynn
