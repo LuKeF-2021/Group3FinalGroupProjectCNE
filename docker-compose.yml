@@ -1,9 +1,9 @@
 version: "3.8"
 services:
     Discovery-Server:
-        image: discovery-server:latest
+        image: Discovery-Server:latest
         # build: ./Discovery-Server
-        container_name: discovery-server
+        container_name: Discovery-Server
         ports: 
           - "8900:8900"
     TicketGateway:
@@ -15,7 +15,7 @@ services:
           # -target: 8899
           #  published: 8899
         depends_on:
-          - "discovery-server"
+          - "Discovery-Server"
     CreateTicketService:
         # build: ./create
         image: createticketservice:latest
@@ -25,7 +25,7 @@ services:
           # - target: 8901
           #   published: 8901
         depends_on:
-          - "discovery-server"
+          - "Discovery-Server"
     ReadTicketService:
         # build: ./read
         image: readticketservice:latest
@@ -35,7 +35,7 @@ services:
           # - target: 8904
           #   published: 8904
         depends_on:
-          - "discovery-server"
+          - "Discovery-Server"
     ReadAllTicketService:
         # build: ./readAll
         image: readallticketservice:latest
@@ -45,7 +45,7 @@ services:
           # - target: 8903
           #   published: 8903
         depends_on:
-          - "discovery-server"
+          - "Discovery-Server"
     UpdateTicketService:
         # build: ./Update
         image: updateticketservice:latest
@@ -55,7 +55,7 @@ services:
           # - target: 8905
           #   published: 8905
         depends_on:
-          - "discovery-server"
+          - "Discovery-Server"
     DeleteTicketService:
         # build: ./Delete
         image: deleteticketservice:latest
@@ -65,7 +65,7 @@ services:
           # - target: 8902
           #   published: 8902
         depends_on:
-          - "discovery-server"
+          - "Discovery-Server"
     frontend:
         container_name: frontend
         # build: ./Frontend
