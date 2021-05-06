@@ -1,6 +1,16 @@
 # Group3FinalGroupProjectCNE
 
-## Brief:
+## Links:
+
+- Jira Board - [Jira Board](https://fundementalscrum.atlassian.net/secure/RapidBoard.jspa?projectKey=FIN&rapidView=2)
+- Github - [Github Repo](https://github.com/LuKeF-2021/Group3FinalGroupProjectCNE)
+
+## Technologies
+- Database Technologies: AWS RDS, MySQL, H2
+- Backend Services: Java, Maven, Spring
+- Service Registry: Eureka
+- Java Testing: JUnit, Spring Boot Test, Spring Test, Mockito
+## Brief
 
 The assignment given to us was to create a Help Queue web application for use in the Academy. This program would be deployed using a CI Pipeline, with the inclusion of rolling updates. 
 
@@ -14,18 +24,6 @@ We also had a list of extra features to implement, and we decided to and succeed
 
 We attempted to implement key word searching and was able to find the solution to implement it but with our time constraint and making sure we left enough time for the dev ops portion of the assignment we were unable to do so. 
 
-
-## Links:
-
-- Jira Board - [Jira Board](https://fundementalscrum.atlassian.net/secure/RapidBoard.jspa?projectKey=FIN&rapidView=2)
-- Github - [Github Repo](https://github.com/LuKeF-2021/Group3FinalGroupProjectCNE)
-
-## Technologies
-- Database Technologies: AWS RDS, MySQL, H2
-- Backend Services: Java, Maven, Spring
-- Service Registry: Eureka
-- Java Testing: JUnit, Spring Boot Test, Spring Test, Mockito
-## Brief
 ## React Architecture
 Our React Files are organised as such, Displayed using Visual Studio Code:
 
