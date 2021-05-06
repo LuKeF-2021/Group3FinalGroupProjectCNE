@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: frontendApp
+  name: frontendapp
   namespace: projectapp
   labels:
-    app: frontendApp
+    app: frontendapp
 spec:
   containers:
-  - name: frontendApp
+  - name: frontendapp
     image: lukef2021/frontend
     ports:
     - containerPort: 3000
@@ -15,13 +15,13 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: frontendApp
+  name: frontendapp
   namespace: projectapp
   labels:
-    app: frontendApp
+    app: frontendapp
 spec:
   selector:
-    app: frontendApp
+    app: frontendapp
   ports:
   - protocol: TCP
     port: 3000
