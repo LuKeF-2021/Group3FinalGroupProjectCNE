@@ -12,6 +12,9 @@ pipeline{
     stages{
         stage('Remove local images'){
             steps{
+                sh "sudo docker kill frontend"
+                sh "sudo docker kill ticket-gateway"
+                sh "sudo docker kill doscovery-server"
                 sh "sudo docker system prune -a -f"
             }
         }
