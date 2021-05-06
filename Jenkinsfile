@@ -20,8 +20,8 @@ pipeline{
         // }
         stage('Create database and table'){
             steps{
-                sh "chmod +x create-db.sh"
-                sh "create-db.sh"
+                sh "chmod +x jenkins/create-db.sh"
+                sh "jenkins/create-db.sh"
             }
         }
         stage('Building, pushing new Docker images and tests'){
