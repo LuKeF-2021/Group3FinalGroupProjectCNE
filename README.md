@@ -1,4 +1,20 @@
 # Group3FinalGroupProjectCNE
+
+## Brief:
+
+The assignment given to us was to create a Help Queue web application for use in the Academy. This program would be deployed using a CI Pipeline, with the inclusion of rolling updates. 
+
+The purpose of the application will tb be used as a hands-up tool to alert trainers to who in their class needs help. The idea is for trainees to be able to post help tickets to a queue with oldest tickets on top. 
+
+Trainers can then go through the list and choose a ticket to work on, post a solution, and then tick as completed. 
+
+Tickets that have been marked as completed are then moved into a “Completed” list and the list of tickets rearranges itself. 
+
+We also had a list of extra features to implement, and we decided to and succeeded in implementing the following:  Solutions, Urgency, Filtering
+
+We attempted to implement key word searching and was able to find the solution to implement it but with our time constraint and making sure we left enough time for the dev ops portion of the assignment we were unable to do so. 
+
+
 ## Links:
 
 - Jira Board - [Jira Board](https://fundementalscrum.atlassian.net/secure/RapidBoard.jspa?projectKey=FIN&rapidView=2)
@@ -57,7 +73,8 @@ All snapshots passsed and both test suits reported no failures.
 
 - Terraform:- Provisioning Resources
 - ansible:- Allocation of Resources
-- Kubernetes:-
+- Kubernetes:- Managing Services
+- Nginx:- Reverse Proxy
 
 ## Manual Development
 
