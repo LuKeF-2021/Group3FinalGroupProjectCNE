@@ -177,9 +177,10 @@ spec:
       containers:
       - name: ticket-gateway
         image: lukef2021/ticket-gateway:latest
-        imagePullPolicy: Always
-      imagePullSecrets:
-        - name: cred
         ports:
         - containerPort: 8899
+        imagePullPolicy: Always
+      imagePullSecrets:
+      - name: cred
+        
 
