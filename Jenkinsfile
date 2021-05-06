@@ -21,6 +21,8 @@ pipeline{
             steps{
                 sh "chmod +x jenkins/buildDockerImages.sh"
                 sh "jenkins/buildDockerImages.sh"
+                sh "chmod +x jenkins/testing.sh"
+                sh "jenkins/testing.sh"
                 sh "chmod +x jenkins/buildDockerContainers.sh"
                 sh "jenkins/buildDockerContainers.sh"
             }
@@ -36,12 +38,6 @@ pipeline{
                 sh "sudo docker kill ticket-gateway"
                 sh "sudo docker kill discovery-server"
                 sh "sudo docker system prune -a -f"
-            }
-        }
-        stage('Testing the frontend'){
-            steps{
-                sh "chmod +x jenkins/testing.sh"
-                sh "jenkins/testing.sh"
             }
         }
         stage('Deploy the app'){
