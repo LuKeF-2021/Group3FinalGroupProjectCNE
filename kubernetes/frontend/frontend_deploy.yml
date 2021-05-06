@@ -19,7 +19,7 @@ spec:
       - name: frontendapp
         image: lukef2021/frontend:latest
         imagePullPolicy: Always
-        imagePullSecrets:
-          - name: cred
+      imagePullSecrets:
+        - name: cred
         ports:
         - containerPort: 3000
