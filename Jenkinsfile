@@ -18,6 +18,12 @@ pipeline{
                 sh "sudo docker system prune -a -f"
             }
         }
+        stage('Create database and table'){
+            steps{
+                sh "chmod +x create-db.sh"
+                sh "create-db.sh"
+            }
+        }
         stage('Building, pushing new Docker images and tests'){
             steps{
                 sh "chmod +x jenkins/buildDockerImages.sh"
