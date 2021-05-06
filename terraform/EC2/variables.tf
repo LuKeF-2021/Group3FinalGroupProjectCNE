@@ -5,12 +5,12 @@ variable "ami" {
 
 variable "type" {
   description = "machine size"
-  default = "t2.micro"
+  default = "t2.medium"
 }
 
 variable "ssh_key" {
   description = "key to connect using ssh"
-  default = "aws-instance-keypair"
+  default = "teamthree-keypair"
 }
 
 variable "subnet_jenkins_id" {
