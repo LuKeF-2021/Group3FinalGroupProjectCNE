@@ -10,14 +10,14 @@ pipeline{
     // IP_ADDRESS=credentials('') //sort this out
     }
     stages{
-        stage('Remove local images'){
-            steps{
-                sh "sudo docker kill frontend"
-                sh "sudo docker kill ticket-gateway"
-                sh "sudo docker kill doscovery-server"
-                sh "sudo docker system prune -a -f"
-            }
-        }
+        // stage('Remove local images'){
+        //     steps{
+        //         sh "sudo docker kill frontend"
+        //         sh "sudo docker kill ticket-gateway"
+        //         sh "sudo docker kill doscovery-server"
+        //         sh "sudo docker system prune -a -f"
+        //     }
+        // }
         stage('Create database and table'){
             steps{
                 sh "chmod +x create-db.sh"
