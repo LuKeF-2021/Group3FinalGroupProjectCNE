@@ -8,7 +8,7 @@ eksctl create cluster \
 --nodes 2 \
 --nodes-min 2 \
 --nodes-max 3 \
---node-type t3.micro \
+--node-type t2.medium \
 --with-oidc \
 --ssh-access \
 --ssh-public-key teamthree-keypair \
