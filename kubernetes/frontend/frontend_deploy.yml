@@ -23,4 +23,8 @@ spec:
         imagePullPolicy: Always
       imagePullSecrets:
       - name: cred
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 2
         

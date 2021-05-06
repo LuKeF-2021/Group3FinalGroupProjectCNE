@@ -23,6 +23,10 @@ spec:
         imagePullPolicy: Always
       imagePullSecrets:
       - name: cred
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 2
         
 ---
 apiVersion: apps/v1
@@ -53,6 +57,10 @@ spec:
         imagePullPolicy: Always
       imagePullSecrets:
       - name: cred
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 2
         
 ---
 apiVersion: apps/v1
@@ -80,6 +88,10 @@ spec:
         imagePullPolicy: Always
       imagePullSecrets:
       - name: cred
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 2
         
 ---
 apiVersion: apps/v1
@@ -107,6 +119,10 @@ spec:
         imagePullPolicy: Always
       imagePullSecrets:
       - name: cred
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 2
         
 ---
 apiVersion: apps/v1
@@ -134,6 +150,10 @@ spec:
         imagePullPolicy: Always
       imagePullSecrets:
       - name: cred
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 2
         
 ---
 apiVersion: apps/v1
@@ -161,6 +181,10 @@ spec:
         imagePullPolicy: Always
       imagePullSecrets:
       - name: cred
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 2
         
 ---
 apiVersion: apps/v1
@@ -188,5 +212,9 @@ spec:
         imagePullPolicy: Always
       imagePullSecrets:
       - name: cred
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 2
         
 
