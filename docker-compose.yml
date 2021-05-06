@@ -5,15 +5,15 @@ services:
         # build: ./Discovery-Server
         container_name: discovery-server
         ports: 
-          - target: 8900
-            published: 8900
+          - "8900:8900"
     TicketGateway:
         image: ticket-gateway:latest
         # build: ./TicketGateway
         container_name: ticket-gateway
         ports:
-          -target: 8899
-           published: 8899
+          - "8899:8899"
+          # -target: 8899
+          #  published: 8899
         depends_on:
           - "discovery-server"
     CreateTicketService:
@@ -21,16 +21,18 @@ services:
         image: createticketservice:latest
         container_name: create-ticket-api
         ports: 
-          - target: 8901
-            published: 8901
+          - "8901:8901"
+          # - target: 8901
+          #   published: 8901
         depends_on:
     ReadTicketService:
         # build: ./read
         image: readticketservice:latest
         container_name: read-ticket-api
         ports: 
-          - target: 8904
-            published: 8904
+          - "8904:8904"
+          # - target: 8904
+          #   published: 8904
         depends_on:
           - "discovery-server"
     ReadAllTicketService:
@@ -38,8 +40,9 @@ services:
         image: readallticketservice:latest
         container_name: read-all-tickets-api
         ports: 
-          - target: 8903
-            published: 8903
+          - "8903:8903"
+          # - target: 8903
+          #   published: 8903
         depends_on:
           - "discovery-server"
     UpdateTicketService:
@@ -47,17 +50,19 @@ services:
         image: updateticketservice:latest
         container_name: update-ticket-api
         ports: 
-          - target: 8905
-            published: 8905
+          - "8905:8905"
+          # - target: 8905
+          #   published: 8905
         depends_on:
           - "discovery-server"
     DeleteTicketService:
         # build: ./Delete
         image: deleteticketservice:latest
         container_name: delete-ticket-api
-        ports: 
-          - target: 8902
-            published: 8902
+        ports:
+          - "8902:8902" 
+          # - target: 8902
+          #   published: 8902
         depends_on:
           - "discovery-server"
     frontend:
@@ -65,6 +70,7 @@ services:
         # build: ./Frontend
         image: frontend:latest
         ports:
-        - target: 3000
-          published: 3000
+          - "3000:3000"
+        # - target: 3000
+        #   published: 3000
           protocol: tcp
