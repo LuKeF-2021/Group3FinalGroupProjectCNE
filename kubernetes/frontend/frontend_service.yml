@@ -9,6 +9,7 @@ spec:
   containers:
   - name: frontendapp
     image: lukef2021/frontend
+    imagePullPolicy: Always
     ports:
     - containerPort: 3000
 ---
