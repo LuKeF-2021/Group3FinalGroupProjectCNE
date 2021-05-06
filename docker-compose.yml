@@ -25,6 +25,7 @@ services:
           # - target: 8901
           #   published: 8901
         depends_on:
+          - "discovery-server"
     ReadTicketService:
         # build: ./read
         image: readticketservice:latest
