@@ -1,9 +1,9 @@
 version: "3.8"
 services:
     Discovery-Server:
-        image: Discovery-Server:latest
+        image: discovery-server:latest
         # build: ./Discovery-Server
-        container_name: Discovery-Server
+        container_name: discovery-server
         ports: 
           - "8900:8900"
     TicketGateway:
