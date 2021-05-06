@@ -13,6 +13,6 @@ sudo docker login -u $USERNAME -p $PASSWORD
 # sudo docker run -d --name update-ticket-api updateticketservice:latest
 # sudo docker run -d --name delete-ticket-api deleteticketservice:latest
 # sudo docker run -d --name frontend frontend:latest
-docker-compose up -d
+sudo docker-compose up -d
 
 # EOF
