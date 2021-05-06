@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: ticket-gateway
+  name: backend
   namespace: projectapp
   labels:
-    app: ticket-gateway
+    app: backend
 spec:
   containers:
       - name: create-ticket-api
@@ -39,13 +39,13 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: ticket-gateway
+  name: backend
   namespace: projectapp
   labels:
-    app: ticket-gateway
+    app: backend
 spec:
   selector:
-    app: ticket-gateway
+    app: backend
   ports:
   - protocol: TCP
     port: 8899

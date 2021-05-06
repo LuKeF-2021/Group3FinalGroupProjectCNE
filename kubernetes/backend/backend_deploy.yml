@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ticket-gateway
+  name: backend
   namespace: projectapp
   labels: 
-    app: ticket-gateway
+    app: backend
 spec:
   selector:
     matchLabels:
-      app: ticket-gateway
+      app: backend
   template:
     metadata:
       labels:
-        app: ticket-gateway
+        app: backend
     spec:
       containers:
       - name: create-ticket-api
