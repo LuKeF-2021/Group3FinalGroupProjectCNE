@@ -11,6 +11,11 @@
 - Java Testing: JUnit, Spring Boot Test, Spring Test, Mockito
 ## Brief
 ## React Architecture
+Our React Files are organised as such, Displayed using Visual Studio Code:
+
+![React File Structure](https://github.com/LuKeF-2021/Group3FinalGroupProjectCNE/blob/main/ReadMeFiles/React%20File%20Structure.PNG)
+
+We structured our code with clearly named .jsx files to compartmentalise our front end. This clarity ensures that when working as a team, other memebers don't waste time deducing what the code does. The jsx files include snippits of HTML so that it can be rendered seperately from the whole webpage, as such the index.html file is almost empty. 
 
 ## Java Architecture
 ### Monolithic
@@ -44,12 +49,15 @@ We used a Microservice architecture for our final project because of its key Ben
 ![Test coverage graph](https://github.com/LuKeF-2021/Group3FinalGroupProjectCNE/blob/main/ReadMeFiles/BackendTestCoverage.png)
 ### Front-End Testing
 JEST testing Axios statements using expect().toMatchSnapshot
-![JEST TEST Coverage](https://github.com/LuKeF-2021/Group3FinalGroupProjectCNE/blob/main/ReadMeFiles/jesttestsnaps.png)
+
+![JEST TEST Coverage](https://github.com/LuKeF-2021/Group3FinalGroupProjectCNE/blob/main/ReadMeFiles/jesttestsnaps.PNG)
+
 All snapshots passsed and both test suits reported no failures.
 ## Automated Devlopment
 
 - Terraform:- Provisioning Resources
 - ansible:- Allocation of Resources
+- Kubernetes:-
 
 ## Manual Development
 
@@ -65,7 +73,7 @@ We would like to Acknowledge all the QA Teaching team as well various online sou
 
 ## Authors
 
-Luke
-Zonaria
-Dylan
-Thom
+Luke Foster
+Zonaria Hussain
+Dylan Ritchings
+Thomas Glynn
