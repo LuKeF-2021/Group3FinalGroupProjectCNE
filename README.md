@@ -40,7 +40,7 @@ This is the original monolithic architecture:
 This was quick to set up and was built and ready to be used with Postman within a day. We were able to use this as a base for our final microservice based springboot app. 
 ### Microservices
 ![Microservices architecture diagram](https://github.com/LuKeF-2021/Group3FinalGroupProjectCNE/blob/main/ReadMeFiles/Microservices%20Architecture%20Diagram.png)
-## Microservices Unit and Integration Test Coverage
+
 We used a Microservice architecture for our final project because of its key Benefits:
 - Improved Scalability
 - Better Fault Isolation and More Resilient Applications
