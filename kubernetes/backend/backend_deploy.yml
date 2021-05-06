@@ -17,9 +17,6 @@ spec:
     spec:
       containers:
       - name: discovery-server
-        # env: 
-        #   - name: eureka-server-port
-        #     value: http://backend-disco:8900/eureka/
         image: lukef2021/discovery-server
         imagePullPolicy: Always
         ports:
@@ -44,6 +41,9 @@ spec:
     spec:
       containers:
       - name: create-ticket-api
+      # env: 
+        #   - name: eureka-server-port
+        #     value: http://backend-disco:8900/eureka/
         image: lukef2021/createTicketService
         imagePullPolicy: Always
         ports:
