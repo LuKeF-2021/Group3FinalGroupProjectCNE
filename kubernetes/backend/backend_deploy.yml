@@ -6,7 +6,7 @@ metadata:
   labels: 
     app: backend-disco
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: backend-disco
@@ -37,7 +37,7 @@ metadata:
   labels: 
     app: backend-create
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: backend-create
@@ -71,7 +71,7 @@ metadata:
   labels: 
     app: backend-read
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: backend-read
@@ -102,7 +102,7 @@ metadata:
   labels: 
     app: backend-read-all
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: backend-read-all
@@ -133,7 +133,7 @@ metadata:
   labels: 
     app: backend-update
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: backend-update
@@ -164,7 +164,7 @@ metadata:
   labels: 
     app: backend-delete
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: backend-delete
@@ -195,7 +195,7 @@ metadata:
   labels: 
     app: backend-gateway
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: backend-gateway

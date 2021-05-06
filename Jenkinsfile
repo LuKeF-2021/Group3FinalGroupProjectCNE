@@ -12,14 +12,14 @@ pipeline{
     stages{
         
         stage('Create database and table'){
-            when { anyOf { branch 'main'; branch pattern: "*backend*", comparator: "GLOB" } }
+            // when { anyOf { branch 'main'; branch pattern: "*backend*", comparator: "GLOB" } }
             steps{
                 sh "chmod +x jenkins/create-db.sh"
                 sh "jenkins/create-db.sh"
             }
         }
         stage('Building, pushing new Docker images and tests'){
-            when { anyOf { branch 'main'; branch pattern: "*backend*", comparator: "GLOB" } }
+            // when { anyOf { branch 'main'; branch pattern: "*backend*", comparator: "GLOB" } }
             steps{
                 sh "chmod +x jenkins/buildDockerImages.sh"
                 sh "jenkins/buildDockerImages.sh"
@@ -30,7 +30,7 @@ pipeline{
             }
         }
         stage('Remove local images'){
-            when { anyOf { branch 'main'; branch pattern: "*backend*", comparator: "GLOB" } }
+            // when { anyOf { branch 'main'; branch pattern: "*backend*", comparator: "GLOB" } }
             steps{
                 sh "sudo docker kill frontend"
                 sh "sudo docker kill create-ticket-api"
