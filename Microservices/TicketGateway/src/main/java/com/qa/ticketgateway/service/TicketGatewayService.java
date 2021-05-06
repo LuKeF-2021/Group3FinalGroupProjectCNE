@@ -19,21 +19,6 @@ public class TicketGatewayService {
 
     private final RestTemplate rest;
 
-    @Value("${service.read-all}")
-    private String readAllUrl;
-
-    @Value("${service.read}")
-    private String readUrl;
-
-    @Value("${service.create}")
-    private String createUrl;
-
-    @Value("${service.delete}")
-    private String deleteUrl;
-
-    @Value("${service.update}")
-    private String updateUrl;
-
     @Autowired
     public TicketGatewayService(RestTemplate rest) {
         super();
@@ -42,23 +27,23 @@ public class TicketGatewayService {
 
 
     public Ticket[] readAll(){
-        return this.rest.getForObject(readAllUrl, Ticket[].class);
+        return this.rest.getForObject("https://read-all-tickets-api/", Ticket[].class);
 
     }
 
     public Ticket readById(Long id) {
-        return this.rest.getForObject(readUrl+id, Ticket.class);
+        return this.rest.getForObject("https://read-ticket-api/"+id, Ticket.class);
 
     }
 
     public Ticket create(Ticket ticket) {
-        Ticket newTicket = rest.postForObject(createUrl, ticket, Ticket.class);
+        Ticket newTicket = rest.postForObject("https://create-ticket-api/", ticket, Ticket.class);
 
         return newTicket;
     }
 
     public Boolean deleteById(Long id) {
-        String url = deleteUrl+id;
+        String url = "https://delete-ticket-api/"+id;
         try {
             this.rest.delete(url);
             return true;
@@ -70,7 +55,7 @@ public class TicketGatewayService {
 
     public Ticket updateById(Long id, Ticket ticket) {
         HttpEntity<Ticket> request = new HttpEntity<>(ticket);
-        ResponseEntity<Ticket> response = this.rest.exchange(updateUrl+id, HttpMethod.PUT, request, Ticket.class);
+        ResponseEntity<Ticket> response = this.rest.exchange("https://update-ticket-api/"+id, HttpMethod.PUT, request, Ticket.class);
         Ticket updatedTicket = response.getBody();
         return(updatedTicket);
     }
