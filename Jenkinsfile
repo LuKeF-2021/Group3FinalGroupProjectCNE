@@ -28,11 +28,11 @@ pipeline{
         stage('Remove local images'){
             steps{
                 sh "sudo docker kill frontend"
-                sh "sudo docker kill createticketservice"
-                sh "sudo docker kill readallticketservice"
-                sh "sudo docker kill readticketservice"
-                sh "sudo docker kill deleteticketservice"
-                sh "sudo docker kill updateticketservice"
+                sh "sudo docker kill create-ticket-api"
+                sh "sudo docker kill read-all-tickets-api"
+                sh "sudo docker kill read-ticket-api"
+                sh "sudo docker kill delete-ticket-api"
+                sh "sudo docker kill update-ticket-api"
                 sh "sudo docker kill ticket-gateway"
                 sh "sudo docker kill discovery-server"
                 sh "sudo docker system prune -a -f"
