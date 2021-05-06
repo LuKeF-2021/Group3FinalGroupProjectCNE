@@ -44,7 +44,7 @@ spec:
       # env: 
         #   - name: eureka-server-port
         #     value: http://backend-disco:8900/eureka/
-        image: lukef2021/createTicketService
+        image: lukef2021/createticketservice
         imagePullPolicy: Always
         ports:
         - containerPort: 8901
@@ -68,7 +68,7 @@ spec:
     spec:
       containers:
       - name: read-ticket-api
-        image: lukef2021/readTicketService
+        image: lukef2021/readticketservice
         imagePullPolicy: Always
         ports:
         - containerPort: 8904
@@ -92,7 +92,7 @@ spec:
     spec:
       containers:
       - name: read-all-tickets-api
-        image: lukef2021/readAllTicketService
+        image: lukef2021/readallticketservice
         imagePullPolicy: Always
         ports:
         - containerPort: 8903
@@ -116,7 +116,7 @@ spec:
     spec:
       containers:
       - name: update-ticket-api
-        image: lukef2021/updateTicketService
+        image: lukef2021/updateticketservice
         imagePullPolicy: Always
         ports:
         - containerPort: 8905
@@ -140,7 +140,7 @@ spec:
     spec:
       containers:
       - name: delete-ticket-api
-        image: lukef2021/deleteTicketService
+        image: lukef2021/deleteticketservice
         imagePullPolicy: Always
         ports:
         - containerPort: 8902
