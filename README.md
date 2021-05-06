@@ -24,12 +24,23 @@ We also had a list of extra features to implement, and we decided to and succeed
 
 We attempted to implement key word searching and was able to find the solution to implement it but with our time constraint and making sure we left enough time for the dev ops portion of the assignment we were unable to do so. 
 
+## Risk Assessment
+[Risk Assessment](https://github.com/LuKeF-2021/Group3FinalGroupProjectCNE/blob/main/ReadMeFiles/FinalProj_RiskAssessment.xlsx)
+
 ## React Architecture
 Our React Files are organised as such, Displayed using Visual Studio Code:
 
 ![React File Structure](https://github.com/LuKeF-2021/Group3FinalGroupProjectCNE/blob/main/ReadMeFiles/React%20File%20Structure.PNG)
 
 We structured our code with clearly named .jsx files to compartmentalise our front end. This clarity ensures that when working as a team, other memebers don't waste time deducing what the code does. The jsx files include snippits of HTML so that it can be rendered seperately from the whole webpage, as such the index.html file is almost empty. 
+
+### Our front end Application entry page:
+
+![Entry Page](https://github.com/LuKeF-2021/Group3FinalGroupProjectCNE/blob/main/ReadMeFiles/updated%20webpage%20colour%20scheme%20and%20design.JPG)
+
+### Create ticket screen
+
+![Create Ticket](https://github.com/LuKeF-2021/Group3FinalGroupProjectCNE/blob/main/ReadMeFiles/Create%20ticket%20modal%20with%20urgency%20added.JPG)
 
 ## Java Architecture
 ### Monolithic
@@ -52,7 +63,7 @@ We used a Microservice architecture for our final project because of its key Ben
 
 ## JIRA board
 
-![JiraBoard](https://github.com/LuKeF-2021/Group3FinalGroupProjectCNE/blob/main/ReadMeFiles/jirasnap.PNG)
+![JiraBoard](https://github.com/LuKeF-2021/Group3FinalGroupProjectCNE/blob/main/sprint%20screenshot2.png)
 
 Our completed Jira tasks.
 
