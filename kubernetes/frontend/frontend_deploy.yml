@@ -1,21 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontendApp
-  namespace: projectApp
+  name: frontendapp
+  namespace: projectapp
   labels: 
-    app: frontendApp
+    app: frontendapp
 spec:
+  replicas: 3
   selector:
     matchLabels:
-      app: frontendApp
+      app: frontendapp
   template:
     metadata:
       labels:
-        app: frontendApp
+        app: frontendapp
     spec:
       containers:
-      - name: frontendApp
+      - name: frontendapp
         image: lukef2021/frontend
+        imagePullPolicy: Always
         ports:
         - containerPort: 3000

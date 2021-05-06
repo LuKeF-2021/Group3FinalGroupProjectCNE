@@ -2,12 +2,12 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: nginx-config
-  namespace: projectApp
+  namespace: projectapp
 data:
   default.conf:
     server {
         listen 80;
         location / {
-            proxy_pass http://frontendApp:3000;
+            proxy_pass http://frontendapp:3000;
         }
     }

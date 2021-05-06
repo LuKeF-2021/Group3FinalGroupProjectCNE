@@ -2,13 +2,16 @@ package com.qa.deleteticketservice.service;
 
 import com.qa.deleteticketservice.persistence.domain.Ticket;
 import com.qa.deleteticketservice.persistence.repo.TicketRepo;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.annotation.DirtiesContext.*;
+import org.springframework.test.context.ActiveProfiles;
+
 import org.springframework.test.context.ActiveProfiles;
 
 import java.time.LocalDateTime;
@@ -25,6 +28,7 @@ import static java.time.Clock.*;
 @AutoConfigureMockMvc
 @ActiveProfiles(profiles = "test")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
+@DirtiesContext(classMode = ClassMode.BEFORE_EACH_TEST_METHOD)
 public class DeleteTicketServiceIntegrationTest {
 
     @Autowired
@@ -35,7 +39,7 @@ public class DeleteTicketServiceIntegrationTest {
 
     private final static LocalDateTime DATE_TIME = LocalDateTime.of(2010, 2, 11,11,30);
 
-    private final Ticket TICKET1 = new Ticket(2L,"Name Naming", DATE_TIME, "Description of ticket","Title of ticket", false, "This is a new solution", "Medium", "Cohort2");
+    private final Ticket TICKET1 = new Ticket(1L,"Name Naming", DATE_TIME, "Description of ticket","Title of ticket", false, "This is a new solution", "Medium", "Cohort2");
 
     private final List<Ticket> TICKETS_LIST = List.of(TICKET1);
 
