@@ -17,11 +17,14 @@ spec:
     spec:
       containers:
       - name: discovery-server
+        # env: 
+        #   - name: eureka-server-port
+        #     value: http://backend-disco:8900/eureka/
         image: lukef2021/discovery-server
         imagePullPolicy: Always
         ports:
         - containerPort: 8900
-        
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -45,7 +48,7 @@ spec:
         imagePullPolicy: Always
         ports:
         - containerPort: 8901
-
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -69,7 +72,7 @@ spec:
         imagePullPolicy: Always
         ports:
         - containerPort: 8904
-
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -93,7 +96,7 @@ spec:
         imagePullPolicy: Always
         ports:
         - containerPort: 8903
-
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -117,7 +120,7 @@ spec:
         imagePullPolicy: Always
         ports:
         - containerPort: 8905
-
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -141,7 +144,7 @@ spec:
         imagePullPolicy: Always
         ports:
         - containerPort: 8902
-
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
