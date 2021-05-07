@@ -18,12 +18,12 @@ pipeline{
                 sh "jenkins/create-db.sh"
             }
         }
-        stage('creating the docker secret'){
-            steps{
-                sh "chmod +x jenkins/cred.sh"
-                sh "jenkins/cred.sh"
-            }
-        }
+        // stage('creating the docker secret'){
+        //     steps{
+        //         sh "chmod +x jenkins/cred.sh"
+        //         sh "jenkins/cred.sh"
+        //     }
+        // }
         // stage('Building, pushing new Docker images and tests'){
         //     steps{
         //         sh "chmod +x jenkins/buildDockerImages.sh"
