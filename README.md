@@ -87,7 +87,7 @@ JEST testing Axios statements using expect().toMatchSnapshot
 All snapshots passsed and both test suits reported no failures.
 ## Automated Devlopment
 
-### Terraform:- 
+### Terraform:- provisioning of resources
 
 Terraform is an Infrastructure Management technology, it allows for what is known as 'Infrastructure as Code'. Simply put, this means that Terraform can create infrastructure through a command line interface by making use of Terraform (.tf) files. It is used to define a 'final state' allowing the user to define the provisioned resources directly. It follows a JSON-like notation of key and value pairs, and can be split into modules to easily isolate your ec2 code from say your RDS code. Very useful tool for engineers who dont have access to the AWS Console.
 ### Ansible:- Allocation of Resources
