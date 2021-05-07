@@ -5,9 +5,9 @@ eksctl create cluster \
 --name ProjectCluster \
 --region eu-west-1 \
 --nodegroup-name ProjectNodes \
---nodes 2 \
---nodes-min 2 \
---nodes-max 3 \
+--nodes 7 \
+--nodes-min 7 \
+--nodes-max 8 \
 --node-type t2.medium \
 --with-oidc \
 --ssh-access \
