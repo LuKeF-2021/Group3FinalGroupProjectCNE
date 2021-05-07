@@ -1,53 +1,210 @@
-apiVersion: v1
-kind: Pod
-metadata:
-  name: ticket-gateway
-  namespace: projectApp
-  labels:
-    app: ticket-gateway
-spec:
-  containers:
-      - name: create-ticket-api
-        image: lukef2021/createTicketService
-        ports:
-        - containerPort: 8901
-      - name: read-ticket-api
-        image: lukef2021/readTicketService
-        ports:
-        - containerPort: 8904
-      - name: read-all-tickets-api
-        image: lukef2021/readAllTicketService
-        ports:
-        - containerPort: 8903
-      - name: update-ticket-api
-        image: lukef2021/updateTicketService
-        ports:
-        - containerPort: 8905
-      - name: delete-ticket-api
-        image: lukef2021/deleteTicketService
-        ports:
-        - containerPort: 8902
-      - name: ticket-gateway
-        image: lukef2021/ticket-gateway
-        ports:
-        - containerPort: 8899
-      - name: discovery-server
-        image: lukef2021/discovery-server
-        ports:
-        - containerPort: 8900
+# apiVersion: v1
+# kind: Pod
+# metadata:
+#   name: backend-create
+#   namespace: projectapp
+#   labels:
+#     app: backend-create
+# spec:
+#   containers:
+#       - name: create-ticket-api
+#         image: lukef2021/createTicketService
+#         ports:
+#         - containerPort: 8901
+
+# apiVersion: v1
+# kind: Pod
+# metadata:
+#   name: backend-read
+#   namespace: projectapp
+#   labels:
+#     app: backend-read
+# spec:
+#   containers:
+#       - name: read-ticket-api
+#         image: lukef2021/readTicketService
+#         ports:
+#         - containerPort: 8904
+
+# apiVersion: v1
+# kind: Pod
+# metadata:
+#   name: backend-read-all
+#   namespace: projectapp
+#   labels:
+#     app: backend-read-all
+# spec:
+#   containers:
+#       - name: read-all-tickets-api
+#         image: lukef2021/readAllTicketService
+#         ports:
+#         - containerPort: 8903
+
+# apiVersion: v1
+# kind: Pod
+# metadata:
+#   name: backend-update
+#   namespace: projectapp
+#   labels:
+#     app: backend-update
+# spec:
+#   containers:
+#       - name: update-ticket-api
+#         image: lukef2021/updateTicketService
+#         ports:
+#         - containerPort: 8905
+
+# apiVersion: v1
+# kind: Pod
+# metadata:
+#   name: backend-delete
+#   namespace: projectapp
+#   labels:
+#     app: backend-delete
+# spec:
+#   containers:
+#       - name: delete-ticket-api
+#         image: lukef2021/deleteTicketService
+#         ports:
+#         - containerPort: 8902
+
+# apiVersion: v1
+# kind: Pod
+# metadata:
+#   name: backend-gateway
+#   namespace: projectapp
+#   labels:
+#     app: backend-gateway
+# spec:
+#   containers:
+#       - name: ticket-gateway
+#         image: lukef2021/ticket-gateway
+#         ports:
+#         - containerPort: 8899
+
+# apiVersion: v1
+# kind: Pod
+# metadata:
+#   name: backend-disco
+#   namespace: projectapp
+#   labels:
+#     app: backend-disco
+# spec:
+#   containers:
+#       - name: discovery-server
+#         image: lukef2021/discovery-server
+#         ports:
+#         - containerPort: 8900
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: ticket-gateway
-  namespace: projectApp
+  name: backend-disco
+  namespace: projectapp
   labels:
-    app: ticket-gateway
+    app: backend-disco
 spec:
   selector:
-    app: ticket-gateway
+    app: backend-disco
+  ports:
+  - protocol: TCP
+    port: 8900
+    targetPort: 8900
+  type: ClusterIP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-create
+  namespace: projectapp
+  labels:
+    app: backend-create
+spec:
+  selector:
+    app: backend-create
+  ports:
+  - protocol: TCP
+    port: 8901
+    targetPort: 8901
+  type: ClusterIP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-read
+  namespace: projectapp
+  labels:
+    app: backend-read
+spec:
+  selector:
+    app: backend-read
+  ports:
+  - protocol: TCP
+    port: 8904
+    targetPort: 8904
+  type: ClusterIP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-read-all
+  namespace: projectapp
+  labels:
+    app: backend-read-all
+spec:
+  selector:
+    app: backend-read-all
+  ports:
+  - protocol: TCP
+    port: 8903
+    targetPort: 8903
+  type: ClusterIP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-update
+  namespace: projectapp
+  labels:
+    app: backend-update
+spec:
+  selector:
+    app: backend-update
+  ports:
+  - protocol: TCP
+    port: 8905
+    targetPort: 8905
+  type: ClusterIP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-delete
+  namespace: projectapp
+  labels:
+    app: backend-delete
+spec:
+  selector:
+    app: backend-delete
+  ports:
+  - protocol: TCP
+    port: 8902
+    targetPort: 8902
+  type: ClusterIP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-gateway
+  namespace: projectapp
+  labels:
+    app: backend-gateway
+spec:
+  selector:
+    app: backend-gateway
   ports:
   - protocol: TCP
     port: 8899
     targetPort: 8899
   type: ClusterIP
+

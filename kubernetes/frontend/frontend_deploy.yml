@@ -1,21 +1,30 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontendApp
-  namespace: projectApp
+  name: frontendapp
+  namespace: projectapp
   labels: 
-    app: frontendApp
+    app: frontendapp
 spec:
+  replicas: 3
   selector:
     matchLabels:
-      app: frontendApp
+      app: frontendapp
   template:
     metadata:
       labels:
-        app: frontendApp
+        app: frontendapp
     spec:
       containers:
-      - name: frontendApp
-        image: lukef2021/frontend
+      - name: frontendapp
+        image: lukef2021/frontend:latest
         ports:
         - containerPort: 3000
+        imagePullPolicy: Always
+      imagePullSecrets:
+      - name: cred
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 2
+        

@@ -71,7 +71,7 @@ public class CreateTicketControllerIntegrationTest {
     @Test
     void testCreate() throws Exception {
         this.mock
-                .perform(post("/tickets/create")
+                .perform(post("/")
                         .accept(MediaType.APPLICATION_JSON)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(this.toJson.writeValueAsString(TICKET3)))

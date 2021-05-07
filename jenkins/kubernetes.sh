@@ -11,24 +11,25 @@ cd ..
 cd kubernetes/frontend/
 kubectl create -f frontend_service.yml
 cd ..
-cd kubernetes/backend/ 
+cd backend/ 
 kubectl create -f backend_service.yml
-# cd ..
-# cd kubernetes/nginx/
-# kubectl create -f nginxlb.yml
 
-# echo 'creating nginx config'
-# cd ..
-# cd kubernetes/nginx/
-# kubectl apply -f nginx_config.yml
+
+cd ..
+echo 'creating nginx config'
+cd nginx/
+kubectl apply -f nginx_config.yml
+
+kubectl create -f nginxlb.yml
+
+
 
 echo 'creating deployment files'
-# cd ..
-# cd kubernetes/nginx/
-# kubectl apply -f nginx.yml
+
+kubectl apply -f nginx.yml
 cd ..
-cd kubernetes/frontend/
+cd frontend/
 kubectl apply -f frontend_deploy.yml
 cd ..
-cd kubernetes/backend/
+cd backend/
 kubectl apply -f backend_deploy.yml

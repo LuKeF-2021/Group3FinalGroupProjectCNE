@@ -51,7 +51,7 @@ public class ReadTicketControllerIntegrationTest {
     @Test
     void testReadById() throws Exception {
         this.mock
-                .perform(get("/tickets/read/"+TICKET1.getId())
+                .perform(get("/"+TICKET1.getId())
                         .accept(MediaType.APPLICATION_JSON)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
