@@ -4,16 +4,16 @@ metadata:
   name: nginx-config
   namespace: projectapp
 data:
-  default.conf:
+  default.conf: |
     server {
         listen 80;
         location / {
             proxy_pass http://frontendapp:3000;
         }
-        # location /gateway {
-        #     proxy_pass http://backend-gateway:8899;
-        # }
-        # location /eureka {
-        #     proxy_pass http://backend-disco:8900;
-        # }
+        location /gateway {
+            proxy_pass http://backend-gateway:8899;
+        }
+        location /eureka {
+            proxy_pass http://backend-disco:8900;
+        }
     }
