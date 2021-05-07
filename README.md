@@ -7,6 +7,7 @@
 
 ## Technologies
 - Database Technologies: AWS RDS, MySQL, H2
+- Frontend Services: JavaScript, React, Jest, Postman, HTML, CCS
 - Backend Services: Java, Maven, Spring
 - Service Registry: Eureka
 - Java Testing: JUnit, Spring Boot Test, Spring Test, Mockito
@@ -32,7 +33,7 @@ Our React Files are organised as such, Displayed using Visual Studio Code:
 
 ![React File Structure](https://github.com/LuKeF-2021/Group3FinalGroupProjectCNE/blob/main/ReadMeFiles/React%20File%20Structure.PNG)
 
-We structured our code with clearly named .jsx files to compartmentalise our front end. This clarity ensures that when working as a team, other memebers don't waste time deducing what the code does. The jsx files include snippits of HTML so that it can be rendered seperately from the whole webpage, as such the index.html file is almost empty. 
+We structured our code with clearly named .jsx files to compartmentalise our front end. This clarity ensures that when working as a team, other memebers don't waste time deducing what the code does. The jsx files include snippits of HTML so that the function can be called  rendered seperately from the whole webpage, as such the index.html file is almost empty. 
 
 ### Our front end Application entry page:
 
@@ -61,6 +62,8 @@ We used a Microservice architecture for our final project because of its key Ben
 - Greater Business Agility and Support for DevOps
 - Support for "Two-Pizza Development Teams.
 
+To Break down Microservices it is simply the method 
+
 ## JIRA board
 
 ![JiraBoard](https://github.com/LuKeF-2021/Group3FinalGroupProjectCNE/blob/main/sprint%20screenshot2.png)
@@ -84,22 +87,34 @@ JEST testing Axios statements using expect().toMatchSnapshot
 All snapshots passsed and both test suits reported no failures.
 ## Automated Devlopment
 
-- Terraform:- Provisioning Resources
-- ansible:- Allocation of Resources
-- Kubernetes:- Managing Services
-- Nginx:- Reverse Proxy
+### Terraform:- 
 
+Terraform is an Infrastructure Management technology, it allows for what is known as 'Infrastructure as Code'. Simply put, this means that Terraform can create infrastructure through a command line interface by making use of Terraform (.tf) files. It is used to define a 'final state' allowing the user to define the provisioned resources directly. It follows a JSON-like notation of key and value pairs, and can be split into modules to easily isolate your ec2 code from say your RDS code. Very useful tool for engineers who dont have access to the AWS Console.
+### Ansible:- Allocation of Resources
+
+Ansible is a Configuration Management tool that allows tasks to be executed on 'hosts' (ec2 instances etc) in a structured way. Say you needed to put multiple installations on multiple VM instances right upon creation, a lot of the installations would be repetitive and require manually ssh'ing into each instance to run cli commands one by one, waiting for each to finish before applying the next. This equates to a lot of wasted time for developers, and that is where Ansible comes in to simplify that aspect for dev's. As long as Ansible has ssh keys to allow it to communicate with the VM's it needs, then a playbook can be created to neatly organise tasks with names to track the progress easily. Simply specify the hosts within an inventory.yaml file and a playbook of tasks, and Ansible will go away and run all those tasks for you automatically and alert you when it is done. This requires no strict monitoring from a developer and frees them up to work on other things while that playbook is running.
+
+### Kubernetes:- Managing Services
+
+Kubernetes is an Orchestration tool that is very popular in industry as of late. It is a platform for managing workloads and services in containers. The hardware, OS etc. are shared by all container instances on the Kubernetes node. Each node can have one Pod on it, but each pod can contain multiple containers, meaning that a single node in a cluster can run multiple instances of an application. The seperate layers build in a fault tolerance, with the integration of a load balancer, should one container be forced offline.
+### NGINX:- Reverse Proxy
+
+The NGINX reverse proxy server is used as a Load Balancer for this project and it is vital for the allocation of traffic to the backend servers. This is done to maintain speed and efficiant capacity utilisation of the provisioned resources. Very useful in the prevention of server overload and performance degredation, it also redirects traffic in the event of a server going down.
+### Docker:- Containerisation
+
+Docker is a Containerisation tool largely used in industry for building applications based on containers. The idea is that a container is lightweight and contains only the things needed to run the application successfully. Dependancies and libaries can be packaged up in a docker container and an image made of the application. This makes using and updating the code standardised between different users and terminals, as it ensures that all needed installations are present for all developers.
 ## Manual Development
 
-- sudo visudo to give jenkins sudoers
-- aws configure entered im user
-- change the ip address in the playbook
-- setup credentials in Jenkins credentials manager 
-- ssh keygen in jenkins machine so setup vm can access it 
+- aws configure entered IM user.
+- change the ip address in the playbook.
+- setup credentials in Jenkins credentials manager .
+- ssh into setup VM to intiate Ansible and Terraform.
+- install all add-ons in the Jenkis GUI and set up initial admin password. 
+- ssh keygen in jenkins machine so setup vm can access it .
 
 ## Acknowledgements
 
-We would like to Acknowledge all the QA Teaching team as well various online sources:.
+We would like to Acknowledge all the QA Teaching team as well various online sources: Stack Overflow, Postman, Google Search, Leigh Halliday.
 
 ## Authors
 
