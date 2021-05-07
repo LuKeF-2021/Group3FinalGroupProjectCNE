@@ -3,6 +3,7 @@ pipeline{
     environment {
     USERNAME=credentials('docker_username')
     PASSWORD=credentials('docker_password')
+    EMAIL=credentials('docker_email')
     DBURI=credentials('db_uri')
     DBUSER=credentials('db_user')
     DBPASS=credentials('db_pass')
@@ -15,6 +16,12 @@ pipeline{
             steps{
                 sh "chmod +x jenkins/create-db.sh"
                 sh "jenkins/create-db.sh"
+            }
+        }
+        stage('creating the docker secret'){
+            steps{
+                sh "chmod +x jenkins/cred.sh"
+                sh "jenkins/cred.sh"
             }
         }
         // stage('Building, pushing new Docker images and tests'){
