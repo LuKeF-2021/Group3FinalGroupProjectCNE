@@ -13,7 +13,7 @@ data:
         location /gateway {
             proxy_pass http://backend-gateway:8899;
         }
-        location /eureka {
-            proxy_pass http://backend-disco:8900;
-        }
+        # location /eureka {
+        #     proxy_pass http://backend-disco:8900;
+        # }
     }
