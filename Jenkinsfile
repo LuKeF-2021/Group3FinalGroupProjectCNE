@@ -24,29 +24,29 @@ pipeline{
         //         sh "jenkins/cred.sh"
         //     }
         // }
-        stage('Building, pushing new Docker images and tests'){
-            steps{
-                sh "chmod +x jenkins/buildDockerImages.sh"
-                sh "jenkins/buildDockerImages.sh"
-                // sh "chmod +x jenkins/testing.sh"
-                // sh "jenkins/testing.sh"
-                sh "chmod +x jenkins/buildDockerContainers.sh"
-                sh "jenkins/buildDockerContainers.sh"
-            }
-        }
-        stage('Remove local images'){
-            steps{
-                sh "sudo docker kill frontend"
-                sh "sudo docker kill create-ticket-api"
-                sh "sudo docker kill read-all-tickets-api"
-                sh "sudo docker kill read-ticket-api"
-                sh "sudo docker kill delete-ticket-api"
-                sh "sudo docker kill update-ticket-api"
-                sh "sudo docker kill ticket-gateway"
-                sh "sudo docker kill discovery-server"
-                sh "sudo docker system prune -a -f"
-            }
-        }
+        // stage('Building, pushing new Docker images and tests'){
+        //     steps{
+        //         sh "chmod +x jenkins/buildDockerImages.sh"
+        //         sh "jenkins/buildDockerImages.sh"
+        //         // sh "chmod +x jenkins/testing.sh"
+        //         // sh "jenkins/testing.sh"
+        //         sh "chmod +x jenkins/buildDockerContainers.sh"
+        //         sh "jenkins/buildDockerContainers.sh"
+        //     }
+        // }
+        // stage('Remove local images'){
+        //     steps{
+        //         sh "sudo docker kill frontend"
+        //         sh "sudo docker kill create-ticket-api"
+        //         sh "sudo docker kill read-all-tickets-api"
+        //         sh "sudo docker kill read-ticket-api"
+        //         sh "sudo docker kill delete-ticket-api"
+        //         sh "sudo docker kill update-ticket-api"
+        //         sh "sudo docker kill ticket-gateway"
+        //         sh "sudo docker kill discovery-server"
+        //         sh "sudo docker system prune -a -f"
+        //     }
+        // }
         stage('Deploy the app'){
             steps{
                 sh "chmod +x jenkins/kubernetes.sh"
