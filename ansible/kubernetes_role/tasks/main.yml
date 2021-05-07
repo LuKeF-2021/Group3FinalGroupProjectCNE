@@ -25,3 +25,9 @@
     remote_src: true
     mode: 0755
   become: true
+
+- name: 'deploy the kubernetes cluster'
+  script: /home/ubuntu/Group3FinalGroupProjectCNE/kubernetes/cluster.sh
+
+- name: 'create k8 secrets to login to docker'
+  script: /home/ubuntu/Group3FinalGroupProjectCNE/jenkins/cred.sh
