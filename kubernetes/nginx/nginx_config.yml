@@ -10,9 +10,9 @@ data:
         location / {
             proxy_pass http://frontendapp:3000;
         }
-        location /gateway {
-            proxy_pass http://backend-gateway:8899;
-        }
+        # location /gateway {
+        #     proxy_pass http://backend-gateway:8899;
+        # }
         # location /eureka {
         #     proxy_pass http://backend-disco:8900;
         # }
